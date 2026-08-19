@@ -12,8 +12,6 @@ proceeds, not at the end.
   papers, Neel Nanda's posts). NEVER read this file whole. Grep/search it
   for relevant sections when an interpretability question comes up,
   instead of answering from memory.
-  Note: docs/ is gitignored; on a fresh clone, download this file
-  separately before starting work.  
 
 ## Working rules
 - Persistent state: load models/data once in dedicated cells at the top
