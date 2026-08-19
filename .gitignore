@@ -1,6 +1,5 @@
 *.pt
 *.safetensors
-docs/
 results/
 activations/
 __pycache__/
