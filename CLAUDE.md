@@ -13,7 +13,19 @@ proceeds, not at the end.
   for relevant sections when an interpretability question comes up,
   instead of answering from memory.
 
+## Environment
+- Python: .venv in this folder, created with uv (Python 3.12). Install
+  with `uv pip install --python .venv/bin/python <pkg>`. Never install
+  into system Python or conda base.
+- TransformerLens v3 emits a deprecation warning on
+  HookedTransformer.from_pretrained; the old path works fine. Do not
+  migrate to TransformerBridge unless TL becomes load-bearing for the
+  actual task.
+
 ## Working rules
+- When proposing file edits, always present the complete diff in the
+  message body before applying, never a truncated preview. I review
+  every diff before approving.
 - Persistent state: load models/data once in dedicated cells at the top
   of the Jupyter kernel. Never restart the kernel without asking.
 - Save every plot to disk as PNG (results/) in addition to displaying it.
