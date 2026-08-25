@@ -6,22 +6,13 @@ After starting or redeploying the pod (US-KS-2, A100 SXM, volume `established_co
    Update HostName and Port in the `runpod` block of ~/.ssh/config on the laptop.
    Test: `ssh runpod nvidia-smi`
 
-2. On the pod, restore the container-disk tools (lost on every stop):
+2. On the pod, restore container-disk tools and set up the shell:
 
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   source ~/.local/bin/env
-   curl -fsSL https://claude.ai/install.sh | bash
-   export PATH="$HOME/.local/bin:$PATH"
-   ln -s /workspace/claude-config ~/.claude
-   ln -s /workspace/claude-config.json ~/.claude.json
-
-3. Environment (lives on the volume, no reinstall needed):
-
-   export HF_HOME=/workspace/hf
    cd /workspace/mats-task
-   source .venv/bin/activate
+   ./pod_bootstrap.sh
+   source pod_env.sh
 
-4. Verify:
+3. Verify:
    python -c "import pandas, torch, transformer_lens; print(pandas.__version__, torch.cuda.is_available())"
    Expect: 3.0.5 True
 
