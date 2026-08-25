@@ -13,4 +13,10 @@ ln -sfn /workspace/claude-config.json ~/.claude.json
 git config --global user.name "Kyungeun Lim"
 git config --global user.email "kyungeunlim@users.noreply.github.com"
 
-echo "Done. Now run: source pod_env.sh"
+# Jupyter kernel from the venv (kernelspec lives on container disk)
+/workspace/mats-task/.venv/bin/python -m ipykernel install --user --name mats-task --display-name "mats-task (.venv)"
+
+# Auto-source the env on login
+grep -q pod_env.sh ~/.bashrc || echo 'source /workspace/mats-task/pod_env.sh' >> ~/.bashrc
+
+echo "Done. Open a new shell, or run: source ~/.bashrc"
