@@ -14,6 +14,12 @@ proceeds, not at the end.
   instead of answering from memory.
 
 ## Environment
+
+Experiments run on a RunPod pod (A100 80GB, US-KS-2), volume at /workspace.
+Writing and light edits happen on the laptop; the repo is the sync point, so commit and push often.
+Pod restart procedure: POD_SETUP.md. Run it after every pod start; container disk is wiped on stop.
+
+- Repo: /workspace/mats-task on the pod, ~/Projects/mats-task on the laptop
 - Python: .venv in this folder, created with uv (Python 3.12). Install
   with `uv pip install --python .venv/bin/python <pkg>`. Never install
   into system Python or conda base.
@@ -21,6 +27,11 @@ proceeds, not at the end.
   HookedTransformer.from_pretrained; the old path works fine. Do not
   migrate to TransformerBridge unless TL becomes load-bearing for the
   actual task.
+- HF_HOME=/workspace/hf (pod). Three checkpoints already cached: deep-ignorance-unfiltered,
+  deep-ignorance-e2e-strong-filter, kelim/deep-ignorance-unlearned-cb. Do not re-download.
+- Datasets cached: cais/wmdp (wmdp-bio, 1273), cais/mmlu (all, 14042 test)
+- First imports from the volume take 30-90s. Normal, not a hang.
+- Save plots as PNGs under results/
 
 ## Working rules
 - When proposing file edits, always present the complete diff in the
