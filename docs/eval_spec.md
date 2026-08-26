@@ -12,8 +12,8 @@ MMLU is the retain-domain check.
 ## Package
 EleutherAI lm-evaluation-harness, PyPI name `lm-eval`. At ERA all benchmarks ran in
 one `experiment/eval.py` invocation, called via `uv run --script` from
-`unlearn/unlearn.py`. The version was not pinned and is not recorded in any
-surviving artifact. If pilot numbers disagree with ERA values, a harness version
+`unlearn/unlearn.py`. Pilot uses lm-eval 0.4.12, pinned in requirements.txt. 
+The ERA version is unrecorded. If pilot numbers disagree with ERA values, a harness version
 difference is one candidate explanation that cannot be checked.
 
 ## Measurement conditions (both benchmarks)
