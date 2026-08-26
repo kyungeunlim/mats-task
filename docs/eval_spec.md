@@ -10,11 +10,15 @@ Two benchmarks are used here. WMDP-Bio Verified Cloze is the forget-domain metri
 MMLU is the retain-domain check.
 
 ## Package
-EleutherAI lm-evaluation-harness, PyPI name `lm-eval`. At ERA all benchmarks ran in
-one `experiment/eval.py` invocation, called via `uv run --script` from
-`unlearn/unlearn.py`. Pilot uses lm-eval 0.4.12, pinned in requirements.txt. 
-The ERA version is unrecorded. If pilot numbers disagree with ERA values, a harness version
-difference is one candidate explanation that cannot be checked.
+EleutherAI lm-evaluation-harness, PyPI name `lm-eval`. At ERA, evaluation was run
+through `experiment/eval.py` in the fellowship working repo
+(https://github.com/jammastergirish/unlearning-taxonomy, public), a thin wrapper that calls
+`lm_eval.simple_evaluate` on a default task list. The wrapper is not part of the
+harness or the Deep Ignorance repo. The harness version it resolved was not pinned
+and is not recorded. Pilot uses lm-eval 0.4.12, pinned in requirements.txt, called
+directly rather than through the wrapper. If pilot numbers disagree with ERA
+values, a harness version difference is one candidate explanation that cannot be
+checked.
 
 ## Measurement conditions (both benchmarks)
 Single `lm_eval.simple_evaluate` call, model loaded once, tasks run sequentially.
