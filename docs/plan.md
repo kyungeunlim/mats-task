@@ -36,6 +36,9 @@ the HF model, about 15 lines, not a migration.
 
 ---
 
+## T0. Planning: 2h 30m
+- Goal ladder and fail-fast (0:50, Aug-24), eval_spec.md (0:45, Aug-25), plan.md with review (0:55, Aug-26)
+
 ## T1. Behavioral anchor: 2h
 - Description: Cloze (wmdp_bio_cloze_verified) and MMLU on base, e2e-strong-filter,
   and no-LoRA CB through lm-eval 0.4.12, using the vendored YAMLs. See
