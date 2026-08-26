@@ -3,18 +3,25 @@ set -e
 
 # Container-disk tools, lost on every pod stop
 curl -LsSf https://astral.sh/uv/install.sh | sh
+source "$HOME/.local/bin/env"
 curl -fsSL https://claude.ai/install.sh | bash
 
 # Claude Code auth state lives on the volume
 ln -sfn /workspace/claude-config ~/.claude
 ln -sfn /workspace/claude-config.json ~/.claude.json
 
-# Git identity (also container disk)
+# Git identity and pull behavior (container disk)
 git config --global user.name "Kyungeun Lim"
 git config --global user.email "kyungeunlim@users.noreply.github.com"
+git config --global pull.rebase false
+
+# Python env on container disk. The volume is too slow for many small files.
+# Takes 5-10 min. Models and data stay on the volume.
+uv venv --python 3.12 /root/venv
+uv pip install --python /root/venv/bin/python -r /workspace/mats-task/requirements.txt
 
 # Jupyter kernel from the venv (kernelspec lives on container disk)
-/workspace/mats-task/.venv/bin/python -m ipykernel install --user --name mats-task --display-name "mats-task (.venv)"
+/root/venv/bin/python -m ipykernel install --user --name mats-task --display-name "mats-task (venv)"
 
 # Auto-source the env on login
 grep -q pod_env.sh ~/.bashrc || echo 'source /workspace/mats-task/pod_env.sh' >> ~/.bashrc
