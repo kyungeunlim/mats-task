@@ -7,6 +7,8 @@ source "$HOME/.local/bin/env"
 curl -fsSL https://claude.ai/install.sh | bash
 
 # Claude Code auth state lives on the volume
+[ -L ~/.claude ] || rm -rf ~/.claude
+[ -L ~/.claude.json ] || rm -f ~/.claude.json
 ln -sfn /workspace/claude-config ~/.claude
 ln -sfn /workspace/claude-config.json ~/.claude.json
 
