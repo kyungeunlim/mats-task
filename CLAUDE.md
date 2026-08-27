@@ -20,8 +20,9 @@ Writing and light edits happen on the laptop; the repo is the sync point, so com
 Pod restart procedure: POD_SETUP.md. Run it after every pod start; container disk is wiped on stop.
 
 - Repo: /workspace/mats-task on the pod, ~/Projects/mats-task on the laptop
-- Python: .venv in this folder, created with uv (Python 3.12). Install
-  with `uv pip install --python .venv/bin/python <pkg>`. Never install
+- Python: uv venv, Python 3.12. On the pod it is /root/venv (container disk,
+  rebuilt by pod_bootstrap.sh). On the laptop it is .venv in this repo. Install
+  with `uv pip install --python <that venv>/bin/python <pkg>`. Never install
   into system Python or conda base.
 - TransformerLens v3 emits a deprecation warning on
   HookedTransformer.from_pretrained; the old path works fine. Do not
