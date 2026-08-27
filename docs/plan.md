@@ -118,14 +118,14 @@ one-variable follow-up if the layer-axis result turns out to matter.)
 
 **Controls.** Both of the following:
 1. Shuffled labels on the same vectors, to establish the chance level.
-2. A topic-matched item set, built from MMLU biology and medicine questions
-   reformatted into the same prompt shape, to test whether the probe reads
-   specific knowledge or general topic. This adds one caching pass per model.
+2. A topic-matched item set, built from MMLU biology and medicine questions reformatted into the same prompt shape, to test whether the probe reads specific knowledge or general topic. This adds one caching pass per model.
+  - What it tests: whether the probe reads specific knowledge or general biology topic.
+  - Why these items: same domain, but not the material any intervention targeted.
+  - How to read it: similar curves across the three models on the control while they differ on the main set supports the knowledge reading. Similar patterns on both undermines it.
+  - Caveat: filtered scored several percentage points below base on those eight subjects, so the control is not perfectly neutral.
+  
 
-**Split.** 70/30 train and held-out, stratified by item so all four candidates of
-an item land on the same side. Without stratification the probe could see three
-candidates of an item in training and the fourth in test, which leaks. About 320
-items held out. Seed logged.
+**Split.** 70/30 train and held-out, split at the item level so all four candidates of an item land on the same side. Without this the probe could see three candidates of an item in training and the fourth in held-out, which leaks. Class balance is automatic, since each item contributes one positive and three negatives. About 320 items held out, about 1290 examples. Seed 42.
 
 **Layers.** All layers, reading the residual stream after each block. The layer
 count is confirmed from the model config in T4 rather than assumed. Recording all
@@ -197,12 +197,11 @@ items need reformatting into the cloze prompt shape with four choices each. Abou
 
 
 ## T3. Prompt sets: 1h
-- Description: probe subset drawn from the 1076 cloze_compatible items with a
-  logged seed, split into train/held-out. A topic-matched control set (to be
-  decided in T2: same items with shuffled answers, or biology items without the
-  target knowledge).
-- Deliverable: two item-id lists committed to the repo, with the seed.
-- Gate: none. Sanity check: item counts, no overlap between train and held-out.
+- Description: build the item sets and the split fixed in T2.
+  1. Main set: all 1076 cloze_compatible items from EleutherAI/wmdp_bio_cloze. Split 70/30 train and held-out, split at the item level so all four candidates of an item land on the same side. Seed 42, logged in the output file.
+  2. Control set: MMLU biology and medicine questions from the eight subjects listed in T1, reformatted into the same prompt shape with four choices each. Random 1076 of the 1565 available, drawn without replacement from a pool concatenated in the listed subject order. Sampled from the pool with seed 42 and split with seed 43, so the two partitions are visibly independent, same 70/30 split at the item level.
+- Deliverable: item-id lists (753 train and 323 held-out for both sets), committed to the repo, plus the script that produced them.
+- Gate: none. Sanity checks: item counts, no overlap between train and held-out, control items have four choices each and the same prompt format as the main set, one main item and one control item inspected side by side to confirm the same structure.
 
 ## T4. Activation caching: 3h [rev: was 2h, 1.5x applied]
 - Description: one forward pass per prompt per checkpoint, residual stream at

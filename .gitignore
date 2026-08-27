@@ -1,6 +1,10 @@
 *.pt
 *.safetensors
-results/
+results/*
+!results/eval/
 activations/
 __pycache__/
 .env
+*~
+\#*\#
+.\#*
