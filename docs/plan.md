@@ -24,15 +24,7 @@ review is in docs/plan_review_20260826.md. Changes made in response are marked
 TransformerLens for activation access. Neel's doc suggests nnsight or raw PyTorch
 hooks. TL is used here because the smoke test already runs on it, the three
 checkpoints load, and the measurement is comparative across checkpoints through
-one tool, so consistency matters more than exact fidelity to the HF forward pass.
-
-[rev] All three models are loaded with `from_pretrained_no_processing`. The default
-`from_pretrained` applies `center_writing_weights` and `fold_ln`, which are
-per-checkpoint transforms on the residual stream being compared. Verified in T4 by
-checking one prompt's hidden state against an HF forward pass before caching.
-
-Fallback if TL hits a memory or conversion problem on the L40: raw forward hooks on
-the HF model, about 15 lines, not a migration.
+one tool, so consistency matters more than exact fidelity to the HF forward pass. [rev] All three models are loaded with `from_pretrained_no_processing`. The default `from_pretrained` applies `center_writing_weights` and `fold_ln`, which are per-checkpoint transforms on the residual stream being compared. Verified in T4 by checking one prompt's hidden state against an HF forward pass before caching. Fallback if TL hits a memory or conversion problem on the L40: raw forward hooks on the HF model, about 15 lines, not a migration.
 
 ---
 
@@ -61,42 +53,148 @@ the HF model, about 15 lines, not a migration.
   variant.
 - Depends on: YAMLs vendored into lm_eval_tasks/ (uncounted, 10 min).
 
-## T2. Probe target spec and pre-registration: 1h [rev: was 0.5h]
-- Description: written decisions, no code. All of the following are fixed before
-  any activations are cached.
-- Probe target: predict correct vs distractor completion from the residual state.
-- [rev] Probe site: primary is the last question token (the token before
-  "\nAnswer:"), where retrieval would occur before circuit-breaker rerouting
-  acts. Secondary is the answer position. The contrast between the two sites is
-  itself a result: readable upstream and absent downstream is the
-  suppression-shaped pattern. A probe at the answer position alone is close to a
-  restatement of the logits.
-- [rev] Items: all 1076 cloze_compatible items, not the base-correct subset.
-  Conditioning on base behavior would induce selection.
-- [rev] Position 0 is excluded from every position-averaged quantity, decided now
-  on the basis of the smoke test, not after inspecting this data.
-- [rev] All layers are reported. No single layer is selected post hoc as "the"
-  layer.
-- [rev] Power: held-out n of roughly 300 gives a binomial SE near 3 points, so
-  95% intervals of about ±6. Gaps between curves smaller than that are not
-  resolvable by this design and will not be claimed.
-- [rev] Regularization: probe C chosen by cross-validation within the training
-  split only. Never on held-out.
-- [rev] Pre-registered outcomes and what each licenses:
-  (a) CB tracks base at every layer: the fine-tune barely moved the residual
-      stream. Target information remains linearly decodable. Says little about
-      functional access.
-  (b) CB tracks filtered at every layer: target information is not linearly
-      readable at this granularity. Consistent with removal or with suppression
-      that is not linear at these sites.
-  (c) CB layer-dependent or site-dependent, readable upstream and not at the
-      answer site: the pattern most consistent with suppression as rerouting.
-      The most informative outcome, and the one that would motivate the
-      recovery experiment.
-- Deliverable: this section filled in, plus which layers (target: every 2nd
-  layer, all 32 if time allows).
-- Gate: fail-fast 2. If the target would plausibly fire equally on all three
-  models (measuring topic, not knowledge), redefine it.
+## T2. Decide what the probe measures and where: 1h [rev: was 0.5h]
+
+Description: written decisions only, no code. Everything here is fixed before any
+activations are saved, so that no choice is made after seeing the results.
+
+### What a probe is here
+A linear classifier (logistic regression) trained on the model's internal state at
+one token position and one layer. Its input is the residual stream vector at that
+position and layer, which is d_model numbers, standardized feature by feature using
+means and standard deviations computed on the training items of that model. If the
+classifier predicts above chance on held-out items, that information is present at
+that position and readable by a simple linear readout.
+
+Standardization is not the same as the L2 norm. The norm collapses the vector to
+one number and would throw away the information the probe needs.
+
+### What the probe predicts
+Each evaluation item has four candidate answer texts, one correct and three wrong
+(the wrong ones are called distractors). The probe's label is whether a given
+candidate is the correct one.
+
+### Decisions
+
+**Label formulation.** Four forward passes per item, one per candidate answer.
+The probe reads the state at the end of the candidate text and predicts whether
+that candidate is correct. This gives 4304 examples per model per layer, one
+positive and three negative per item. Chosen because it matches how the benchmark
+itself scores and needs no extra machinery.
+
+Alternatives considered and rejected: a single pass on the question alone with a
+four-way label, which does not work because the label depends on a candidate
+ordering the model never saw; and a single pass with a regression onto an
+embedding of the correct answer, which reads further upstream but makes the
+embedding model part of the instrument.
+
+**Positions recorded.** All three of the following, from the same forward pass, so
+the extra cost is storage rather than compute:
+1. End of the question text.
+2. The "Answer:" marker.
+3. End of the candidate answer text.
+
+Only position 3 carries a valid label under this formulation, since positions 1
+and 2 are identical across an item's four passes. Position 3 is what the probe
+uses. Positions 1 and 2 are recorded in case a different target is worth trying
+later.
+
+**Where the intervention acted.** Circuit breakers were trained with a loss on the
+hidden states at layers 5, 10, 15, 20, 25, 30 (ERA config, matching Cas's
+default). Those six indices are marked on every figure, and the analysis
+pre-commits to looking for structure at them.
+
+An important caveat: this was full fine-tuning, not LoRA. Every weight was
+trainable, so the optimizer changed early-layer weights if that reduced the loss
+measured at layers 5 and above. Early layers are therefore changed indirectly,
+not untouched, and the layer axis gives a gradient of directness rather than a
+clean split between touched and untouched.
+
+(LoRA differs by freezing the original weights and adding trainable adapters at
+chosen modules, so modules without an adapter stay exactly unchanged. Gradients
+still flow through the whole network in both cases. The released Deep Ignorance
+CB variant uses LoRA on the same base model, which makes it the natural
+one-variable follow-up if the layer-axis result turns out to matter.)
+
+**Controls.** Both of the following:
+1. Shuffled labels on the same vectors, to establish the chance level.
+2. A topic-matched item set, built from MMLU biology and medicine questions
+   reformatted into the same prompt shape, to test whether the probe reads
+   specific knowledge or general topic. This adds one caching pass per model.
+
+**Split.** 70/30 train and held-out, stratified by item so all four candidates of
+an item land on the same side. Without stratification the probe could see three
+candidates of an item in training and the fourth in test, which leaks. About 320
+items held out. Seed logged.
+
+**Layers.** All layers, reading the residual stream after each block. The layer
+count is confirmed from the model config in T4 rather than assumed. Recording all
+layers is affordable and removes the need to justify a subset.
+
+**Items.** All 1076 cloze-compatible items, not only the ones base answers
+correctly. Selecting on base behavior would bias the comparison.
+
+**Position 0.** Excluded from any quantity that averages over token positions,
+decided now on the basis of the smoke test finding that position 0 carries very
+large activation norms and dominates such averages. This applies to the norm
+diagnostic plots in T4. It does not affect the probe, which reads one specific
+position rather than an average.
+
+**Regularization.** The probe's regularization strength is chosen by
+cross-validation inside the training items only, never using held-out items. Using
+held-out data to pick a setting would leak information and inflate the score.
+
+### How precise this can be
+With about 320 held-out items, the standard error on a probe accuracy is roughly
+3 percentage points, so a 95% interval is about plus or minus 6 points.
+Differences between model curves smaller than that cannot be resolved by this
+design and will not be claimed.
+
+### What gets plotted
+One figure per recorded position that has a usable label. X axis is layer index,
+Y axis is probe accuracy on held-out items. Three lines, one per model, each with
+an error band from resampling. A horizontal line at the shuffled-label level.
+Vertical marks at layers 5, 10, 15, 20, 25, 30.
+
+### What each possible outcome would mean
+Written in advance so that no result is interpreted after the fact. 
+
+Note before reading these: CB sitting near base is close to guaranteed by
+construction, since CB was fine-tuned from base while filtered never saw the
+data at all. A flat near-base curve is therefore a weak result. What the
+experiment can actually discover is the shape: where along the layer axis CB
+stops looking like base, and whether filtered shows the same shape. That is why
+outcome (c) is the informative one.
+
+(a) CB's curve sits on top of base at every layer.
+    Reading: the fine-tune barely changed what is linearly readable. Information
+    about the answer is still present. This says little about whether the model
+    can actually use it.
+
+(b) CB's curve sits on top of filtered at every layer.
+    Reading: the information is not linearly readable at the layers measured.
+    Consistent with the knowledge being gone, and also consistent with it being
+    held in a form a linear probe cannot see.
+
+(c) CB's curve depends on layer, for example tracking base at early layers and
+    falling away at or after the intervention layers.
+    Reading: the pattern most consistent with the knowledge being present but
+    routed away from the output. The most informative outcome, and the one that
+    would justify running a recovery experiment next.
+
+### Deliverable
+This section, filled in. Moves to docs/experiment_spec.md if it outgrows the plan.
+
+### Stop condition
+Fail-fast 2: if the chosen target would plausibly give the same result on all
+three models because it measures topic rather than knowledge, redefine it before
+proceeding. The topic-matched control set is what tests this.
+
+### Note for T3
+The control set adds work not in the original T3 ticket: MMLU biology and medicine
+items need reformatting into the cloze prompt shape with four choices each. About
+20 minutes.
+
 
 ## T3. Prompt sets: 1h
 - Description: probe subset drawn from the 1076 cloze_compatible items with a
