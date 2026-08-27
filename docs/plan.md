@@ -204,19 +204,24 @@ items need reformatting into the cloze prompt shape with four choices each. Abou
 - Gate: none. Sanity checks: item counts, no overlap between train and held-out, control items have four choices each and the same prompt format as the main set, one main item and one control item inspected side by side to confirm the same structure.
 
 ## T4. Activation caching: 3h [rev: was 2h, 1.5x applied]
-- Description: one forward pass per prompt per checkpoint, residual stream at
-  the chosen layers and both probe sites, saved to disk. One model at a time on
-  the L40.
-- Start with base: verify TL hook names and tensor shapes on the 7B NeoX
-  architecture.
+- Description: for each of the three checkpoints and for both item sets (main
+  and control), run four forward passes per item (one per candidate answer) and
+  save the residual stream after every layer at the three positions fixed in T2.
+  8608 passes per model. One model at a time, saved to the volume.
+- Start with base: confirm the layer count and hidden size from the config,
+  verify TransformerLens hook names and tensor shapes on the NeoX architecture.
 - [rev] Before caching: load with `from_pretrained_no_processing`, run one fixed
-  prompt through TL and through the HF model directly, confirm the final-layer
-  residual matches to numerical tolerance. Log the flags used.
-- Per-position norm check per model (position-0 exclusion is already decided,
-  this confirms the shape).
-- Deliverable: cached tensors on the volume, the script, a per-layer norm plot
-  per model, the HF-vs-TL check output.
-- Gate: none formal. Sanity: shapes match expectation, norms look sane, no NaNs.
+  prompt through TransformerLens and through the HF model directly, confirm the
+  final-layer residual matches to numerical tolerance. Log the flags used.
+- Locating positions: the end-of-question token, the "Answer:" marker, and the
+  end-of-candidate token found from the tokenized prompt, not assumed. Check on
+  a few items by printing the tokens at those positions.
+- Per-position norm check per model, with position 0 shown separately.
+- Deliverable: cached tensors on the volume for three models and two item sets,
+  the script, a per-layer norm plot per model, the HF-vs-TL check output.
+- Gate: none formal. Sanity: shapes match expectation, positions land on the
+  right tokens, norms look sane, no NaNs.
+
 
 ## T5. Probe curves and baselines: 4.5h [rev: was 3h, 1.5x applied]
 - Description: per layer, per site, per model: standardize features (mean/std

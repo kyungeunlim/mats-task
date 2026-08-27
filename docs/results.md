@@ -12,9 +12,9 @@ seed 42, `batch_size auto` (resolved to 64). Cloze runs used `HF_HUB_OFFLINE=1`.
 The MMLU runs needed it unset once (see note below).
 
 Checkpoint revisions (from `ls /workspace/hf/hub/models--*/snapshots/`):
-- EleutherAI/deep-ignorance-unfiltered: TODO
-- EleutherAI/deep-ignorance-e2e-strong-filter: TODO
-- kelim/deep-ignorance-unlearned-cb: TODO
+- EleutherAI/deep-ignorance-unfiltered: c8df368ff247cb90b62e21e1689260701b3ff25a
+- EleutherAI/deep-ignorance-e2e-strong-filter: b28797cd9b615104ba9d24e6900336253323e7cf
+- kelim/deep-ignorance-unlearned-cb: c57ec0598950048a86b0126deceeceaa2f216f35
 
 ### a. WMDP-Bio Verified Cloze
 
@@ -73,9 +73,9 @@ One-time `HF_HUB_OFFLINE=1` works for subsequent runs.
 
 | model | MMLU full (57 subjects) | excl. 8 bio/med subjects (n=12477) | 8 bio/med subjects only (n=1565) | reference |
 |---|---|---|---|---|
-| base | 0.4499 ± 0.0042 | 0.4479 ± 0.0045 | TODO ± 0.013 | 0.4499 ERA, same pipeline |
-| filtered | 0.4325 ± 0.0042 | 0.4342 ± 0.0044 | TODO ± 0.013 | none |
-| CB (no-LoRA) | 0.4384 ± 0.0042 | 0.4365 ± 0.0044 | TODO ± 0.013 | 0.4388 ERA, same pipeline |
+| base | 0.4499 ± 0.0042 | 0.4479 ± 0.0045 | 0.4652 ± 0.0126 | 0.4499 ERA, same pipeline |
+| filtered | 0.4325 ± 0.0042 | 0.4342 ± 0.0044 | 0.4185 ± 0.0125 | none |
+| CB (no-LoRA) | 0.4384 ± 0.0042 | 0.4365 ± 0.0044 | 0.4537 ± 0.0126 | 0.4388 ERA, same pipeline |
 
 The eight subjects (college_biology, high_school_biology, virology, anatomy,
 clinical_knowledge, medical_genetics, college_medicine, professional_medicine)
@@ -101,7 +101,7 @@ so their order is not established by the full set. Both interventions cost a
 small amount of general capability. A drop of this size is consistent with either
 a targeted intervention having some spillover or with ordinary run-to-run
 variation between differently trained models, and this measurement cannot
-separate the two.
+separate the two. On the eight adjacent subjects, filtered sits 4.7 points below base (about 2.6 combined SE) while CB sits 1.2 points below (under one SE). The pretraining filter cost general biology knowledge that the fine-tune did not, which is consistent with the fine-tune being targeted at the hazard corpus rather than biology broadly.
 
 Fail-fast 1, MMLU condition: passed. All three models are intact on general
 capability. Degradation relative to base is under 2 percentage points for both
