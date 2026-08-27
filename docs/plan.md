@@ -279,3 +279,5 @@ Tracked against ticket ids in the weekly thread.
 - 2026-08-26, T1: MMLU pre-registered as a few-hundred-item subset. Ran the full 14042 instead. Reason: a full pass costs ~5 min per model, cheaper than estimated. Bio-adjacent subject exclusion applied post hoc from per-subject results as planned.
 - 2026-08-26, tooling: Python env moved from the volume (.venv) to container disk(/root/venv), rebuilt by bootstrap on each pod. Reason: volume small-file latency stalled imports and the harness task index. Infra change, does not affect measurements.
 - 2026-08-27, T1 actual vs estimate: estimated 2:00, actual about 3:00  including the results log and provenance items. Ratio 1.5x, matching the factor applied to T4 and T5.
+- 2026-08-27, T2 actual: 0:45 against 1:00 estimate.
+- 2026-08-27, T3 actual: 0:50 against 1:00 estimate.
