@@ -12,6 +12,12 @@ Written by Claude Code from this prompt:
     anatomy, clinical_knowledge, medical_genetics, college_medicine,
     professional_medicine. Output a markdown table with one row per model.
 
+Follow-up prompt, 2026-08-27:
+
+    Add a third column to scripts/mmlu_aggregate.py: the weighted mean and
+    pooled binomial SE over only the eight excluded subjects (n=1565). Keep
+    the existing two columns. Rerun with plain python3 and show me the table.
+
 The eight excluded subjects were chosen as the biology/medical MMLU subjects
 that overlap the WMDP-Bio forget domain, following point 8 of
 docs/plan_review_20260826.md.
@@ -97,30 +103,33 @@ def aggregate(path):
     full = pooled_mean_stderr(list(subjects.values()))
     kept = [v for k, v in subjects.items() if k not in EXCLUDED_SUBJECTS]
     excl = pooled_mean_stderr(kept)
+    only = pooled_mean_stderr(
+        [v for k, v in subjects.items() if k in EXCLUDED_SUBJECTS]
+    )
 
     harness = data["results"]["mmlu"]["acc,none"]
-    return full, excl, harness
+    return full, excl, only, harness
 
 
 def main():
     rows = []
     for label, eval_dir in MODELS:
         path = find_results_file(eval_dir)
-        (full_p, full_se, full_n), (excl_p, excl_se, excl_n), harness = aggregate(path)
+        (full_p, full_se, full_n), (excl_p, excl_se, excl_n), (only_p, only_se, only_n), harness = aggregate(path)
 
         diff = abs(full_p - harness)
         check = "match" if diff < 1e-9 else f"MISMATCH (diff={diff:.2e})"
         print(f"{label}: {os.path.relpath(path, REPO_ROOT)}")
         print(f"  full mean {full_p:.6f} vs harness mmlu {harness:.6f} -> {check}")
-        print(f"  full n={full_n}, excluded-subjects n={excl_n}")
+        print(f"  full n={full_n}, excluded-subjects n={excl_n}, excluded-only n={only_n}")
 
-        rows.append((label, full_p, full_se, excl_p, excl_se))
+        rows.append((label, full_p, full_se, excl_p, excl_se, only_p, only_se))
 
     print()
-    print("| Model | MMLU (57 subjects) | MMLU (excl. 8 bio/med subjects) |")
-    print("|---|---|---|")
-    for label, fp, fse, ep, ese in rows:
-        print(f"| {label} | {fp:.4f} ± {fse:.4f} | {ep:.4f} ± {ese:.4f} |")
+    print("| Model | MMLU (57 subjects) | MMLU (excl. 8 bio/med subjects) | MMLU (8 bio/med subjects only) |")
+    print("|---|---|---|---|")
+    for label, fp, fse, ep, ese, op, ose in rows:
+        print(f"| {label} | {fp:.4f} ± {fse:.4f} | {ep:.4f} ± {ese:.4f} | {op:.4f} ± {ose:.4f} |")
 
 
 if __name__ == "__main__":
