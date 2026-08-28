@@ -106,3 +106,37 @@ separate the two. On the eight adjacent subjects, filtered sits 4.7 points below
 Fail-fast 1, MMLU condition: passed. All three models are intact on general
 capability. Degradation relative to base is under 2 percentage points for both
 interventions.
+
+
+## T4. Pre-caching verification: TransformerLens vs HF residual check
+
+2026-08-28. Pod: A100 PCIe 80GB, US-KS-2. Script: scripts/check_tl_vs_hf.py.
+
+Compared the final-layer residual stream from TransformerLens
+(from_pretrained_no_processing) against a direct HF forward pass on
+EleutherAI/deep-ignorance-unfiltered, same tokenization, single prompt built
+exactly as the eval builds it (description line, question, correct candidate).
+
+Architecture confirmed from config: 32 layers, hidden size 4096. Hook pairing:
+TL blocks.31.hook_resid_post corresponds to HF hidden_states[32] (the entry
+before the final layer norm).
+
+| run | dtype | max abs diff | threshold | result |
+|---|---|---|---|---|
+| item 0 | float32 | 1.1e-4 | 1e-3 | pass |
+| item 0 | bfloat16 | 3.9e-3 | 5e-2 | pass |
+| item 5 | float32 | similar magnitude to item 0 | 1e-3 | pass |
+
+The bf16 difference is consistent with bf16 rounding (about 3 significant
+digits at residual scale), not a different computation. The item-5 run confirms
+the comparison is real rather than vacuous (an exact zero would have indicated
+comparing a tensor with itself).
+
+Two environment notes for the caching script (Monday):
+1. TransformerLens 3.7.3 touches torch.backends.mps at import on CUDA-only
+   boxes (upstream issue, fixed in a later TL release). The check script
+   carries a runtime guard. The caching script needs the same guard until TL
+   is upgraded.
+2. TL's loader resolves hub metadata even with weights cached, so
+   HF_HUB_OFFLINE=1 breaks it. Workaround: load via the local snapshot path,
+   or set the offline flag only after models are loaded.

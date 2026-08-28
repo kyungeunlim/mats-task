@@ -221,6 +221,10 @@ items need reformatting into the cloze prompt shape with four choices each. Abou
   the script, a per-layer norm plot per model, the HF-vs-TL check output.
 - Gate: none formal. Sanity: shapes match expectation, positions land on the
   right tokens, norms look sane, no NaNs.
+- [done 2026-08-28] TL-vs-HF check passed, fp32 and bf16, see results.md T4.
+  Caching script requirements carried from it: mps guard before TL import,
+  and either load models via local snapshot paths or defer HF_HUB_OFFLINE
+  until after loading.  
 
 
 ## T5. Probe curves and baselines: 4.5h [rev: was 3h, 1.5x applied]
