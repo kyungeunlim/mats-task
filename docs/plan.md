@@ -286,3 +286,9 @@ Tracked against ticket ids in the weekly thread.
 - 2026-08-27, T1 actual vs estimate: estimated 2:00, actual about 3:00  including the results log and provenance items. Ratio 1.5x, matching the factor applied to T4 and T5.
 - 2026-08-27, T2 actual: 0:45 against 1:00 estimate.
 - 2026-08-27, T3 actual: 0:50 against 1:00 estimate.
+- 2026-08-28, tooling: tested UV_CACHE_DIR on the volume to speed bootstrap.
+  No gain (still ~30 min with a warm cache), the volume's small-file reads
+  offset the download saving. Line removed from pod_bootstrap.sh. Conclusion:
+  budget 30 min of pod bootstrap per deploy and do laptop work during it.
+  A custom template image would remove the cost but is not worth building for
+  the remaining pod-days of this window.
