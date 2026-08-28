@@ -15,7 +15,7 @@ proceeds, not at the end.
 
 ## Environment
 
-Experiments run on a RunPod pod (A100 80GB, US-KS-2), volume at /workspace.
+Experiments run on a RunPod pod (40GB+ GPU, US-KS-2), volume at /workspace.
 Writing and light edits happen on the laptop; the repo is the sync point, so commit and push often.
 Pod restart procedure: POD_SETUP.md. Run it after every pod start; container disk is wiped on stop.
 
@@ -30,8 +30,10 @@ Pod restart procedure: POD_SETUP.md. Run it after every pod start; container dis
   actual task.
 - HF_HOME=/workspace/hf (pod). Three checkpoints already cached: deep-ignorance-unfiltered,
   deep-ignorance-e2e-strong-filter, kelim/deep-ignorance-unlearned-cb. Do not re-download.
-- Datasets cached: cais/wmdp (wmdp-bio, 1273), cais/mmlu (all, 14042 test)
-- First imports from the volume take 30-90s. Normal, not a hang.
+- Datasets cached: EleutherAI/wmdp_bio_cloze (1076 cloze_compatible, 197 mcqa_only),
+  cais/wmdp (wmdp-bio, 1273), cais/mmlu (all, 14042 test)
+- First model-weight loads from the volume take a few minutes. Imports are fast
+  (venv is on container disk).
 - Save plots as PNGs under results/
 
 ## Working rules
@@ -49,6 +51,9 @@ Pod restart procedure: POD_SETUP.md. Run it after every pod start; container dis
   depends on an unverified assumption.
 - When asked to write a report of what was done, include concrete
   technical detail: exact prompts, hyperparameters, shapes, file paths.
+- Any script written from a chat prompt gets a module docstring containing
+  that prompt, the date, and a pointer to the plan.md ticket it implements.
+  Appended prompts for later edits go below the original, dated.  
 
 ## Style
 - Plain, factual register. No superlatives. Scoped claims with honest
@@ -56,5 +61,4 @@ Pod restart procedure: POD_SETUP.md. Run it after every pod start; container dis
 
 ## Do not
 - Do not edit files under docs/ (reference material).
-- Do not commit large binaries (*.pt, activations, results/) — see
-  .gitignore.
+- Do not commit large binaries (*.pt, activations) — see .gitignore. Small result JSONs under results/eval are tracked deliberately.
