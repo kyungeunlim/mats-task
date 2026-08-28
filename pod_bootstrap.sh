@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+export UV_CACHE_DIR=/workspace/uv-cache
+
 # Container-disk tools, lost on every pod stop
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source "$HOME/.local/bin/env"
@@ -18,7 +20,7 @@ git config --global user.email "kyungeunlim@users.noreply.github.com"
 git config --global pull.rebase false
 
 # Python env on container disk. The volume is too slow for many small files.
-# Takes 5-10 min. Models and data stay on the volume.
+# Takes 20-30 min on an empty cache, hopefully less once /workspace/uv-cache is populated.
 uv venv --python 3.12 /root/venv
 uv pip install --python /root/venv/bin/python -r /workspace/mats-task/requirements.txt
 
