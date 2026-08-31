@@ -1,0 +1,56 @@
+
+Compared 1 chunk(s), 4 items, model EleutherAI/deep-ignorance-unfiltered rev c8df368ff247, dtype bfloat16
+A: /workspace/pad_test_b1/unfiltered/main
+B: /workspace/pad_test_b8/unfiltered/main
+
+=== Per-item max abs diff (alongside per-item max|a|) ===
+  item     max|A-B|     max|a|
+     0   4.0000e+00    576.000
+     1   4.0000e+00    556.000
+     2   4.0000e+00    560.000
+     3   4.0000e+00    536.000
+
+=== Per-layer table ===
+layer     max|A-B|     max|a|      ratio
+    0   1.2500e-01     37.000  3.378e-03
+    1   5.0000e-01     62.000  8.065e-03
+    2   7.5000e-01     70.000  1.071e-02
+    3   7.5000e-01     64.500  1.163e-02
+    4   7.5000e-01     56.000  1.339e-02
+    5   6.2500e-01     47.000  1.330e-02
+    6   4.3750e-01     40.000  1.094e-02
+    7   5.0000e-01     33.500  1.493e-02
+    8   5.0000e-01     36.000  1.389e-02
+    9   2.9688e-01     37.500  7.917e-03
+   10   2.7148e-01     43.000  6.314e-03
+   11   2.5000e-01     45.250  5.525e-03
+   12   3.7500e-01     50.750  7.389e-03
+   13   5.0000e-01     54.500  9.174e-03
+   14   5.0000e-01     58.500  8.547e-03
+   15   5.0000e-01     73.000  6.849e-03
+   16   5.0000e-01     74.000  6.757e-03
+   17   1.0000e+00     81.000  1.235e-02
+   18   1.0000e+00     85.500  1.170e-02
+   19   1.0000e+00     86.500  1.156e-02
+   20   1.0000e+00     92.500  1.081e-02
+   21   7.5000e-01     93.000  8.065e-03
+   22   1.0000e+00     99.500  1.005e-02
+   23   1.0000e+00    103.500  9.662e-03
+   24   1.5000e+00    120.000  1.250e-02
+   25   1.5000e+00    144.000  1.042e-02
+   26   2.0000e+00    179.000  1.117e-02
+   27   3.0000e+00    203.000  1.478e-02
+   28   3.0000e+00    232.000  1.293e-02
+   29   3.0000e+00    242.000  1.240e-02
+   30   3.0000e+00    272.000  1.103e-02
+   31   4.0000e+00    576.000  6.944e-03
+
+=== Per-position max abs diff ===
+         q_end: 2.0000e+00
+ answer_marker: 4.0000e+00
+      cand_end: 4.0000e+00
+
+=== Reading ===
+Contamination from padded tokens would enter at the layer where attention first mixes them into a cached position and then grow as a fraction of the residual, so the ratio column would rise with depth from that entry layer. A flat ratio across layers indicates rounding: different batch shapes change kernel choice and summation order, nothing else.
+Worst per-layer ratio: 1.493e-02 = 3.82 bf16 ULPs of that layer's max |a|.
+Caveat: this is consistent with rounding, not proof of no contamination; a sub-ULP padding bug would not be caught.
