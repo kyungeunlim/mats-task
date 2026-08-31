@@ -1,0 +1,20 @@
+read source /workspace/activations/unfiltered/main: 1076 items
+read source /workspace/activations/e2e-strong-filter/main: 1076 items
+read source /workspace/activations/unlearned-cb/main: 1076 items
+read source /workspace/activations/unfiltered/control: 1076 items
+read source /workspace/activations/e2e-strong-filter/control: 1076 items
+read source /workspace/activations/unlearned-cb/control: 1076 items
+checking 32 layer(s): [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+
+=== Per-combination summary (32 layer(s) checked) ===
+set       model               bit-identical                item indices
+main      unfiltered          yes                          match
+main      e2e-strong-filter   yes                          match
+main      unlearned-cb        yes                          match
+control   unfiltered          yes                          match
+control   e2e-strong-filter   yes                          match
+control   unlearned-cb        yes                          match
+revisions: unfiltered=match  e2e-strong-filter=match  unlearned-cb=match
+
+=== Verdict ===
+PASS: extraction is bit-identical to the cand_end slice of the source chunks at all 32 checked layer(s), item indices and revision hashes match, for all 2x3 combinations.
