@@ -142,13 +142,59 @@ Two environment notes for the caching script (for 2026-08-31 Monday):
    or set the offline flag only after models are loaded.
 
 
-### T4b. Caching environment (2026-08-31)
+### T4b. Re-verification on the caching pod (2026-08-31)
 
 Pod: RTX PRO 6000 (Blackwell, 96GB), driver CUDA 13.2. Python 3.12.3,
 torch 2.13.0+cu130, TransformerLens 3.7.3, resolved by bootstrap from an
-unpinned requirements.txt. In-venv checks before caching: GPU visible at
-compute capability (12, 0), bf16 matmul on device, TL import.
+unpinned requirements.txt. This differs from the 2026-08-28 run above, which
+used an A100 PCIe under a manually installed cu126 build (per-pod fix, not
+carried forward). Rerun so the verification and the cached activations come
+from the same environment.
 
-This differs from the 2026-08-28 check environment above, which ran on an
-A100 PCIe under a manually installed cu126 torch build (a per-pod fix, not
-carried forward, build version not logged).   
+Two changes to the check itself:
+
+1. Block 31's raw output is now compared directly. HF GPT-NeoX does not place
+   it in hidden_states, so the script registers a forward hook on the last
+   layer. The 2026-08-28 run verified 31 of 32 raw residuals; all 32 are now
+   verified.
+2. `--dtype float32` added, with the ULP constant switched accordingly, to
+   test whether a disagreement scales with dtype precision.
+
+Result: the 4-ULP criterion failed on block 31 (6.4 ULPs bf16) and on the
+post-final-LN row. Diagnostics and a dtype comparison indicate rounding, not
+a computational difference:
+
+| dtype | block 31 max abs diff | relative | post-final-LN max abs diff |
+|---|---|---|---|
+| bfloat16 | 16.0 | 2.48e-2 | 2.21 |
+| float32 | 9.77e-4 | 1.52e-6 | 9.82e-5 |
+
+The absolute error falls by about 2^14 for a 2^15 improvement in dtype
+precision. A wrong weight or a different operation would hold roughly constant
+in relative terms. The fp32 post-final-LN value (9.82e-5) also reproduces the
+2026-08-28 fp32 result (1.1e-4), so the computation is unchanged.
+
+Per-position diagnostics, bf16: the largest disagreement at any position is
+16.0, which is 1.1 ULPs of block 30's magnitude (3856). Block 31 contracts the
+residual (max |HF| 3856 to 644), so the same inherited absolute error reads as
+6.4 ULPs of the output. Position 0 is not the source (diff 8.0, half the max);
+the max sits at position 9.
+
+Criterion changed back to the flat thresholds used on 2026-08-28 (1e-3 fp32,
+5e-2 bf16). The ULP column is kept as a diagnostic. Reason: summing 4096 terms
+in a different order accumulates error on the order of sqrt(4096) ~ 64 ULPs,
+so 4 ULPs sits below the noise floor of this comparison. Blocks 0-30 passed it
+only because the criterion normalizes by the max over the whole tensor, which
+is the position-0 attention sink at ~3900. Layers where the residual contracts
+lose that inflated denominator, which is what block 31 exposed. Under the flat
+thresholds all 33 rows pass in both dtypes.
+
+Environment sensitivity: the same script and prompt gave different per-layer
+diffs across the two pods (layer 1: rel 1.09e-2 on 2026-08-28, 5.43e-3 today).
+Kernel and summation-order differences between torch builds. Recorded numbers
+are environment-specific.
+
+Note for caching: activations are cached in bf16, so block 31 carries roughly
+1% relative noise at typical positions. The probe standardizes features per
+model, so this is unlikely to affect the comparison, but it belongs in
+limitations.
