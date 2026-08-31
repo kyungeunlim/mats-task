@@ -1,0 +1,1197 @@
+Caching 6456 items total: models ['unfiltered', 'e2e-strong-filter', 'unlearned-cb'], sets {'main': 1076, 'control': 1076}, 4 passes per item, dtype bfloat16, out dir /workspace/activations
+
+=== Loading EleutherAI/deep-ignorance-unfiltered ===
+snapshot: /workspace/hf/hub/models--EleutherAI--deep-ignorance-unfiltered/snapshots/c8df368ff247cb90b62e21e1689260701b3ff25a
+revision: c8df368ff247cb90b62e21e1689260701b3ff25a
+dtype: bfloat16
+Loading weights:   0%|          | 0/388 [00:00<?, ?it/s]Loading weights: 100%|██████████| 388/388 [00:00<00:00, 10985.49it/s]
+HF  num_hidden_layers=32  hidden_size=4096  vocab_size=50304
+Loaded pretrained model EleutherAI/pythia-6.9b into HookedTransformer
+TL  n_layers=32  d_model=4096  d_vocab=50304  (from_pretrained_no_processing: no folding or centering)
+
+=== Token position check, main set, first 3 items ===
+  item 0 cand 0 (43 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@42='ogenes'
+  item 0 cand 1 (53 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@52='i'
+  item 0 cand 2 (51 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@50='ens'
+  item 0 cand 3 (47 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@46='ata'
+  item 1 cand 0 (43 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@42=' conditions'
+  item 1 cand 1 (44 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@43=' sources'
+  item 1 cand 2 (43 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@42=' host'
+  item 1 cand 3 (47 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@46='be'
+  item 2 cand 0 (51 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@50=' cells'
+  item 2 cand 1 (53 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@52=' cell'
+  item 2 cand 2 (54 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@53=' evolution'
+  item 2 cand 3 (54 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@53=' replication'
+
+=== Per-position norm check, unfiltered / main (mean L2 over first batch; token position 0 shown separately, it carries much larger norms and is not among the cached positions) ===
+layer       pos0         q_end answer_marker      cand_end
+    0       48.9          35.2          34.1          39.2
+    1       64.4          43.0          40.0          50.2
+    2      156.7          43.2          40.3          55.3
+    3      190.9          41.7          38.6          58.0
+    4      408.4          39.8          37.7          60.0
+    5      936.8          40.2          38.9          62.5
+    6     2546.9          46.3          43.4          67.2
+    7     3472.8          51.2          45.3          71.3
+    8     3787.1          54.7          49.4          77.2
+    9     3974.6          57.4          52.5          81.2
+   10     4190.2          63.9          52.3          86.6
+   11     4256.5          69.6          53.5          93.8
+   12     4298.3          76.9          57.9         102.1
+   13     4323.2          84.7          65.5         110.0
+   14     4345.6          88.1          72.4         118.7
+   15     4368.2          99.3          79.5         128.4
+   16     4387.8         105.7          85.0         131.1
+   17     4393.2         111.4          92.7         136.1
+   18     4393.4         113.9          96.2         141.6
+   19     4393.4         124.1         103.3         144.4
+   20     4393.3         131.8         110.3         150.4
+   21     4393.6         139.3         119.8         154.2
+   22     4393.7         149.8         133.5         161.1
+   23     4393.7         163.4         147.7         169.1
+   24     4393.5         174.2         164.0         181.5
+   25     4396.8         194.4         187.0         205.2
+   26     4400.1         224.5         221.8         229.4
+   27     4383.1         246.9         250.3         252.4
+   28     4333.0         279.1         289.6         293.4
+   29     4300.4         294.6         314.0         325.8
+   30     4219.8         323.2         354.5         372.4
+   31      218.1         498.8         658.6         606.0
+[unfiltered/main] items 8/1076  23.13 items/s  est. remaining (all selected runs, excl. model loads) 0:04:38  cumulative written 0.0 MiB
+[unfiltered/main] items 16/1076  29.02 items/s  est. remaining (all selected runs, excl. model loads) 0:03:41  cumulative written 0.0 MiB
+[unfiltered/main] items 24/1076  33.63 items/s  est. remaining (all selected runs, excl. model loads) 0:03:11  cumulative written 0.0 MiB
+[unfiltered/main] items 32/1076  36.53 items/s  est. remaining (all selected runs, excl. model loads) 0:02:55  cumulative written 0.0 MiB
+[unfiltered/main] items 40/1076  39.36 items/s  est. remaining (all selected runs, excl. model loads) 0:02:43  cumulative written 0.0 MiB
+[unfiltered/main] items 48/1076  39.92 items/s  est. remaining (all selected runs, excl. model loads) 0:02:40  cumulative written 0.0 MiB
+[unfiltered/main] items 56/1076  41.33 items/s  est. remaining (all selected runs, excl. model loads) 0:02:34  cumulative written 0.0 MiB
+[unfiltered/main] items 64/1076  43.03 items/s  est. remaining (all selected runs, excl. model loads) 0:02:28  cumulative written 0.0 MiB
+[unfiltered/main] items 72/1076  43.31 items/s  est. remaining (all selected runs, excl. model loads) 0:02:27  cumulative written 0.0 MiB
+[unfiltered/main] items 80/1076  45.74 items/s  est. remaining (all selected runs, excl. model loads) 0:02:19  cumulative written 0.0 MiB
+[unfiltered/main] items 88/1076  46.29 items/s  est. remaining (all selected runs, excl. model loads) 0:02:17  cumulative written 0.0 MiB
+[unfiltered/main] items 96/1076  46.77 items/s  est. remaining (all selected runs, excl. model loads) 0:02:15  cumulative written 0.0 MiB
+[unfiltered/main] items 104/1076  42.04 items/s  est. remaining (all selected runs, excl. model loads) 0:02:31  cumulative written 0.0 MiB
+[unfiltered/main] items 112/1076  41.97 items/s  est. remaining (all selected runs, excl. model loads) 0:02:31  cumulative written 0.0 MiB
+[unfiltered/main] items 120/1076  40.87 items/s  est. remaining (all selected runs, excl. model loads) 0:02:35  cumulative written 0.0 MiB
+[unfiltered/main] items 128/1076  41.46 items/s  est. remaining (all selected runs, excl. model loads) 0:02:32  cumulative written 0.0 MiB
+[unfiltered/main] wrote chunk_00000-00128.pt (384.0 MiB, cumulative 384.0 MiB)
+[unfiltered/main] items 136/1076  41.90 items/s  est. remaining (all selected runs, excl. model loads) 0:02:30  cumulative written 384.0 MiB
+[unfiltered/main] items 144/1076  41.95 items/s  est. remaining (all selected runs, excl. model loads) 0:02:30  cumulative written 384.0 MiB
+[unfiltered/main] items 152/1076  42.44 items/s  est. remaining (all selected runs, excl. model loads) 0:02:28  cumulative written 384.0 MiB
+[unfiltered/main] items 160/1076  42.92 items/s  est. remaining (all selected runs, excl. model loads) 0:02:26  cumulative written 384.0 MiB
+[unfiltered/main] items 168/1076  43.44 items/s  est. remaining (all selected runs, excl. model loads) 0:02:24  cumulative written 384.0 MiB
+[unfiltered/main] items 176/1076  44.18 items/s  est. remaining (all selected runs, excl. model loads) 0:02:22  cumulative written 384.0 MiB
+[unfiltered/main] items 184/1076  45.03 items/s  est. remaining (all selected runs, excl. model loads) 0:02:19  cumulative written 384.0 MiB
+[unfiltered/main] items 192/1076  45.82 items/s  est. remaining (all selected runs, excl. model loads) 0:02:16  cumulative written 384.0 MiB
+[unfiltered/main] items 200/1076  46.44 items/s  est. remaining (all selected runs, excl. model loads) 0:02:14  cumulative written 384.0 MiB
+[unfiltered/main] items 208/1076  47.20 items/s  est. remaining (all selected runs, excl. model loads) 0:02:12  cumulative written 384.0 MiB
+[unfiltered/main] items 216/1076  47.93 items/s  est. remaining (all selected runs, excl. model loads) 0:02:10  cumulative written 384.0 MiB
+[unfiltered/main] items 224/1076  48.52 items/s  est. remaining (all selected runs, excl. model loads) 0:02:08  cumulative written 384.0 MiB
+[unfiltered/main] items 232/1076  48.98 items/s  est. remaining (all selected runs, excl. model loads) 0:02:07  cumulative written 384.0 MiB
+[unfiltered/main] items 240/1076  49.20 items/s  est. remaining (all selected runs, excl. model loads) 0:02:06  cumulative written 384.0 MiB
+[unfiltered/main] items 248/1076  49.28 items/s  est. remaining (all selected runs, excl. model loads) 0:02:05  cumulative written 384.0 MiB
+[unfiltered/main] items 256/1076  48.19 items/s  est. remaining (all selected runs, excl. model loads) 0:02:08  cumulative written 384.0 MiB
+[unfiltered/main] wrote chunk_00128-00256.pt (384.0 MiB, cumulative 768.0 MiB)
+[unfiltered/main] items 264/1076  47.92 items/s  est. remaining (all selected runs, excl. model loads) 0:02:09  cumulative written 768.0 MiB
+[unfiltered/main] items 272/1076  48.17 items/s  est. remaining (all selected runs, excl. model loads) 0:02:08  cumulative written 768.0 MiB
+[unfiltered/main] items 280/1076  48.41 items/s  est. remaining (all selected runs, excl. model loads) 0:02:07  cumulative written 768.0 MiB
+[unfiltered/main] items 288/1076  48.96 items/s  est. remaining (all selected runs, excl. model loads) 0:02:05  cumulative written 768.0 MiB
+[unfiltered/main] items 296/1076  49.18 items/s  est. remaining (all selected runs, excl. model loads) 0:02:05  cumulative written 768.0 MiB
+[unfiltered/main] items 304/1076  49.54 items/s  est. remaining (all selected runs, excl. model loads) 0:02:04  cumulative written 768.0 MiB
+[unfiltered/main] items 312/1076  50.01 items/s  est. remaining (all selected runs, excl. model loads) 0:02:02  cumulative written 768.0 MiB
+[unfiltered/main] items 320/1076  50.46 items/s  est. remaining (all selected runs, excl. model loads) 0:02:01  cumulative written 768.0 MiB
+[unfiltered/main] items 328/1076  50.80 items/s  est. remaining (all selected runs, excl. model loads) 0:02:00  cumulative written 768.0 MiB
+[unfiltered/main] items 336/1076  51.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:59  cumulative written 768.0 MiB
+[unfiltered/main] items 344/1076  51.61 items/s  est. remaining (all selected runs, excl. model loads) 0:01:58  cumulative written 768.0 MiB
+[unfiltered/main] items 352/1076  52.01 items/s  est. remaining (all selected runs, excl. model loads) 0:01:57  cumulative written 768.0 MiB
+[unfiltered/main] items 360/1076  51.89 items/s  est. remaining (all selected runs, excl. model loads) 0:01:57  cumulative written 768.0 MiB
+[unfiltered/main] items 368/1076  51.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:57  cumulative written 768.0 MiB
+[unfiltered/main] items 376/1076  52.01 items/s  est. remaining (all selected runs, excl. model loads) 0:01:56  cumulative written 768.0 MiB
+[unfiltered/main] items 384/1076  51.90 items/s  est. remaining (all selected runs, excl. model loads) 0:01:56  cumulative written 768.0 MiB
+[unfiltered/main] wrote chunk_00256-00384.pt (384.0 MiB, cumulative 1.13 GiB)
+[unfiltered/main] items 392/1076  52.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:56  cumulative written 1.13 GiB
+[unfiltered/main] items 400/1076  52.13 items/s  est. remaining (all selected runs, excl. model loads) 0:01:56  cumulative written 1.13 GiB
+[unfiltered/main] items 408/1076  52.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:55  cumulative written 1.13 GiB
+[unfiltered/main] items 416/1076  52.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:54  cumulative written 1.13 GiB
+[unfiltered/main] items 424/1076  52.46 items/s  est. remaining (all selected runs, excl. model loads) 0:01:54  cumulative written 1.13 GiB
+[unfiltered/main] items 432/1076  52.61 items/s  est. remaining (all selected runs, excl. model loads) 0:01:54  cumulative written 1.13 GiB
+[unfiltered/main] items 440/1076  52.74 items/s  est. remaining (all selected runs, excl. model loads) 0:01:54  cumulative written 1.13 GiB
+[unfiltered/main] items 448/1076  52.95 items/s  est. remaining (all selected runs, excl. model loads) 0:01:53  cumulative written 1.13 GiB
+[unfiltered/main] items 456/1076  53.05 items/s  est. remaining (all selected runs, excl. model loads) 0:01:53  cumulative written 1.13 GiB
+[unfiltered/main] items 464/1076  53.19 items/s  est. remaining (all selected runs, excl. model loads) 0:01:52  cumulative written 1.13 GiB
+[unfiltered/main] items 472/1076  53.32 items/s  est. remaining (all selected runs, excl. model loads) 0:01:52  cumulative written 1.13 GiB
+[unfiltered/main] items 480/1076  53.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:51  cumulative written 1.13 GiB
+[unfiltered/main] items 488/1076  53.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:51  cumulative written 1.13 GiB
+[unfiltered/main] items 496/1076  53.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:51  cumulative written 1.13 GiB
+[unfiltered/main] items 504/1076  53.55 items/s  est. remaining (all selected runs, excl. model loads) 0:01:51  cumulative written 1.13 GiB
+[unfiltered/main] items 512/1076  53.52 items/s  est. remaining (all selected runs, excl. model loads) 0:01:51  cumulative written 1.13 GiB
+[unfiltered/main] wrote chunk_00384-00512.pt (384.0 MiB, cumulative 1.50 GiB)
+[unfiltered/main] items 520/1076  53.60 items/s  est. remaining (all selected runs, excl. model loads) 0:01:50  cumulative written 1.50 GiB
+[unfiltered/main] items 528/1076  53.81 items/s  est. remaining (all selected runs, excl. model loads) 0:01:50  cumulative written 1.50 GiB
+[unfiltered/main] items 536/1076  54.07 items/s  est. remaining (all selected runs, excl. model loads) 0:01:49  cumulative written 1.50 GiB
+[unfiltered/main] items 544/1076  54.22 items/s  est. remaining (all selected runs, excl. model loads) 0:01:49  cumulative written 1.50 GiB
+[unfiltered/main] items 552/1076  54.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:48  cumulative written 1.50 GiB
+[unfiltered/main] items 560/1076  54.53 items/s  est. remaining (all selected runs, excl. model loads) 0:01:48  cumulative written 1.50 GiB
+[unfiltered/main] items 568/1076  54.68 items/s  est. remaining (all selected runs, excl. model loads) 0:01:47  cumulative written 1.50 GiB
+[unfiltered/main] items 576/1076  54.84 items/s  est. remaining (all selected runs, excl. model loads) 0:01:47  cumulative written 1.50 GiB
+[unfiltered/main] items 584/1076  54.92 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 1.50 GiB
+[unfiltered/main] items 592/1076  55.04 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 1.50 GiB
+[unfiltered/main] items 600/1076  55.22 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 1.50 GiB
+[unfiltered/main] items 608/1076  55.36 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 1.50 GiB
+[unfiltered/main] items 616/1076  55.50 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 1.50 GiB
+[unfiltered/main] items 624/1076  55.56 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 1.50 GiB
+[unfiltered/main] items 632/1076  55.66 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 1.50 GiB
+[unfiltered/main] items 640/1076  55.79 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 1.50 GiB
+[unfiltered/main] wrote chunk_00512-00640.pt (384.0 MiB, cumulative 1.88 GiB)
+[unfiltered/main] items 648/1076  55.84 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 1.88 GiB
+[unfiltered/main] items 656/1076  55.82 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 1.88 GiB
+[unfiltered/main] items 664/1076  55.81 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 1.88 GiB
+[unfiltered/main] items 672/1076  55.79 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 1.88 GiB
+[unfiltered/main] items 680/1076  55.79 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 1.88 GiB
+[unfiltered/main] items 688/1076  55.84 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 1.88 GiB
+[unfiltered/main] items 696/1076  55.90 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 1.88 GiB
+[unfiltered/main] items 704/1076  56.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 1.88 GiB
+[unfiltered/main] items 712/1076  56.06 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 1.88 GiB
+[unfiltered/main] items 720/1076  56.11 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 1.88 GiB
+[unfiltered/main] items 728/1076  56.21 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 1.88 GiB
+[unfiltered/main] items 736/1076  56.30 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 1.88 GiB
+[unfiltered/main] items 744/1076  56.39 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 1.88 GiB
+[unfiltered/main] items 752/1076  56.45 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 1.88 GiB
+[unfiltered/main] items 760/1076  56.59 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 1.88 GiB
+[unfiltered/main] items 768/1076  56.67 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 1.88 GiB
+[unfiltered/main] wrote chunk_00640-00768.pt (384.0 MiB, cumulative 2.25 GiB)
+[unfiltered/main] items 776/1076  56.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 2.25 GiB
+[unfiltered/main] items 784/1076  56.65 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 2.25 GiB
+[unfiltered/main] items 792/1076  56.69 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 2.25 GiB
+[unfiltered/main] items 800/1076  56.73 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 2.25 GiB
+[unfiltered/main] items 808/1076  56.81 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 2.25 GiB
+[unfiltered/main] items 816/1076  56.93 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 2.25 GiB
+[unfiltered/main] items 824/1076  56.98 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 2.25 GiB
+[unfiltered/main] items 832/1076  57.00 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 2.25 GiB
+[unfiltered/main] items 840/1076  57.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 2.25 GiB
+[unfiltered/main] items 848/1076  57.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 2.25 GiB
+[unfiltered/main] items 856/1076  57.12 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 2.25 GiB
+[unfiltered/main] items 864/1076  57.11 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.25 GiB
+[unfiltered/main] items 872/1076  56.99 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.25 GiB
+[unfiltered/main] items 880/1076  57.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.25 GiB
+[unfiltered/main] items 888/1076  57.05 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.25 GiB
+[unfiltered/main] items 896/1076  57.04 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.25 GiB
+[unfiltered/main] wrote chunk_00768-00896.pt (384.0 MiB, cumulative 2.63 GiB)
+[unfiltered/main] items 904/1076  57.09 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.63 GiB
+[unfiltered/main] items 912/1076  57.12 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 2.63 GiB
+[unfiltered/main] items 920/1076  57.19 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 2.63 GiB
+[unfiltered/main] items 928/1076  57.25 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 2.63 GiB
+[unfiltered/main] items 936/1076  57.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 2.63 GiB
+[unfiltered/main] items 944/1076  57.23 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 2.63 GiB
+[unfiltered/main] items 952/1076  57.12 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 2.63 GiB
+[unfiltered/main] items 960/1076  57.15 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 2.63 GiB
+[unfiltered/main] items 968/1076  57.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 2.63 GiB
+[unfiltered/main] items 976/1076  57.15 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 2.63 GiB
+[unfiltered/main] items 984/1076  57.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 2.63 GiB
+[unfiltered/main] items 992/1076  57.25 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 2.63 GiB
+[unfiltered/main] items 1000/1076  57.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 2.63 GiB
+[unfiltered/main] items 1008/1076  57.30 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 2.63 GiB
+[unfiltered/main] items 1016/1076  57.32 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 2.63 GiB
+[unfiltered/main] items 1024/1076  57.42 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 2.63 GiB
+[unfiltered/main] wrote chunk_00896-01024.pt (384.0 MiB, cumulative 3.00 GiB)
+[unfiltered/main] items 1032/1076  57.49 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 3.00 GiB
+[unfiltered/main] items 1040/1076  57.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 3.00 GiB
+[unfiltered/main] items 1048/1076  57.67 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 3.00 GiB
+[unfiltered/main] items 1056/1076  57.74 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 3.00 GiB
+[unfiltered/main] items 1064/1076  57.80 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 3.00 GiB
+[unfiltered/main] items 1072/1076  57.93 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.00 GiB
+[unfiltered/main] items 1076/1076  57.98 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.00 GiB
+[unfiltered/main] wrote chunk_01024-01076.pt (156.0 MiB, cumulative 3.15 GiB)
+[unfiltered/main] set complete, meta.json written
+
+=== Token position check, control set, first 3 items ===
+  item 0 cand 0 (41 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@40='ase'
+  item 0 cand 1 (40 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@39=' polymerase'
+  item 0 cand 2 (34 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@33=' only'
+  item 0 cand 3 (36 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@35=' only'
+  item 1 cand 0 (35 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@34='atin'
+  item 1 cand 1 (34 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@33='atin'
+  item 1 cand 2 (35 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@34='ron'
+  item 1 cand 3 (33 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@32='ogenes'
+  item 2 cand 0 (31 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@30='piration'
+  item 2 cand 1 (31 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@30='ynthesis'
+  item 2 cand 2 (32 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@31=' decomposition'
+  item 2 cand 3 (35 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@34=' fuels'
+
+=== Per-position norm check, unfiltered / control (mean L2 over first batch; token position 0 shown separately, it carries much larger norms and is not among the cached positions) ===
+layer       pos0         q_end answer_marker      cand_end
+    0       48.9          35.0          34.0          40.3
+    1       64.4          45.3          40.0          53.2
+    2      156.7          45.8          40.2          57.4
+    3      190.9          44.7          38.6          57.5
+    4      408.4          44.0          37.6          57.5
+    5      934.2          45.3          38.9          57.9
+    6     2549.3          50.1          43.7          61.2
+    7     3472.8          56.3          46.0          64.5
+    8     3787.1          62.2          50.8          70.1
+    9     3974.6          66.2          52.6          74.8
+   10     4190.2          70.5          53.0          79.2
+   11     4256.5          76.6          55.2          85.7
+   12     4298.3          84.3          59.5          93.6
+   13     4323.2          90.7          65.8         101.8
+   14     4345.6          94.4          72.4         109.7
+   15     4368.2         104.4          81.2         120.6
+   16     4387.8         109.1          87.6         124.6
+   17     4393.2         112.9          93.2         129.4
+   18     4393.4         116.0          97.0         133.9
+   19     4393.4         123.9         104.3         139.0
+   20     4393.3         129.1         109.5         143.0
+   21     4393.6         135.6         120.3         147.7
+   22     4393.7         144.0         132.2         156.3
+   23     4393.6         158.0         147.1         164.3
+   24     4393.5         170.2         160.1         176.3
+   25     4396.8         190.8         182.9         200.4
+   26     4400.1         217.4         216.1         227.1
+   27     4383.0         240.4         244.6         248.6
+   28     4333.0         273.0         287.8         286.0
+   29     4300.4         290.7         311.0         314.1
+   30     4219.7         323.4         351.0         360.3
+   31      218.2         516.1         649.8         564.9
+[unfiltered/control] items 8/1076  57.74 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 3.15 GiB
+[unfiltered/control] items 16/1076  57.73 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 24/1076  57.52 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 3.15 GiB
+[unfiltered/control] items 32/1076  57.56 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 40/1076  57.45 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 48/1076  57.33 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 56/1076  57.31 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 64/1076  57.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 72/1076  57.26 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 80/1076  57.16 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 88/1076  57.14 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 96/1076  57.14 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 104/1076  57.18 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 112/1076  57.01 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 120/1076  57.03 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] items 128/1076  57.07 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 3.15 GiB
+[unfiltered/control] wrote chunk_00000-00128.pt (384.0 MiB, cumulative 3.53 GiB)
+[unfiltered/control] items 136/1076  57.05 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 144/1076  56.97 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 152/1076  56.95 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 160/1076  56.92 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 168/1076  56.90 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 176/1076  56.82 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 184/1076  56.53 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 192/1076  56.61 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 200/1076  56.59 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 208/1076  56.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 216/1076  56.49 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 224/1076  56.41 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 232/1076  56.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 240/1076  56.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 248/1076  56.18 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] items 256/1076  56.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.53 GiB
+[unfiltered/control] wrote chunk_00128-00256.pt (384.0 MiB, cumulative 3.90 GiB)
+[unfiltered/control] items 264/1076  56.10 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.90 GiB
+[unfiltered/control] items 272/1076  56.12 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 3.90 GiB
+[unfiltered/control] items 280/1076  56.10 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 3.90 GiB
+[unfiltered/control] items 288/1076  56.00 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 3.90 GiB
+[unfiltered/control] items 296/1076  56.06 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 3.90 GiB
+[unfiltered/control] items 304/1076  56.05 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 3.90 GiB
+[unfiltered/control] items 312/1076  55.98 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 3.90 GiB
+[unfiltered/control] items 320/1076  56.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 3.90 GiB
+[unfiltered/control] items 328/1076  56.15 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 3.90 GiB
+[unfiltered/control] items 336/1076  56.20 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 3.90 GiB
+[unfiltered/control] items 344/1076  56.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 3.90 GiB
+[unfiltered/control] items 352/1076  56.16 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 3.90 GiB
+[unfiltered/control] items 360/1076  56.25 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 3.90 GiB
+[unfiltered/control] items 368/1076  56.26 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 3.90 GiB
+[unfiltered/control] items 376/1076  56.35 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 3.90 GiB
+[unfiltered/control] items 384/1076  56.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 3.90 GiB
+[unfiltered/control] wrote chunk_00256-00384.pt (384.0 MiB, cumulative 4.28 GiB)
+[unfiltered/control] items 392/1076  56.56 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 4.28 GiB
+[unfiltered/control] items 400/1076  56.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 4.28 GiB
+[unfiltered/control] items 408/1076  56.53 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 4.28 GiB
+[unfiltered/control] items 416/1076  56.62 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 4.28 GiB
+[unfiltered/control] items 424/1076  56.68 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 4.28 GiB
+[unfiltered/control] items 432/1076  56.76 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 4.28 GiB
+[unfiltered/control] items 440/1076  56.88 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 4.28 GiB
+[unfiltered/control] items 448/1076  56.95 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 4.28 GiB
+[unfiltered/control] items 456/1076  57.07 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 4.28 GiB
+[unfiltered/control] items 464/1076  57.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 4.28 GiB
+[unfiltered/control] items 472/1076  57.10 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 4.28 GiB
+[unfiltered/control] items 480/1076  57.18 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 4.28 GiB
+[unfiltered/control] items 488/1076  57.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 4.28 GiB
+[unfiltered/control] items 496/1076  57.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 4.28 GiB
+[unfiltered/control] items 504/1076  57.36 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 4.28 GiB
+[unfiltered/control] items 512/1076  57.48 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 4.28 GiB
+[unfiltered/control] wrote chunk_00384-00512.pt (384.0 MiB, cumulative 4.65 GiB)
+[unfiltered/control] items 520/1076  57.49 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 4.65 GiB
+[unfiltered/control] items 528/1076  57.58 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 4.65 GiB
+[unfiltered/control] items 536/1076  57.66 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 4.65 GiB
+[unfiltered/control] items 544/1076  57.72 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 4.65 GiB
+[unfiltered/control] items 552/1076  57.80 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 4.65 GiB
+[unfiltered/control] items 560/1076  57.89 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 4.65 GiB
+[unfiltered/control] items 568/1076  57.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 4.65 GiB
+[unfiltered/control] items 576/1076  58.03 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 4.65 GiB
+[unfiltered/control] items 584/1076  58.10 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 4.65 GiB
+[unfiltered/control] items 592/1076  58.16 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 4.65 GiB
+[unfiltered/control] items 600/1076  58.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 4.65 GiB
+[unfiltered/control] items 608/1076  58.35 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 4.65 GiB
+[unfiltered/control] items 616/1076  58.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 4.65 GiB
+[unfiltered/control] items 624/1076  58.48 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 4.65 GiB
+[unfiltered/control] items 632/1076  58.50 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 4.65 GiB
+[unfiltered/control] items 640/1076  58.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 4.65 GiB
+[unfiltered/control] wrote chunk_00512-00640.pt (384.0 MiB, cumulative 5.03 GiB)
+[unfiltered/control] items 648/1076  58.61 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 5.03 GiB
+[unfiltered/control] items 656/1076  58.67 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 5.03 GiB
+[unfiltered/control] items 664/1076  58.75 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 5.03 GiB
+[unfiltered/control] items 672/1076  58.81 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 5.03 GiB
+[unfiltered/control] items 680/1076  58.85 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 5.03 GiB
+[unfiltered/control] items 688/1076  58.90 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 5.03 GiB
+[unfiltered/control] items 696/1076  58.97 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 5.03 GiB
+[unfiltered/control] items 704/1076  59.05 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 5.03 GiB
+[unfiltered/control] items 712/1076  59.03 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 5.03 GiB
+[unfiltered/control] items 720/1076  59.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 5.03 GiB
+[unfiltered/control] items 728/1076  59.12 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 5.03 GiB
+[unfiltered/control] items 736/1076  59.18 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 5.03 GiB
+[unfiltered/control] items 744/1076  59.26 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 5.03 GiB
+[unfiltered/control] items 752/1076  59.33 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 5.03 GiB
+[unfiltered/control] items 760/1076  59.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:17  cumulative written 5.03 GiB
+[unfiltered/control] items 768/1076  55.53 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 5.03 GiB
+[unfiltered/control] wrote chunk_00640-00768.pt (384.0 MiB, cumulative 5.40 GiB)
+[unfiltered/control] items 776/1076  55.45 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 5.40 GiB
+[unfiltered/control] items 784/1076  55.34 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 5.40 GiB
+[unfiltered/control] items 792/1076  55.25 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 5.40 GiB
+[unfiltered/control] items 800/1076  51.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 5.40 GiB
+[unfiltered/control] items 808/1076  51.94 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 5.40 GiB
+[unfiltered/control] items 816/1076  51.87 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 5.40 GiB
+[unfiltered/control] items 824/1076  51.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 5.40 GiB
+[unfiltered/control] items 832/1076  48.76 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 5.40 GiB
+[unfiltered/control] items 840/1076  48.77 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 5.40 GiB
+[unfiltered/control] items 848/1076  48.74 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 5.40 GiB
+[unfiltered/control] items 856/1076  48.75 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 5.40 GiB
+[unfiltered/control] items 864/1076  48.71 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 5.40 GiB
+[unfiltered/control] items 872/1076  48.68 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 5.40 GiB
+[unfiltered/control] items 880/1076  48.65 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 5.40 GiB
+[unfiltered/control] items 888/1076  48.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 5.40 GiB
+[unfiltered/control] items 896/1076  47.51 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 5.40 GiB
+[unfiltered/control] wrote chunk_00768-00896.pt (384.0 MiB, cumulative 5.78 GiB)
+[unfiltered/control] items 904/1076  47.28 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 5.78 GiB
+[unfiltered/control] items 912/1076  46.70 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 5.78 GiB
+[unfiltered/control] items 920/1076  46.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 5.78 GiB
+[unfiltered/control] items 928/1076  45.93 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 5.78 GiB
+[unfiltered/control] items 936/1076  45.73 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 5.78 GiB
+[unfiltered/control] items 944/1076  45.62 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 5.78 GiB
+[unfiltered/control] items 952/1076  45.20 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 5.78 GiB
+[unfiltered/control] items 960/1076  44.76 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 5.78 GiB
+[unfiltered/control] items 968/1076  44.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 5.78 GiB
+[unfiltered/control] items 976/1076  43.99 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 5.78 GiB
+[unfiltered/control] items 984/1076  43.70 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 5.78 GiB
+[unfiltered/control] items 992/1076  43.38 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 5.78 GiB
+[unfiltered/control] items 1000/1076  43.06 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 5.78 GiB
+[unfiltered/control] items 1008/1076  42.59 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 5.78 GiB
+[unfiltered/control] items 1016/1076  42.13 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 5.78 GiB
+[unfiltered/control] items 1024/1076  41.75 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 5.78 GiB
+[unfiltered/control] wrote chunk_00896-01024.pt (384.0 MiB, cumulative 6.15 GiB)
+[unfiltered/control] items 1032/1076  41.41 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 6.15 GiB
+[unfiltered/control] items 1040/1076  41.26 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 6.15 GiB
+[unfiltered/control] items 1048/1076  41.01 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 6.15 GiB
+[unfiltered/control] items 1056/1076  40.66 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 6.15 GiB
+[unfiltered/control] items 1064/1076  40.41 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 6.15 GiB
+[unfiltered/control] items 1072/1076  40.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:47  cumulative written 6.15 GiB
+[unfiltered/control] items 1076/1076  40.18 items/s  est. remaining (all selected runs, excl. model loads) 0:01:47  cumulative written 6.15 GiB
+[unfiltered/control] wrote chunk_01024-01076.pt (156.0 MiB, cumulative 6.31 GiB)
+[unfiltered/control] set complete, meta.json written
+=== unfiltered done, model freed ===
+
+=== Loading EleutherAI/deep-ignorance-e2e-strong-filter ===
+snapshot: /workspace/hf/hub/models--EleutherAI--deep-ignorance-e2e-strong-filter/snapshots/b28797cd9b615104ba9d24e6900336253323e7cf
+revision: b28797cd9b615104ba9d24e6900336253323e7cf
+dtype: bfloat16
+Loading weights:   0%|          | 0/388 [00:00<?, ?it/s]Loading weights:   9%|▉         | 34/388 [00:00<00:01, 327.51it/s]Loading weights:  26%|██▌       | 100/388 [00:00<00:00, 384.06it/s]Loading weights:  38%|███▊      | 147/388 [00:00<00:00, 414.01it/s]Loading weights:  49%|████▊     | 189/388 [00:00<00:00, 355.05it/s]Loading weights:  58%|█████▊    | 226/388 [00:00<00:00, 311.30it/s]Loading weights:  74%|███████▍  | 287/388 [00:00<00:00, 368.08it/s]Loading weights:  89%|████████▉ | 347/388 [00:00<00:00, 429.74it/s]Loading weights: 100%|██████████| 388/388 [00:00<00:00, 396.08it/s]
+HF  num_hidden_layers=32  hidden_size=4096  vocab_size=50304
+Loaded pretrained model EleutherAI/pythia-6.9b into HookedTransformer
+TL  n_layers=32  d_model=4096  d_vocab=50304  (from_pretrained_no_processing: no folding or centering)
+
+=== Token position check, main set, first 3 items ===
+  item 0 cand 0 (43 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@42='ogenes'
+  item 0 cand 1 (53 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@52='i'
+  item 0 cand 2 (51 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@50='ens'
+  item 0 cand 3 (47 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@46='ata'
+  item 1 cand 0 (43 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@42=' conditions'
+  item 1 cand 1 (44 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@43=' sources'
+  item 1 cand 2 (43 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@42=' host'
+  item 1 cand 3 (47 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@46='be'
+  item 2 cand 0 (51 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@50=' cells'
+  item 2 cand 1 (53 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@52=' cell'
+  item 2 cand 2 (54 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@53=' evolution'
+  item 2 cand 3 (54 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@53=' replication'
+
+=== Per-position norm check, e2e-strong-filter / main (mean L2 over first batch; token position 0 shown separately, it carries much larger norms and is not among the cached positions) ===
+layer       pos0         q_end answer_marker      cand_end
+    0       46.5          33.0          33.3          42.4
+    1       79.5          42.1          39.2          55.1
+    2      195.7          43.1          40.2          63.2
+    3      244.1          44.3          39.9          66.6
+    4      326.6          43.8          41.0          69.8
+    5      451.5          47.7          43.7          71.8
+    6     4553.8          48.0          45.9          68.1
+    7     5331.7          50.2          44.7          69.3
+    8     5509.2          55.1          50.8          74.1
+    9     5597.8          59.8          53.4          82.1
+   10     5721.0          63.0          53.7          86.9
+   11     5800.1          72.2          57.1          93.3
+   12     5834.3          82.5          66.7         104.3
+   13     5868.8          93.1          71.5         113.7
+   14     5877.8          95.7          76.5         120.0
+   15     5885.8          98.1          81.2         128.1
+   16     5884.7         105.5          84.6         128.4
+   17     5892.7         111.2          92.9         132.8
+   18     5900.8         118.5          99.1         139.9
+   19     5899.6         123.2         105.1         144.0
+   20     5898.5         131.5         109.0         146.5
+   21     5897.3         137.6         121.8         148.2
+   22     5896.2         150.4         134.5         159.1
+   23     5895.0         163.0         150.6         165.9
+   24     5893.9         172.6         162.7         178.3
+   25     5893.0         189.0         191.4         200.7
+   26     5892.1         211.4         224.5         224.2
+   27     5891.1         236.4         259.9         258.2
+   28     5890.1         259.2         285.8         292.8
+   29     5845.1         267.0         300.9         312.3
+   30     5511.7         291.3         328.0         349.1
+   31      229.5         498.7         600.9         597.5
+[e2e-strong-filter/main] items 8/1076  40.21 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 16/1076  40.21 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 24/1076  40.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 32/1076  40.28 items/s  est. remaining (all selected runs, excl. model loads) 0:01:46  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 40/1076  40.32 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 48/1076  40.34 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 56/1076  40.37 items/s  est. remaining (all selected runs, excl. model loads) 0:01:45  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 64/1076  40.42 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 72/1076  40.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 80/1076  40.52 items/s  est. remaining (all selected runs, excl. model loads) 0:01:44  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 88/1076  40.56 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 96/1076  40.59 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 104/1076  40.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 112/1076  40.44 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 120/1076  40.39 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.31 GiB
+[e2e-strong-filter/main] items 128/1076  40.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.31 GiB
+[e2e-strong-filter/main] wrote chunk_00000-00128.pt (384.0 MiB, cumulative 6.68 GiB)
+[e2e-strong-filter/main] items 136/1076  40.46 items/s  est. remaining (all selected runs, excl. model loads) 0:01:43  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 144/1076  40.46 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 152/1076  40.50 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 160/1076  40.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:42  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 168/1076  40.58 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 176/1076  40.64 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 184/1076  40.70 items/s  est. remaining (all selected runs, excl. model loads) 0:01:41  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 192/1076  40.77 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 200/1076  40.83 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 208/1076  40.89 items/s  est. remaining (all selected runs, excl. model loads) 0:01:40  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 216/1076  40.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 224/1076  41.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 232/1076  41.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:39  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 240/1076  41.12 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 248/1076  41.15 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 6.68 GiB
+[e2e-strong-filter/main] items 256/1076  41.09 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 6.68 GiB
+[e2e-strong-filter/main] wrote chunk_00128-00256.pt (384.0 MiB, cumulative 7.06 GiB)
+[e2e-strong-filter/main] items 264/1076  41.09 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 272/1076  41.13 items/s  est. remaining (all selected runs, excl. model loads) 0:01:38  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 280/1076  41.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 288/1076  41.23 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 296/1076  41.28 items/s  est. remaining (all selected runs, excl. model loads) 0:01:37  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 304/1076  41.33 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 312/1076  41.39 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 320/1076  41.46 items/s  est. remaining (all selected runs, excl. model loads) 0:01:36  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 328/1076  41.51 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 336/1076  41.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 344/1076  41.63 items/s  est. remaining (all selected runs, excl. model loads) 0:01:35  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 352/1076  41.69 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 360/1076  41.71 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 368/1076  41.74 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 376/1076  41.77 items/s  est. remaining (all selected runs, excl. model loads) 0:01:34  cumulative written 7.06 GiB
+[e2e-strong-filter/main] items 384/1076  41.79 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 7.06 GiB
+[e2e-strong-filter/main] wrote chunk_00256-00384.pt (384.0 MiB, cumulative 7.43 GiB)
+[e2e-strong-filter/main] items 392/1076  41.83 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 400/1076  41.86 items/s  est. remaining (all selected runs, excl. model loads) 0:01:33  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 408/1076  41.92 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 416/1076  41.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 424/1076  41.97 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 432/1076  42.01 items/s  est. remaining (all selected runs, excl. model loads) 0:01:32  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 440/1076  42.06 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 448/1076  42.11 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 456/1076  42.14 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 464/1076  42.19 items/s  est. remaining (all selected runs, excl. model loads) 0:01:31  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 472/1076  42.23 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 480/1076  42.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 488/1076  42.31 items/s  est. remaining (all selected runs, excl. model loads) 0:01:30  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 496/1076  42.33 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 504/1076  42.36 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 7.43 GiB
+[e2e-strong-filter/main] items 512/1076  42.39 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 7.43 GiB
+[e2e-strong-filter/main] wrote chunk_00384-00512.pt (384.0 MiB, cumulative 7.81 GiB)
+[e2e-strong-filter/main] items 520/1076  42.43 items/s  est. remaining (all selected runs, excl. model loads) 0:01:29  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 528/1076  42.48 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 536/1076  42.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 544/1076  42.59 items/s  est. remaining (all selected runs, excl. model loads) 0:01:28  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 552/1076  42.64 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 560/1076  42.68 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 568/1076  42.72 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 576/1076  42.77 items/s  est. remaining (all selected runs, excl. model loads) 0:01:27  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 584/1076  42.81 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 592/1076  42.85 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 600/1076  42.90 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 608/1076  42.95 items/s  est. remaining (all selected runs, excl. model loads) 0:01:26  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 616/1076  43.00 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 624/1076  43.04 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 632/1076  43.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:25  cumulative written 7.81 GiB
+[e2e-strong-filter/main] items 640/1076  43.13 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 7.81 GiB
+[e2e-strong-filter/main] wrote chunk_00512-00640.pt (384.0 MiB, cumulative 8.18 GiB)
+[e2e-strong-filter/main] items 648/1076  43.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 656/1076  43.19 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 664/1076  43.22 items/s  est. remaining (all selected runs, excl. model loads) 0:01:24  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 672/1076  43.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 680/1076  43.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 688/1076  43.30 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 696/1076  43.34 items/s  est. remaining (all selected runs, excl. model loads) 0:01:23  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 704/1076  43.38 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 712/1076  43.41 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 720/1076  43.45 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 728/1076  43.49 items/s  est. remaining (all selected runs, excl. model loads) 0:01:22  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 736/1076  43.53 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 744/1076  43.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 752/1076  43.61 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 760/1076  43.66 items/s  est. remaining (all selected runs, excl. model loads) 0:01:21  cumulative written 8.18 GiB
+[e2e-strong-filter/main] items 768/1076  43.70 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 8.18 GiB
+[e2e-strong-filter/main] wrote chunk_00640-00768.pt (384.0 MiB, cumulative 8.56 GiB)
+[e2e-strong-filter/main] items 776/1076  43.70 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 784/1076  43.75 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 792/1076  43.78 items/s  est. remaining (all selected runs, excl. model loads) 0:01:20  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 800/1076  43.81 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 808/1076  43.85 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 816/1076  43.90 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 824/1076  43.94 items/s  est. remaining (all selected runs, excl. model loads) 0:01:19  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 832/1076  43.97 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 840/1076  44.01 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 848/1076  44.04 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 856/1076  44.07 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 864/1076  44.09 items/s  est. remaining (all selected runs, excl. model loads) 0:01:18  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 872/1076  44.10 items/s  est. remaining (all selected runs, excl. model loads) 0:01:17  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 880/1076  44.13 items/s  est. remaining (all selected runs, excl. model loads) 0:01:17  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 888/1076  44.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:17  cumulative written 8.56 GiB
+[e2e-strong-filter/main] items 896/1076  44.19 items/s  est. remaining (all selected runs, excl. model loads) 0:01:17  cumulative written 8.56 GiB
+[e2e-strong-filter/main] wrote chunk_00768-00896.pt (384.0 MiB, cumulative 8.93 GiB)
+[e2e-strong-filter/main] items 904/1076  44.22 items/s  est. remaining (all selected runs, excl. model loads) 0:01:16  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 912/1076  44.25 items/s  est. remaining (all selected runs, excl. model loads) 0:01:16  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 920/1076  44.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:16  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 928/1076  44.33 items/s  est. remaining (all selected runs, excl. model loads) 0:01:16  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 936/1076  44.36 items/s  est. remaining (all selected runs, excl. model loads) 0:01:15  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 944/1076  44.38 items/s  est. remaining (all selected runs, excl. model loads) 0:01:15  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 952/1076  44.39 items/s  est. remaining (all selected runs, excl. model loads) 0:01:15  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 960/1076  44.42 items/s  est. remaining (all selected runs, excl. model loads) 0:01:15  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 968/1076  44.45 items/s  est. remaining (all selected runs, excl. model loads) 0:01:15  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 976/1076  44.47 items/s  est. remaining (all selected runs, excl. model loads) 0:01:14  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 984/1076  44.50 items/s  est. remaining (all selected runs, excl. model loads) 0:01:14  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 992/1076  44.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:14  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 1000/1076  44.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:14  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 1008/1076  44.60 items/s  est. remaining (all selected runs, excl. model loads) 0:01:13  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 1016/1076  44.63 items/s  est. remaining (all selected runs, excl. model loads) 0:01:13  cumulative written 8.93 GiB
+[e2e-strong-filter/main] items 1024/1076  44.67 items/s  est. remaining (all selected runs, excl. model loads) 0:01:13  cumulative written 8.93 GiB
+[e2e-strong-filter/main] wrote chunk_00896-01024.pt (384.0 MiB, cumulative 9.31 GiB)
+[e2e-strong-filter/main] items 1032/1076  44.71 items/s  est. remaining (all selected runs, excl. model loads) 0:01:13  cumulative written 9.31 GiB
+[e2e-strong-filter/main] items 1040/1076  44.75 items/s  est. remaining (all selected runs, excl. model loads) 0:01:12  cumulative written 9.31 GiB
+[e2e-strong-filter/main] items 1048/1076  44.80 items/s  est. remaining (all selected runs, excl. model loads) 0:01:12  cumulative written 9.31 GiB
+[e2e-strong-filter/main] items 1056/1076  44.84 items/s  est. remaining (all selected runs, excl. model loads) 0:01:12  cumulative written 9.31 GiB
+[e2e-strong-filter/main] items 1064/1076  44.87 items/s  est. remaining (all selected runs, excl. model loads) 0:01:12  cumulative written 9.31 GiB
+[e2e-strong-filter/main] items 1072/1076  44.92 items/s  est. remaining (all selected runs, excl. model loads) 0:01:11  cumulative written 9.31 GiB
+[e2e-strong-filter/main] items 1076/1076  44.94 items/s  est. remaining (all selected runs, excl. model loads) 0:01:11  cumulative written 9.31 GiB
+[e2e-strong-filter/main] wrote chunk_01024-01076.pt (156.0 MiB, cumulative 9.46 GiB)
+[e2e-strong-filter/main] set complete, meta.json written
+
+=== Token position check, control set, first 3 items ===
+  item 0 cand 0 (41 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@40='ase'
+  item 0 cand 1 (40 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@39=' polymerase'
+  item 0 cand 2 (34 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@33=' only'
+  item 0 cand 3 (36 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@35=' only'
+  item 1 cand 0 (35 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@34='atin'
+  item 1 cand 1 (34 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@33='atin'
+  item 1 cand 2 (35 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@34='ron'
+  item 1 cand 3 (33 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@32='ogenes'
+  item 2 cand 0 (31 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@30='piration'
+  item 2 cand 1 (31 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@30='ynthesis'
+  item 2 cand 2 (32 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@31=' decomposition'
+  item 2 cand 3 (35 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@34=' fuels'
+
+=== Per-position norm check, e2e-strong-filter / control (mean L2 over first batch; token position 0 shown separately, it carries much larger norms and is not among the cached positions) ===
+layer       pos0         q_end answer_marker      cand_end
+    0       46.5          34.9          33.4          42.7
+    1       79.5          43.0          39.3          62.3
+    2      195.7          43.9          39.4          72.8
+    3      244.1          44.4          38.9          76.3
+    4      326.5          45.1          39.5          77.7
+    5      451.4          49.2          43.7          77.0
+    6     4553.1          52.6          46.8          64.4
+    7     5331.0          56.0          45.7          63.5
+    8     5508.5          59.5          50.6          67.7
+    9     5597.1          66.0          54.9          74.9
+   10     5720.3          69.1          55.6          79.1
+   11     5799.4          76.0          58.6          85.7
+   12     5833.6          85.2          67.4          94.8
+   13     5868.1          93.8          73.0         105.1
+   14     5877.1          97.3          79.2         114.2
+   15     5885.1         101.6          82.6         119.2
+   16     5884.0         107.4          85.4         121.6
+   17     5892.0         111.8          91.6         125.9
+   18     5900.1         117.0          97.7         132.1
+   19     5898.9         120.0         103.9         137.3
+   20     5897.8         126.4         107.6         142.2
+   21     5896.6         133.9         119.3         144.7
+   22     5895.5         143.9         132.8         157.1
+   23     5894.3         159.2         148.6         166.4
+   24     5893.2         170.0         163.7         179.2
+   25     5892.3         190.4         191.5         203.0
+   26     5891.4         213.5         223.3         226.5
+   27     5890.4         240.4         261.4         258.0
+   28     5889.4         264.5         293.3         291.9
+   29     5844.4         274.6         307.8         305.7
+   30     5510.9         302.1         338.1         338.1
+   31      236.2         521.7         641.1         542.1
+[e2e-strong-filter/control] items 8/1076  44.92 items/s  est. remaining (all selected runs, excl. model loads) 0:01:11  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 16/1076  44.94 items/s  est. remaining (all selected runs, excl. model loads) 0:01:11  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 24/1076  44.93 items/s  est. remaining (all selected runs, excl. model loads) 0:01:11  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 32/1076  44.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:11  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 40/1076  44.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:10  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 48/1076  44.96 items/s  est. remaining (all selected runs, excl. model loads) 0:01:10  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 56/1076  44.98 items/s  est. remaining (all selected runs, excl. model loads) 0:01:10  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 64/1076  45.00 items/s  est. remaining (all selected runs, excl. model loads) 0:01:10  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 72/1076  45.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:10  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 80/1076  45.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:09  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 88/1076  45.04 items/s  est. remaining (all selected runs, excl. model loads) 0:01:09  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 96/1076  45.07 items/s  est. remaining (all selected runs, excl. model loads) 0:01:09  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 104/1076  45.10 items/s  est. remaining (all selected runs, excl. model loads) 0:01:09  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 112/1076  45.08 items/s  est. remaining (all selected runs, excl. model loads) 0:01:09  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 120/1076  45.11 items/s  est. remaining (all selected runs, excl. model loads) 0:01:08  cumulative written 9.46 GiB
+[e2e-strong-filter/control] items 128/1076  45.15 items/s  est. remaining (all selected runs, excl. model loads) 0:01:08  cumulative written 9.46 GiB
+[e2e-strong-filter/control] wrote chunk_00000-00128.pt (384.0 MiB, cumulative 9.83 GiB)
+[e2e-strong-filter/control] items 136/1076  45.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:08  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 144/1076  45.17 items/s  est. remaining (all selected runs, excl. model loads) 0:01:08  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 152/1076  45.19 items/s  est. remaining (all selected runs, excl. model loads) 0:01:08  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 160/1076  45.21 items/s  est. remaining (all selected runs, excl. model loads) 0:01:07  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 168/1076  45.23 items/s  est. remaining (all selected runs, excl. model loads) 0:01:07  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 176/1076  45.23 items/s  est. remaining (all selected runs, excl. model loads) 0:01:07  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 184/1076  45.18 items/s  est. remaining (all selected runs, excl. model loads) 0:01:07  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 192/1076  45.22 items/s  est. remaining (all selected runs, excl. model loads) 0:01:07  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 200/1076  45.24 items/s  est. remaining (all selected runs, excl. model loads) 0:01:06  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 208/1076  45.26 items/s  est. remaining (all selected runs, excl. model loads) 0:01:06  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 216/1076  45.26 items/s  est. remaining (all selected runs, excl. model loads) 0:01:06  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 224/1076  45.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:06  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 232/1076  45.25 items/s  est. remaining (all selected runs, excl. model loads) 0:01:06  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 240/1076  45.28 items/s  est. remaining (all selected runs, excl. model loads) 0:01:05  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 248/1076  45.27 items/s  est. remaining (all selected runs, excl. model loads) 0:01:05  cumulative written 9.83 GiB
+[e2e-strong-filter/control] items 256/1076  45.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:05  cumulative written 9.83 GiB
+[e2e-strong-filter/control] wrote chunk_00128-00256.pt (384.0 MiB, cumulative 10.21 GiB)
+[e2e-strong-filter/control] items 264/1076  45.29 items/s  est. remaining (all selected runs, excl. model loads) 0:01:05  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 272/1076  45.31 items/s  est. remaining (all selected runs, excl. model loads) 0:01:05  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 280/1076  45.33 items/s  est. remaining (all selected runs, excl. model loads) 0:01:05  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 288/1076  45.32 items/s  est. remaining (all selected runs, excl. model loads) 0:01:04  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 296/1076  45.36 items/s  est. remaining (all selected runs, excl. model loads) 0:01:04  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 304/1076  45.37 items/s  est. remaining (all selected runs, excl. model loads) 0:01:04  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 312/1076  45.38 items/s  est. remaining (all selected runs, excl. model loads) 0:01:04  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 320/1076  45.42 items/s  est. remaining (all selected runs, excl. model loads) 0:01:04  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 328/1076  45.46 items/s  est. remaining (all selected runs, excl. model loads) 0:01:03  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 336/1076  45.50 items/s  est. remaining (all selected runs, excl. model loads) 0:01:03  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 344/1076  45.54 items/s  est. remaining (all selected runs, excl. model loads) 0:01:03  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 352/1076  45.52 items/s  est. remaining (all selected runs, excl. model loads) 0:01:03  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 360/1076  45.57 items/s  est. remaining (all selected runs, excl. model loads) 0:01:02  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 368/1076  45.59 items/s  est. remaining (all selected runs, excl. model loads) 0:01:02  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 376/1076  45.63 items/s  est. remaining (all selected runs, excl. model loads) 0:01:02  cumulative written 10.21 GiB
+[e2e-strong-filter/control] items 384/1076  45.68 items/s  est. remaining (all selected runs, excl. model loads) 0:01:02  cumulative written 10.21 GiB
+[e2e-strong-filter/control] wrote chunk_00256-00384.pt (384.0 MiB, cumulative 10.58 GiB)
+[e2e-strong-filter/control] items 392/1076  45.73 items/s  est. remaining (all selected runs, excl. model loads) 0:01:02  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 400/1076  45.71 items/s  est. remaining (all selected runs, excl. model loads) 0:01:01  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 408/1076  45.76 items/s  est. remaining (all selected runs, excl. model loads) 0:01:01  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 416/1076  45.80 items/s  est. remaining (all selected runs, excl. model loads) 0:01:01  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 424/1076  45.84 items/s  est. remaining (all selected runs, excl. model loads) 0:01:01  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 432/1076  45.88 items/s  est. remaining (all selected runs, excl. model loads) 0:01:00  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 440/1076  45.93 items/s  est. remaining (all selected runs, excl. model loads) 0:01:00  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 448/1076  45.97 items/s  est. remaining (all selected runs, excl. model loads) 0:01:00  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 456/1076  46.02 items/s  est. remaining (all selected runs, excl. model loads) 0:01:00  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 464/1076  46.05 items/s  est. remaining (all selected runs, excl. model loads) 0:01:00  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 472/1076  46.07 items/s  est. remaining (all selected runs, excl. model loads) 0:00:59  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 480/1076  46.11 items/s  est. remaining (all selected runs, excl. model loads) 0:00:59  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 488/1076  46.15 items/s  est. remaining (all selected runs, excl. model loads) 0:00:59  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 496/1076  46.18 items/s  est. remaining (all selected runs, excl. model loads) 0:00:59  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 504/1076  46.23 items/s  est. remaining (all selected runs, excl. model loads) 0:00:58  cumulative written 10.58 GiB
+[e2e-strong-filter/control] items 512/1076  46.28 items/s  est. remaining (all selected runs, excl. model loads) 0:00:58  cumulative written 10.58 GiB
+[e2e-strong-filter/control] wrote chunk_00384-00512.pt (384.0 MiB, cumulative 10.96 GiB)
+[e2e-strong-filter/control] items 520/1076  46.30 items/s  est. remaining (all selected runs, excl. model loads) 0:00:58  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 528/1076  46.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:58  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 536/1076  46.39 items/s  est. remaining (all selected runs, excl. model loads) 0:00:58  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 544/1076  46.42 items/s  est. remaining (all selected runs, excl. model loads) 0:00:57  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 552/1076  46.46 items/s  est. remaining (all selected runs, excl. model loads) 0:00:57  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 560/1076  46.51 items/s  est. remaining (all selected runs, excl. model loads) 0:00:57  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 568/1076  46.55 items/s  est. remaining (all selected runs, excl. model loads) 0:00:57  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 576/1076  46.58 items/s  est. remaining (all selected runs, excl. model loads) 0:00:56  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 584/1076  46.63 items/s  est. remaining (all selected runs, excl. model loads) 0:00:56  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 592/1076  46.66 items/s  est. remaining (all selected runs, excl. model loads) 0:00:56  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 600/1076  46.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:56  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 608/1076  46.75 items/s  est. remaining (all selected runs, excl. model loads) 0:00:56  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 616/1076  46.80 items/s  est. remaining (all selected runs, excl. model loads) 0:00:55  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 624/1076  46.83 items/s  est. remaining (all selected runs, excl. model loads) 0:00:55  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 632/1076  46.86 items/s  est. remaining (all selected runs, excl. model loads) 0:00:55  cumulative written 10.96 GiB
+[e2e-strong-filter/control] items 640/1076  46.89 items/s  est. remaining (all selected runs, excl. model loads) 0:00:55  cumulative written 10.96 GiB
+[e2e-strong-filter/control] wrote chunk_00512-00640.pt (384.0 MiB, cumulative 11.33 GiB)
+[e2e-strong-filter/control] items 648/1076  46.93 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 656/1076  46.97 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 664/1076  47.01 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 672/1076  47.05 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 680/1076  47.08 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 688/1076  47.11 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 696/1076  47.15 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 704/1076  47.19 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 712/1076  47.21 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 720/1076  47.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 728/1076  47.27 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 736/1076  47.31 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 744/1076  47.35 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 752/1076  47.39 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 760/1076  47.44 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.33 GiB
+[e2e-strong-filter/control] items 768/1076  46.26 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.33 GiB
+[e2e-strong-filter/control] wrote chunk_00640-00768.pt (384.0 MiB, cumulative 11.71 GiB)
+[e2e-strong-filter/control] items 776/1076  46.25 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 784/1076  46.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 792/1076  46.22 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 800/1076  45.12 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 808/1076  45.13 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 816/1076  45.11 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 824/1076  45.02 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 832/1076  43.99 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 840/1076  44.01 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 848/1076  44.00 items/s  est. remaining (all selected runs, excl. model loads) 0:00:54  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 856/1076  44.02 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 864/1076  44.01 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 872/1076  44.00 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 880/1076  44.00 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 888/1076  43.86 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] items 896/1076  43.56 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 11.71 GiB
+[e2e-strong-filter/control] wrote chunk_00768-00896.pt (384.0 MiB, cumulative 12.08 GiB)
+[e2e-strong-filter/control] items 904/1076  43.48 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 912/1076  43.25 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 920/1076  43.15 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 928/1076  42.94 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 936/1076  42.86 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 944/1076  42.82 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 952/1076  42.64 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 960/1076  42.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 968/1076  42.31 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 976/1076  42.11 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 984/1076  41.99 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 992/1076  41.85 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 1000/1076  41.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 1008/1076  41.49 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 1016/1076  41.27 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] items 1024/1076  41.09 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.08 GiB
+[e2e-strong-filter/control] wrote chunk_00896-01024.pt (384.0 MiB, cumulative 12.46 GiB)
+[e2e-strong-filter/control] items 1032/1076  40.93 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] items 1040/1076  40.86 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] items 1048/1076  40.74 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] items 1056/1076  40.57 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] items 1064/1076  40.44 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] items 1072/1076  40.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] items 1076/1076  40.33 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.46 GiB
+[e2e-strong-filter/control] wrote chunk_01024-01076.pt (156.0 MiB, cumulative 12.61 GiB)
+[e2e-strong-filter/control] set complete, meta.json written
+=== e2e-strong-filter done, model freed ===
+
+=== Loading kelim/deep-ignorance-unlearned-cb ===
+snapshot: /workspace/hf/hub/models--kelim--deep-ignorance-unlearned-cb/snapshots/c57ec0598950048a86b0126deceeceaa2f216f35
+revision: c57ec0598950048a86b0126deceeceaa2f216f35
+dtype: bfloat16
+Loading weights:   0%|          | 0/388 [00:00<?, ?it/s]Loading weights:  10%|█         | 39/388 [00:00<00:00, 352.83it/s]Loading weights:  19%|█▉        | 75/388 [00:00<00:00, 335.02it/s]Loading weights:  38%|███▊      | 148/388 [00:00<00:00, 470.24it/s]Loading weights:  57%|█████▋    | 223/388 [00:00<00:00, 566.62it/s]Loading weights:  72%|███████▏  | 281/388 [00:00<00:00, 547.90it/s]Loading weights: 100%|██████████| 388/388 [00:00<00:00, 697.55it/s]
+HF  num_hidden_layers=32  hidden_size=4096  vocab_size=50304
+Loaded pretrained model EleutherAI/pythia-6.9b into HookedTransformer
+TL  n_layers=32  d_model=4096  d_vocab=50304  (from_pretrained_no_processing: no folding or centering)
+
+=== Token position check, main set, first 3 items ===
+  item 0 cand 0 (43 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@42='ogenes'
+  item 0 cand 1 (53 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@52='i'
+  item 0 cand 2 (51 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@50='ens'
+  item 0 cand 3 (47 tokens): q_end@31='?'  answer_marker@34=':'  cand_end@46='ata'
+  item 1 cand 0 (43 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@42=' conditions'
+  item 1 cand 1 (44 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@43=' sources'
+  item 1 cand 2 (43 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@42=' host'
+  item 1 cand 3 (47 tokens): q_end@33='?'  answer_marker@36=':'  cand_end@46='be'
+  item 2 cand 0 (51 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@50=' cells'
+  item 2 cand 1 (53 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@52=' cell'
+  item 2 cand 2 (54 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@53=' evolution'
+  item 2 cand 3 (54 tokens): q_end@35='?'  answer_marker@38=':'  cand_end@53=' replication'
+
+=== Per-position norm check, unlearned-cb / main (mean L2 over first batch; token position 0 shown separately, it carries much larger norms and is not among the cached positions) ===
+layer       pos0         q_end answer_marker      cand_end
+    0       48.8          35.2          34.1          39.2
+    1       64.4          43.2          40.0          50.5
+    2      154.7          42.9          40.0          55.2
+    3      189.9          41.3          38.5          58.0
+    4      410.5          39.9          38.2          60.5
+    5      942.5          41.3          40.5          63.7
+    6     2548.2          47.4          45.3          68.4
+    7     3473.0          52.0          47.0          72.2
+    8     3787.2          56.0          51.6          78.2
+    9     3974.8          58.7          55.2          82.2
+   10     4190.3          64.5          54.2          86.7
+   11     4253.9          69.5          54.8          93.7
+   12     4295.6          76.6          59.0         101.9
+   13     4323.3          83.7          66.5         109.7
+   14     4345.7          87.6          74.1         118.2
+   15     4368.3          98.3          82.9         128.5
+   16     4387.8         105.0          89.3         132.0
+   17     4393.2         110.7          97.4         138.6
+   18     4393.4         117.4         105.8         149.3
+   19     4393.4         129.1         114.6         155.3
+   20     4393.3         135.4         119.1         163.6
+   21     4393.6         139.6         122.9         167.4
+   22     4393.7         149.9         135.9         175.8
+   23     4393.6         164.2         149.5         184.0
+   24     4393.5         176.1         166.9         198.2
+   25     4396.7         198.3         195.7         227.8
+   26     4400.0         229.9         238.4         250.4
+   27     4383.0         251.7         272.3         274.0
+   28     4333.0         286.3         325.4         319.1
+   29     4300.4         302.1         350.1         349.8
+   30     4219.8         340.6         396.9         401.6
+   31      220.9         544.9         726.7         694.7
+[unlearned-cb/main] items 8/1076  40.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:53  cumulative written 12.61 GiB
+[unlearned-cb/main] items 16/1076  40.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 12.61 GiB
+[unlearned-cb/main] items 24/1076  40.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 12.61 GiB
+[unlearned-cb/main] items 32/1076  40.37 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 12.61 GiB
+[unlearned-cb/main] items 40/1076  40.40 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 12.61 GiB
+[unlearned-cb/main] items 48/1076  40.40 items/s  est. remaining (all selected runs, excl. model loads) 0:00:52  cumulative written 12.61 GiB
+[unlearned-cb/main] items 56/1076  40.42 items/s  est. remaining (all selected runs, excl. model loads) 0:00:51  cumulative written 12.61 GiB
+[unlearned-cb/main] items 64/1076  40.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:51  cumulative written 12.61 GiB
+[unlearned-cb/main] items 72/1076  40.46 items/s  est. remaining (all selected runs, excl. model loads) 0:00:51  cumulative written 12.61 GiB
+[unlearned-cb/main] items 80/1076  40.50 items/s  est. remaining (all selected runs, excl. model loads) 0:00:51  cumulative written 12.61 GiB
+[unlearned-cb/main] items 88/1076  40.52 items/s  est. remaining (all selected runs, excl. model loads) 0:00:50  cumulative written 12.61 GiB
+[unlearned-cb/main] items 96/1076  40.54 items/s  est. remaining (all selected runs, excl. model loads) 0:00:50  cumulative written 12.61 GiB
+[unlearned-cb/main] items 104/1076  40.46 items/s  est. remaining (all selected runs, excl. model loads) 0:00:50  cumulative written 12.61 GiB
+[unlearned-cb/main] items 112/1076  40.46 items/s  est. remaining (all selected runs, excl. model loads) 0:00:50  cumulative written 12.61 GiB
+[unlearned-cb/main] items 120/1076  40.43 items/s  est. remaining (all selected runs, excl. model loads) 0:00:50  cumulative written 12.61 GiB
+[unlearned-cb/main] items 128/1076  40.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:50  cumulative written 12.61 GiB
+[unlearned-cb/main] wrote chunk_00000-00128.pt (384.0 MiB, cumulative 12.99 GiB)
+[unlearned-cb/main] items 136/1076  40.47 items/s  est. remaining (all selected runs, excl. model loads) 0:00:49  cumulative written 12.99 GiB
+[unlearned-cb/main] items 144/1076  40.47 items/s  est. remaining (all selected runs, excl. model loads) 0:00:49  cumulative written 12.99 GiB
+[unlearned-cb/main] items 152/1076  40.49 items/s  est. remaining (all selected runs, excl. model loads) 0:00:49  cumulative written 12.99 GiB
+[unlearned-cb/main] items 160/1076  40.51 items/s  est. remaining (all selected runs, excl. model loads) 0:00:49  cumulative written 12.99 GiB
+[unlearned-cb/main] items 168/1076  40.53 items/s  est. remaining (all selected runs, excl. model loads) 0:00:48  cumulative written 12.99 GiB
+[unlearned-cb/main] items 176/1076  40.56 items/s  est. remaining (all selected runs, excl. model loads) 0:00:48  cumulative written 12.99 GiB
+[unlearned-cb/main] items 184/1076  40.59 items/s  est. remaining (all selected runs, excl. model loads) 0:00:48  cumulative written 12.99 GiB
+[unlearned-cb/main] items 192/1076  40.63 items/s  est. remaining (all selected runs, excl. model loads) 0:00:48  cumulative written 12.99 GiB
+[unlearned-cb/main] items 200/1076  40.66 items/s  est. remaining (all selected runs, excl. model loads) 0:00:48  cumulative written 12.99 GiB
+[unlearned-cb/main] items 208/1076  40.69 items/s  est. remaining (all selected runs, excl. model loads) 0:00:47  cumulative written 12.99 GiB
+[unlearned-cb/main] items 216/1076  40.73 items/s  est. remaining (all selected runs, excl. model loads) 0:00:47  cumulative written 12.99 GiB
+[unlearned-cb/main] items 224/1076  40.76 items/s  est. remaining (all selected runs, excl. model loads) 0:00:47  cumulative written 12.99 GiB
+[unlearned-cb/main] items 232/1076  40.79 items/s  est. remaining (all selected runs, excl. model loads) 0:00:47  cumulative written 12.99 GiB
+[unlearned-cb/main] items 240/1076  40.81 items/s  est. remaining (all selected runs, excl. model loads) 0:00:46  cumulative written 12.99 GiB
+[unlearned-cb/main] items 248/1076  40.83 items/s  est. remaining (all selected runs, excl. model loads) 0:00:46  cumulative written 12.99 GiB
+[unlearned-cb/main] items 256/1076  40.80 items/s  est. remaining (all selected runs, excl. model loads) 0:00:46  cumulative written 12.99 GiB
+[unlearned-cb/main] wrote chunk_00128-00256.pt (384.0 MiB, cumulative 13.36 GiB)
+[unlearned-cb/main] items 264/1076  40.80 items/s  est. remaining (all selected runs, excl. model loads) 0:00:46  cumulative written 13.36 GiB
+[unlearned-cb/main] items 272/1076  40.82 items/s  est. remaining (all selected runs, excl. model loads) 0:00:46  cumulative written 13.36 GiB
+[unlearned-cb/main] items 280/1076  40.84 items/s  est. remaining (all selected runs, excl. model loads) 0:00:45  cumulative written 13.36 GiB
+[unlearned-cb/main] items 288/1076  40.87 items/s  est. remaining (all selected runs, excl. model loads) 0:00:45  cumulative written 13.36 GiB
+[unlearned-cb/main] items 296/1076  40.90 items/s  est. remaining (all selected runs, excl. model loads) 0:00:45  cumulative written 13.36 GiB
+[unlearned-cb/main] items 304/1076  40.92 items/s  est. remaining (all selected runs, excl. model loads) 0:00:45  cumulative written 13.36 GiB
+[unlearned-cb/main] items 312/1076  40.96 items/s  est. remaining (all selected runs, excl. model loads) 0:00:44  cumulative written 13.36 GiB
+[unlearned-cb/main] items 320/1076  40.99 items/s  est. remaining (all selected runs, excl. model loads) 0:00:44  cumulative written 13.36 GiB
+[unlearned-cb/main] items 328/1076  41.02 items/s  est. remaining (all selected runs, excl. model loads) 0:00:44  cumulative written 13.36 GiB
+[unlearned-cb/main] items 336/1076  41.05 items/s  est. remaining (all selected runs, excl. model loads) 0:00:44  cumulative written 13.36 GiB
+[unlearned-cb/main] items 344/1076  41.08 items/s  est. remaining (all selected runs, excl. model loads) 0:00:44  cumulative written 13.36 GiB
+[unlearned-cb/main] items 352/1076  41.12 items/s  est. remaining (all selected runs, excl. model loads) 0:00:43  cumulative written 13.36 GiB
+[unlearned-cb/main] items 360/1076  41.13 items/s  est. remaining (all selected runs, excl. model loads) 0:00:43  cumulative written 13.36 GiB
+[unlearned-cb/main] items 368/1076  41.14 items/s  est. remaining (all selected runs, excl. model loads) 0:00:43  cumulative written 13.36 GiB
+[unlearned-cb/main] items 376/1076  41.16 items/s  est. remaining (all selected runs, excl. model loads) 0:00:43  cumulative written 13.36 GiB
+[unlearned-cb/main] items 384/1076  41.17 items/s  est. remaining (all selected runs, excl. model loads) 0:00:42  cumulative written 13.36 GiB
+[unlearned-cb/main] wrote chunk_00256-00384.pt (384.0 MiB, cumulative 13.74 GiB)
+[unlearned-cb/main] items 392/1076  41.19 items/s  est. remaining (all selected runs, excl. model loads) 0:00:42  cumulative written 13.74 GiB
+[unlearned-cb/main] items 400/1076  41.21 items/s  est. remaining (all selected runs, excl. model loads) 0:00:42  cumulative written 13.74 GiB
+[unlearned-cb/main] items 408/1076  41.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:42  cumulative written 13.74 GiB
+[unlearned-cb/main] items 416/1076  41.26 items/s  est. remaining (all selected runs, excl. model loads) 0:00:42  cumulative written 13.74 GiB
+[unlearned-cb/main] items 424/1076  41.27 items/s  est. remaining (all selected runs, excl. model loads) 0:00:41  cumulative written 13.74 GiB
+[unlearned-cb/main] items 432/1076  41.29 items/s  est. remaining (all selected runs, excl. model loads) 0:00:41  cumulative written 13.74 GiB
+[unlearned-cb/main] items 440/1076  41.32 items/s  est. remaining (all selected runs, excl. model loads) 0:00:41  cumulative written 13.74 GiB
+[unlearned-cb/main] items 448/1076  41.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:41  cumulative written 13.74 GiB
+[unlearned-cb/main] items 456/1076  41.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:41  cumulative written 13.74 GiB
+[unlearned-cb/main] items 464/1076  41.39 items/s  est. remaining (all selected runs, excl. model loads) 0:00:40  cumulative written 13.74 GiB
+[unlearned-cb/main] items 472/1076  41.41 items/s  est. remaining (all selected runs, excl. model loads) 0:00:40  cumulative written 13.74 GiB
+[unlearned-cb/main] items 480/1076  41.43 items/s  est. remaining (all selected runs, excl. model loads) 0:00:40  cumulative written 13.74 GiB
+[unlearned-cb/main] items 488/1076  41.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:40  cumulative written 13.74 GiB
+[unlearned-cb/main] items 496/1076  41.47 items/s  est. remaining (all selected runs, excl. model loads) 0:00:39  cumulative written 13.74 GiB
+[unlearned-cb/main] items 504/1076  41.49 items/s  est. remaining (all selected runs, excl. model loads) 0:00:39  cumulative written 13.74 GiB
+[unlearned-cb/main] items 512/1076  41.50 items/s  est. remaining (all selected runs, excl. model loads) 0:00:39  cumulative written 13.74 GiB
+[unlearned-cb/main] wrote chunk_00384-00512.pt (384.0 MiB, cumulative 14.11 GiB)
+[unlearned-cb/main] items 520/1076  41.52 items/s  est. remaining (all selected runs, excl. model loads) 0:00:39  cumulative written 14.11 GiB
+[unlearned-cb/main] items 528/1076  41.55 items/s  est. remaining (all selected runs, excl. model loads) 0:00:39  cumulative written 14.11 GiB
+[unlearned-cb/main] items 536/1076  41.59 items/s  est. remaining (all selected runs, excl. model loads) 0:00:38  cumulative written 14.11 GiB
+[unlearned-cb/main] items 544/1076  41.61 items/s  est. remaining (all selected runs, excl. model loads) 0:00:38  cumulative written 14.11 GiB
+[unlearned-cb/main] items 552/1076  41.64 items/s  est. remaining (all selected runs, excl. model loads) 0:00:38  cumulative written 14.11 GiB
+[unlearned-cb/main] items 560/1076  41.67 items/s  est. remaining (all selected runs, excl. model loads) 0:00:38  cumulative written 14.11 GiB
+[unlearned-cb/main] items 568/1076  41.69 items/s  est. remaining (all selected runs, excl. model loads) 0:00:37  cumulative written 14.11 GiB
+[unlearned-cb/main] items 576/1076  41.72 items/s  est. remaining (all selected runs, excl. model loads) 0:00:37  cumulative written 14.11 GiB
+[unlearned-cb/main] items 584/1076  41.74 items/s  est. remaining (all selected runs, excl. model loads) 0:00:37  cumulative written 14.11 GiB
+[unlearned-cb/main] items 592/1076  41.77 items/s  est. remaining (all selected runs, excl. model loads) 0:00:37  cumulative written 14.11 GiB
+[unlearned-cb/main] items 600/1076  41.79 items/s  est. remaining (all selected runs, excl. model loads) 0:00:37  cumulative written 14.11 GiB
+[unlearned-cb/main] items 608/1076  41.82 items/s  est. remaining (all selected runs, excl. model loads) 0:00:36  cumulative written 14.11 GiB
+[unlearned-cb/main] items 616/1076  41.85 items/s  est. remaining (all selected runs, excl. model loads) 0:00:36  cumulative written 14.11 GiB
+[unlearned-cb/main] items 624/1076  41.87 items/s  est. remaining (all selected runs, excl. model loads) 0:00:36  cumulative written 14.11 GiB
+[unlearned-cb/main] items 632/1076  41.90 items/s  est. remaining (all selected runs, excl. model loads) 0:00:36  cumulative written 14.11 GiB
+[unlearned-cb/main] items 640/1076  41.92 items/s  est. remaining (all selected runs, excl. model loads) 0:00:36  cumulative written 14.11 GiB
+[unlearned-cb/main] wrote chunk_00512-00640.pt (384.0 MiB, cumulative 14.49 GiB)
+[unlearned-cb/main] items 648/1076  41.94 items/s  est. remaining (all selected runs, excl. model loads) 0:00:35  cumulative written 14.49 GiB
+[unlearned-cb/main] items 656/1076  41.96 items/s  est. remaining (all selected runs, excl. model loads) 0:00:35  cumulative written 14.49 GiB
+[unlearned-cb/main] items 664/1076  41.98 items/s  est. remaining (all selected runs, excl. model loads) 0:00:35  cumulative written 14.49 GiB
+[unlearned-cb/main] items 672/1076  41.99 items/s  est. remaining (all selected runs, excl. model loads) 0:00:35  cumulative written 14.49 GiB
+[unlearned-cb/main] items 680/1076  42.01 items/s  est. remaining (all selected runs, excl. model loads) 0:00:35  cumulative written 14.49 GiB
+[unlearned-cb/main] items 688/1076  42.03 items/s  est. remaining (all selected runs, excl. model loads) 0:00:34  cumulative written 14.49 GiB
+[unlearned-cb/main] items 696/1076  42.05 items/s  est. remaining (all selected runs, excl. model loads) 0:00:34  cumulative written 14.49 GiB
+[unlearned-cb/main] items 704/1076  42.07 items/s  est. remaining (all selected runs, excl. model loads) 0:00:34  cumulative written 14.49 GiB
+[unlearned-cb/main] items 712/1076  42.09 items/s  est. remaining (all selected runs, excl. model loads) 0:00:34  cumulative written 14.49 GiB
+[unlearned-cb/main] items 720/1076  42.11 items/s  est. remaining (all selected runs, excl. model loads) 0:00:34  cumulative written 14.49 GiB
+[unlearned-cb/main] items 728/1076  42.14 items/s  est. remaining (all selected runs, excl. model loads) 0:00:33  cumulative written 14.49 GiB
+[unlearned-cb/main] items 736/1076  42.16 items/s  est. remaining (all selected runs, excl. model loads) 0:00:33  cumulative written 14.49 GiB
+[unlearned-cb/main] items 744/1076  42.19 items/s  est. remaining (all selected runs, excl. model loads) 0:00:33  cumulative written 14.49 GiB
+[unlearned-cb/main] items 752/1076  42.21 items/s  est. remaining (all selected runs, excl. model loads) 0:00:33  cumulative written 14.49 GiB
+[unlearned-cb/main] items 760/1076  42.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:32  cumulative written 14.49 GiB
+[unlearned-cb/main] items 768/1076  42.26 items/s  est. remaining (all selected runs, excl. model loads) 0:00:32  cumulative written 14.49 GiB
+[unlearned-cb/main] wrote chunk_00640-00768.pt (384.0 MiB, cumulative 14.86 GiB)
+[unlearned-cb/main] items 776/1076  42.27 items/s  est. remaining (all selected runs, excl. model loads) 0:00:32  cumulative written 14.86 GiB
+[unlearned-cb/main] items 784/1076  42.29 items/s  est. remaining (all selected runs, excl. model loads) 0:00:32  cumulative written 14.86 GiB
+[unlearned-cb/main] items 792/1076  42.31 items/s  est. remaining (all selected runs, excl. model loads) 0:00:32  cumulative written 14.86 GiB
+[unlearned-cb/main] items 800/1076  42.33 items/s  est. remaining (all selected runs, excl. model loads) 0:00:31  cumulative written 14.86 GiB
+[unlearned-cb/main] items 808/1076  42.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:31  cumulative written 14.86 GiB
+[unlearned-cb/main] items 816/1076  42.38 items/s  est. remaining (all selected runs, excl. model loads) 0:00:31  cumulative written 14.86 GiB
+[unlearned-cb/main] items 824/1076  42.41 items/s  est. remaining (all selected runs, excl. model loads) 0:00:31  cumulative written 14.86 GiB
+[unlearned-cb/main] items 832/1076  42.42 items/s  est. remaining (all selected runs, excl. model loads) 0:00:31  cumulative written 14.86 GiB
+[unlearned-cb/main] items 840/1076  42.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:30  cumulative written 14.86 GiB
+[unlearned-cb/main] items 848/1076  42.47 items/s  est. remaining (all selected runs, excl. model loads) 0:00:30  cumulative written 14.86 GiB
+[unlearned-cb/main] items 856/1076  42.48 items/s  est. remaining (all selected runs, excl. model loads) 0:00:30  cumulative written 14.86 GiB
+[unlearned-cb/main] items 864/1076  42.50 items/s  est. remaining (all selected runs, excl. model loads) 0:00:30  cumulative written 14.86 GiB
+[unlearned-cb/main] items 872/1076  42.51 items/s  est. remaining (all selected runs, excl. model loads) 0:00:30  cumulative written 14.86 GiB
+[unlearned-cb/main] items 880/1076  42.53 items/s  est. remaining (all selected runs, excl. model loads) 0:00:29  cumulative written 14.86 GiB
+[unlearned-cb/main] items 888/1076  42.55 items/s  est. remaining (all selected runs, excl. model loads) 0:00:29  cumulative written 14.86 GiB
+[unlearned-cb/main] items 896/1076  42.56 items/s  est. remaining (all selected runs, excl. model loads) 0:00:29  cumulative written 14.86 GiB
+[unlearned-cb/main] wrote chunk_00768-00896.pt (384.0 MiB, cumulative 15.24 GiB)
+[unlearned-cb/main] items 904/1076  42.58 items/s  est. remaining (all selected runs, excl. model loads) 0:00:29  cumulative written 15.24 GiB
+[unlearned-cb/main] items 912/1076  42.60 items/s  est. remaining (all selected runs, excl. model loads) 0:00:29  cumulative written 15.24 GiB
+[unlearned-cb/main] items 920/1076  42.63 items/s  est. remaining (all selected runs, excl. model loads) 0:00:28  cumulative written 15.24 GiB
+[unlearned-cb/main] items 928/1076  42.65 items/s  est. remaining (all selected runs, excl. model loads) 0:00:28  cumulative written 15.24 GiB
+[unlearned-cb/main] items 936/1076  42.67 items/s  est. remaining (all selected runs, excl. model loads) 0:00:28  cumulative written 15.24 GiB
+[unlearned-cb/main] items 944/1076  42.68 items/s  est. remaining (all selected runs, excl. model loads) 0:00:28  cumulative written 15.24 GiB
+[unlearned-cb/main] items 952/1076  42.69 items/s  est. remaining (all selected runs, excl. model loads) 0:00:28  cumulative written 15.24 GiB
+[unlearned-cb/main] items 960/1076  42.71 items/s  est. remaining (all selected runs, excl. model loads) 0:00:27  cumulative written 15.24 GiB
+[unlearned-cb/main] items 968/1076  42.72 items/s  est. remaining (all selected runs, excl. model loads) 0:00:27  cumulative written 15.24 GiB
+[unlearned-cb/main] items 976/1076  42.74 items/s  est. remaining (all selected runs, excl. model loads) 0:00:27  cumulative written 15.24 GiB
+[unlearned-cb/main] items 984/1076  42.76 items/s  est. remaining (all selected runs, excl. model loads) 0:00:27  cumulative written 15.24 GiB
+[unlearned-cb/main] items 992/1076  42.78 items/s  est. remaining (all selected runs, excl. model loads) 0:00:27  cumulative written 15.24 GiB
+[unlearned-cb/main] items 1000/1076  42.80 items/s  est. remaining (all selected runs, excl. model loads) 0:00:26  cumulative written 15.24 GiB
+[unlearned-cb/main] items 1008/1076  42.82 items/s  est. remaining (all selected runs, excl. model loads) 0:00:26  cumulative written 15.24 GiB
+[unlearned-cb/main] items 1016/1076  42.84 items/s  est. remaining (all selected runs, excl. model loads) 0:00:26  cumulative written 15.24 GiB
+[unlearned-cb/main] items 1024/1076  42.87 items/s  est. remaining (all selected runs, excl. model loads) 0:00:26  cumulative written 15.24 GiB
+[unlearned-cb/main] wrote chunk_00896-01024.pt (384.0 MiB, cumulative 15.61 GiB)
+[unlearned-cb/main] items 1032/1076  42.89 items/s  est. remaining (all selected runs, excl. model loads) 0:00:26  cumulative written 15.61 GiB
+[unlearned-cb/main] items 1040/1076  42.91 items/s  est. remaining (all selected runs, excl. model loads) 0:00:25  cumulative written 15.61 GiB
+[unlearned-cb/main] items 1048/1076  42.94 items/s  est. remaining (all selected runs, excl. model loads) 0:00:25  cumulative written 15.61 GiB
+[unlearned-cb/main] items 1056/1076  42.97 items/s  est. remaining (all selected runs, excl. model loads) 0:00:25  cumulative written 15.61 GiB
+[unlearned-cb/main] items 1064/1076  42.99 items/s  est. remaining (all selected runs, excl. model loads) 0:00:25  cumulative written 15.61 GiB
+[unlearned-cb/main] items 1072/1076  43.02 items/s  est. remaining (all selected runs, excl. model loads) 0:00:25  cumulative written 15.61 GiB
+[unlearned-cb/main] items 1076/1076  43.03 items/s  est. remaining (all selected runs, excl. model loads) 0:00:25  cumulative written 15.61 GiB
+[unlearned-cb/main] wrote chunk_01024-01076.pt (156.0 MiB, cumulative 15.76 GiB)
+[unlearned-cb/main] set complete, meta.json written
+
+=== Token position check, control set, first 3 items ===
+  item 0 cand 0 (41 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@40='ase'
+  item 0 cand 1 (40 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@39=' polymerase'
+  item 0 cand 2 (34 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@33=' only'
+  item 0 cand 3 (36 tokens): q_end@28=' requires'  answer_marker@31=':'  cand_end@35=' only'
+  item 1 cand 0 (35 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@34='atin'
+  item 1 cand 1 (34 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@33='atin'
+  item 1 cand 2 (35 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@34='ron'
+  item 1 cand 3 (33 tokens): q_end@27=' of'  answer_marker@30=':'  cand_end@32='ogenes'
+  item 2 cand 0 (31 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@30='piration'
+  item 2 cand 1 (31 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@30='ynthesis'
+  item 2 cand 2 (32 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@31=' decomposition'
+  item 2 cand 3 (35 tokens): q_end@25='?'  answer_marker@28=':'  cand_end@34=' fuels'
+
+=== Per-position norm check, unlearned-cb / control (mean L2 over first batch; token position 0 shown separately, it carries much larger norms and is not among the cached positions) ===
+layer       pos0         q_end answer_marker      cand_end
+    0       48.8          34.9          34.0          40.3
+    1       64.4          45.4          40.0          53.6
+    2      154.9          45.4          39.8          57.4
+    3      190.0          44.2          38.4          57.4
+    4      409.0          44.1          38.1          57.8
+    5      942.6          46.5          40.5          58.9
+    6     2549.7          51.3          45.6          62.1
+    7     3473.1          57.1          47.7          65.2
+    8     3787.4          63.2          52.8          71.2
+    9     3974.9          66.8          55.0          76.0
+   10     4190.4          70.7          54.6          80.2
+   11     4256.7          76.7          56.2          86.5
+   12     4298.5          84.3          60.4          94.4
+   13     4323.4          90.3          66.7         102.3
+   14     4345.8          93.9          74.0         109.7
+   15     4368.4         104.3          84.0         120.5
+   16     4387.9         109.0          91.5         125.0
+   17     4393.3         113.0          97.3         130.5
+   18     4393.5         118.9         103.4         138.2
+   19     4393.6         128.0         111.8         144.8
+   20     4393.4         133.6         116.5         151.2
+   21     4393.7         138.4         122.9         155.6
+   22     4393.8         146.7         134.0         165.9
+   23     4393.7         161.2         150.9         176.0
+   24     4393.6         174.5         166.6         190.0
+   25     4396.8         198.7         195.2         219.0
+   26     4400.1         228.5         235.0         246.1
+   27     4383.1         253.6         264.7         269.2
+   28     4333.1         291.8         313.1         310.9
+   29     4300.5         311.6         336.3         337.7
+   30     4219.9         353.1         381.4         390.0
+   31      227.0         564.8         684.3         625.5
+[unlearned-cb/control] items 8/1076  43.02 items/s  est. remaining (all selected runs, excl. model loads) 0:00:24  cumulative written 15.76 GiB
+[unlearned-cb/control] items 16/1076  43.04 items/s  est. remaining (all selected runs, excl. model loads) 0:00:24  cumulative written 15.76 GiB
+[unlearned-cb/control] items 24/1076  43.03 items/s  est. remaining (all selected runs, excl. model loads) 0:00:24  cumulative written 15.76 GiB
+[unlearned-cb/control] items 32/1076  43.05 items/s  est. remaining (all selected runs, excl. model loads) 0:00:24  cumulative written 15.76 GiB
+[unlearned-cb/control] items 40/1076  43.06 items/s  est. remaining (all selected runs, excl. model loads) 0:00:24  cumulative written 15.76 GiB
+[unlearned-cb/control] items 48/1076  43.06 items/s  est. remaining (all selected runs, excl. model loads) 0:00:23  cumulative written 15.76 GiB
+[unlearned-cb/control] items 56/1076  43.07 items/s  est. remaining (all selected runs, excl. model loads) 0:00:23  cumulative written 15.76 GiB
+[unlearned-cb/control] items 64/1076  43.09 items/s  est. remaining (all selected runs, excl. model loads) 0:00:23  cumulative written 15.76 GiB
+[unlearned-cb/control] items 72/1076  43.10 items/s  est. remaining (all selected runs, excl. model loads) 0:00:23  cumulative written 15.76 GiB
+[unlearned-cb/control] items 80/1076  43.10 items/s  est. remaining (all selected runs, excl. model loads) 0:00:23  cumulative written 15.76 GiB
+[unlearned-cb/control] items 88/1076  43.12 items/s  est. remaining (all selected runs, excl. model loads) 0:00:22  cumulative written 15.76 GiB
+[unlearned-cb/control] items 96/1076  43.13 items/s  est. remaining (all selected runs, excl. model loads) 0:00:22  cumulative written 15.76 GiB
+[unlearned-cb/control] items 104/1076  43.15 items/s  est. remaining (all selected runs, excl. model loads) 0:00:22  cumulative written 15.76 GiB
+[unlearned-cb/control] items 112/1076  43.15 items/s  est. remaining (all selected runs, excl. model loads) 0:00:22  cumulative written 15.76 GiB
+[unlearned-cb/control] items 120/1076  43.17 items/s  est. remaining (all selected runs, excl. model loads) 0:00:22  cumulative written 15.76 GiB
+[unlearned-cb/control] items 128/1076  43.19 items/s  est. remaining (all selected runs, excl. model loads) 0:00:21  cumulative written 15.76 GiB
+[unlearned-cb/control] wrote chunk_00000-00128.pt (384.0 MiB, cumulative 16.14 GiB)
+[unlearned-cb/control] items 136/1076  43.20 items/s  est. remaining (all selected runs, excl. model loads) 0:00:21  cumulative written 16.14 GiB
+[unlearned-cb/control] items 144/1076  43.21 items/s  est. remaining (all selected runs, excl. model loads) 0:00:21  cumulative written 16.14 GiB
+[unlearned-cb/control] items 152/1076  43.22 items/s  est. remaining (all selected runs, excl. model loads) 0:00:21  cumulative written 16.14 GiB
+[unlearned-cb/control] items 160/1076  43.23 items/s  est. remaining (all selected runs, excl. model loads) 0:00:21  cumulative written 16.14 GiB
+[unlearned-cb/control] items 168/1076  43.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:20  cumulative written 16.14 GiB
+[unlearned-cb/control] items 176/1076  43.25 items/s  est. remaining (all selected runs, excl. model loads) 0:00:20  cumulative written 16.14 GiB
+[unlearned-cb/control] items 184/1076  43.22 items/s  est. remaining (all selected runs, excl. model loads) 0:00:20  cumulative written 16.14 GiB
+[unlearned-cb/control] items 192/1076  43.25 items/s  est. remaining (all selected runs, excl. model loads) 0:00:20  cumulative written 16.14 GiB
+[unlearned-cb/control] items 200/1076  43.26 items/s  est. remaining (all selected runs, excl. model loads) 0:00:20  cumulative written 16.14 GiB
+[unlearned-cb/control] items 208/1076  43.28 items/s  est. remaining (all selected runs, excl. model loads) 0:00:20  cumulative written 16.14 GiB
+[unlearned-cb/control] items 216/1076  43.28 items/s  est. remaining (all selected runs, excl. model loads) 0:00:19  cumulative written 16.14 GiB
+[unlearned-cb/control] items 224/1076  43.29 items/s  est. remaining (all selected runs, excl. model loads) 0:00:19  cumulative written 16.14 GiB
+[unlearned-cb/control] items 232/1076  43.28 items/s  est. remaining (all selected runs, excl. model loads) 0:00:19  cumulative written 16.14 GiB
+[unlearned-cb/control] items 240/1076  43.30 items/s  est. remaining (all selected runs, excl. model loads) 0:00:19  cumulative written 16.14 GiB
+[unlearned-cb/control] items 248/1076  43.30 items/s  est. remaining (all selected runs, excl. model loads) 0:00:19  cumulative written 16.14 GiB
+[unlearned-cb/control] items 256/1076  43.31 items/s  est. remaining (all selected runs, excl. model loads) 0:00:18  cumulative written 16.14 GiB
+[unlearned-cb/control] wrote chunk_00128-00256.pt (384.0 MiB, cumulative 16.51 GiB)
+[unlearned-cb/control] items 264/1076  43.31 items/s  est. remaining (all selected runs, excl. model loads) 0:00:18  cumulative written 16.51 GiB
+[unlearned-cb/control] items 272/1076  43.33 items/s  est. remaining (all selected runs, excl. model loads) 0:00:18  cumulative written 16.51 GiB
+[unlearned-cb/control] items 280/1076  43.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:18  cumulative written 16.51 GiB
+[unlearned-cb/control] items 288/1076  43.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:18  cumulative written 16.51 GiB
+[unlearned-cb/control] items 296/1076  43.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:17  cumulative written 16.51 GiB
+[unlearned-cb/control] items 304/1076  43.37 items/s  est. remaining (all selected runs, excl. model loads) 0:00:17  cumulative written 16.51 GiB
+[unlearned-cb/control] items 312/1076  43.38 items/s  est. remaining (all selected runs, excl. model loads) 0:00:17  cumulative written 16.51 GiB
+[unlearned-cb/control] items 320/1076  43.40 items/s  est. remaining (all selected runs, excl. model loads) 0:00:17  cumulative written 16.51 GiB
+[unlearned-cb/control] items 328/1076  43.43 items/s  est. remaining (all selected runs, excl. model loads) 0:00:17  cumulative written 16.51 GiB
+[unlearned-cb/control] items 336/1076  43.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:17  cumulative written 16.51 GiB
+[unlearned-cb/control] items 344/1076  43.48 items/s  est. remaining (all selected runs, excl. model loads) 0:00:16  cumulative written 16.51 GiB
+[unlearned-cb/control] items 352/1076  43.47 items/s  est. remaining (all selected runs, excl. model loads) 0:00:16  cumulative written 16.51 GiB
+[unlearned-cb/control] items 360/1076  43.50 items/s  est. remaining (all selected runs, excl. model loads) 0:00:16  cumulative written 16.51 GiB
+[unlearned-cb/control] items 368/1076  43.52 items/s  est. remaining (all selected runs, excl. model loads) 0:00:16  cumulative written 16.51 GiB
+[unlearned-cb/control] items 376/1076  43.54 items/s  est. remaining (all selected runs, excl. model loads) 0:00:16  cumulative written 16.51 GiB
+[unlearned-cb/control] items 384/1076  43.57 items/s  est. remaining (all selected runs, excl. model loads) 0:00:15  cumulative written 16.51 GiB
+[unlearned-cb/control] wrote chunk_00256-00384.pt (384.0 MiB, cumulative 16.89 GiB)
+[unlearned-cb/control] items 392/1076  43.60 items/s  est. remaining (all selected runs, excl. model loads) 0:00:15  cumulative written 16.89 GiB
+[unlearned-cb/control] items 400/1076  43.60 items/s  est. remaining (all selected runs, excl. model loads) 0:00:15  cumulative written 16.89 GiB
+[unlearned-cb/control] items 408/1076  43.63 items/s  est. remaining (all selected runs, excl. model loads) 0:00:15  cumulative written 16.89 GiB
+[unlearned-cb/control] items 416/1076  43.65 items/s  est. remaining (all selected runs, excl. model loads) 0:00:15  cumulative written 16.89 GiB
+[unlearned-cb/control] items 424/1076  43.68 items/s  est. remaining (all selected runs, excl. model loads) 0:00:14  cumulative written 16.89 GiB
+[unlearned-cb/control] items 432/1076  43.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:14  cumulative written 16.89 GiB
+[unlearned-cb/control] items 440/1076  43.74 items/s  est. remaining (all selected runs, excl. model loads) 0:00:14  cumulative written 16.89 GiB
+[unlearned-cb/control] items 448/1076  43.76 items/s  est. remaining (all selected runs, excl. model loads) 0:00:14  cumulative written 16.89 GiB
+[unlearned-cb/control] items 456/1076  43.79 items/s  est. remaining (all selected runs, excl. model loads) 0:00:14  cumulative written 16.89 GiB
+[unlearned-cb/control] items 464/1076  43.81 items/s  est. remaining (all selected runs, excl. model loads) 0:00:13  cumulative written 16.89 GiB
+[unlearned-cb/control] items 472/1076  43.83 items/s  est. remaining (all selected runs, excl. model loads) 0:00:13  cumulative written 16.89 GiB
+[unlearned-cb/control] items 480/1076  43.85 items/s  est. remaining (all selected runs, excl. model loads) 0:00:13  cumulative written 16.89 GiB
+[unlearned-cb/control] items 488/1076  43.88 items/s  est. remaining (all selected runs, excl. model loads) 0:00:13  cumulative written 16.89 GiB
+[unlearned-cb/control] items 496/1076  43.90 items/s  est. remaining (all selected runs, excl. model loads) 0:00:13  cumulative written 16.89 GiB
+[unlearned-cb/control] items 504/1076  43.93 items/s  est. remaining (all selected runs, excl. model loads) 0:00:13  cumulative written 16.89 GiB
+[unlearned-cb/control] items 512/1076  43.96 items/s  est. remaining (all selected runs, excl. model loads) 0:00:12  cumulative written 16.89 GiB
+[unlearned-cb/control] wrote chunk_00384-00512.pt (384.0 MiB, cumulative 17.26 GiB)
+[unlearned-cb/control] items 520/1076  43.98 items/s  est. remaining (all selected runs, excl. model loads) 0:00:12  cumulative written 17.26 GiB
+[unlearned-cb/control] items 528/1076  44.00 items/s  est. remaining (all selected runs, excl. model loads) 0:00:12  cumulative written 17.26 GiB
+[unlearned-cb/control] items 536/1076  44.03 items/s  est. remaining (all selected runs, excl. model loads) 0:00:12  cumulative written 17.26 GiB
+[unlearned-cb/control] items 544/1076  44.05 items/s  est. remaining (all selected runs, excl. model loads) 0:00:12  cumulative written 17.26 GiB
+[unlearned-cb/control] items 552/1076  44.08 items/s  est. remaining (all selected runs, excl. model loads) 0:00:11  cumulative written 17.26 GiB
+[unlearned-cb/control] items 560/1076  44.11 items/s  est. remaining (all selected runs, excl. model loads) 0:00:11  cumulative written 17.26 GiB
+[unlearned-cb/control] items 568/1076  44.13 items/s  est. remaining (all selected runs, excl. model loads) 0:00:11  cumulative written 17.26 GiB
+[unlearned-cb/control] items 576/1076  44.16 items/s  est. remaining (all selected runs, excl. model loads) 0:00:11  cumulative written 17.26 GiB
+[unlearned-cb/control] items 584/1076  44.18 items/s  est. remaining (all selected runs, excl. model loads) 0:00:11  cumulative written 17.26 GiB
+[unlearned-cb/control] items 592/1076  44.21 items/s  est. remaining (all selected runs, excl. model loads) 0:00:10  cumulative written 17.26 GiB
+[unlearned-cb/control] items 600/1076  44.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:10  cumulative written 17.26 GiB
+[unlearned-cb/control] items 608/1076  44.27 items/s  est. remaining (all selected runs, excl. model loads) 0:00:10  cumulative written 17.26 GiB
+[unlearned-cb/control] items 616/1076  44.29 items/s  est. remaining (all selected runs, excl. model loads) 0:00:10  cumulative written 17.26 GiB
+[unlearned-cb/control] items 624/1076  44.32 items/s  est. remaining (all selected runs, excl. model loads) 0:00:10  cumulative written 17.26 GiB
+[unlearned-cb/control] items 632/1076  44.34 items/s  est. remaining (all selected runs, excl. model loads) 0:00:10  cumulative written 17.26 GiB
+[unlearned-cb/control] items 640/1076  44.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:09  cumulative written 17.26 GiB
+[unlearned-cb/control] wrote chunk_00512-00640.pt (384.0 MiB, cumulative 17.64 GiB)
+[unlearned-cb/control] items 648/1076  44.38 items/s  est. remaining (all selected runs, excl. model loads) 0:00:09  cumulative written 17.64 GiB
+[unlearned-cb/control] items 656/1076  44.41 items/s  est. remaining (all selected runs, excl. model loads) 0:00:09  cumulative written 17.64 GiB
+[unlearned-cb/control] items 664/1076  44.44 items/s  est. remaining (all selected runs, excl. model loads) 0:00:09  cumulative written 17.64 GiB
+[unlearned-cb/control] items 672/1076  44.46 items/s  est. remaining (all selected runs, excl. model loads) 0:00:09  cumulative written 17.64 GiB
+[unlearned-cb/control] items 680/1076  44.48 items/s  est. remaining (all selected runs, excl. model loads) 0:00:08  cumulative written 17.64 GiB
+[unlearned-cb/control] items 688/1076  44.50 items/s  est. remaining (all selected runs, excl. model loads) 0:00:08  cumulative written 17.64 GiB
+[unlearned-cb/control] items 696/1076  44.53 items/s  est. remaining (all selected runs, excl. model loads) 0:00:08  cumulative written 17.64 GiB
+[unlearned-cb/control] items 704/1076  44.56 items/s  est. remaining (all selected runs, excl. model loads) 0:00:08  cumulative written 17.64 GiB
+[unlearned-cb/control] items 712/1076  44.57 items/s  est. remaining (all selected runs, excl. model loads) 0:00:08  cumulative written 17.64 GiB
+[unlearned-cb/control] items 720/1076  44.59 items/s  est. remaining (all selected runs, excl. model loads) 0:00:07  cumulative written 17.64 GiB
+[unlearned-cb/control] items 728/1076  44.61 items/s  est. remaining (all selected runs, excl. model loads) 0:00:07  cumulative written 17.64 GiB
+[unlearned-cb/control] items 736/1076  44.64 items/s  est. remaining (all selected runs, excl. model loads) 0:00:07  cumulative written 17.64 GiB
+[unlearned-cb/control] items 744/1076  44.66 items/s  est. remaining (all selected runs, excl. model loads) 0:00:07  cumulative written 17.64 GiB
+[unlearned-cb/control] items 752/1076  44.69 items/s  est. remaining (all selected runs, excl. model loads) 0:00:07  cumulative written 17.64 GiB
+[unlearned-cb/control] items 760/1076  44.72 items/s  est. remaining (all selected runs, excl. model loads) 0:00:07  cumulative written 17.64 GiB
+[unlearned-cb/control] items 768/1076  44.04 items/s  est. remaining (all selected runs, excl. model loads) 0:00:06  cumulative written 17.64 GiB
+[unlearned-cb/control] wrote chunk_00640-00768.pt (384.0 MiB, cumulative 18.01 GiB)
+[unlearned-cb/control] items 776/1076  44.03 items/s  est. remaining (all selected runs, excl. model loads) 0:00:06  cumulative written 18.01 GiB
+[unlearned-cb/control] items 784/1076  44.03 items/s  est. remaining (all selected runs, excl. model loads) 0:00:06  cumulative written 18.01 GiB
+[unlearned-cb/control] items 792/1076  44.02 items/s  est. remaining (all selected runs, excl. model loads) 0:00:06  cumulative written 18.01 GiB
+[unlearned-cb/control] items 800/1076  43.37 items/s  est. remaining (all selected runs, excl. model loads) 0:00:06  cumulative written 18.01 GiB
+[unlearned-cb/control] items 808/1076  43.37 items/s  est. remaining (all selected runs, excl. model loads) 0:00:06  cumulative written 18.01 GiB
+[unlearned-cb/control] items 816/1076  43.37 items/s  est. remaining (all selected runs, excl. model loads) 0:00:05  cumulative written 18.01 GiB
+[unlearned-cb/control] items 824/1076  43.31 items/s  est. remaining (all selected runs, excl. model loads) 0:00:05  cumulative written 18.01 GiB
+[unlearned-cb/control] items 832/1076  42.69 items/s  est. remaining (all selected runs, excl. model loads) 0:00:05  cumulative written 18.01 GiB
+[unlearned-cb/control] items 840/1076  42.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:05  cumulative written 18.01 GiB
+[unlearned-cb/control] items 848/1076  42.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:05  cumulative written 18.01 GiB
+[unlearned-cb/control] items 856/1076  42.71 items/s  est. remaining (all selected runs, excl. model loads) 0:00:05  cumulative written 18.01 GiB
+[unlearned-cb/control] items 864/1076  42.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:04  cumulative written 18.01 GiB
+[unlearned-cb/control] items 872/1076  42.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:04  cumulative written 18.01 GiB
+[unlearned-cb/control] items 880/1076  42.70 items/s  est. remaining (all selected runs, excl. model loads) 0:00:04  cumulative written 18.01 GiB
+[unlearned-cb/control] items 888/1076  42.61 items/s  est. remaining (all selected runs, excl. model loads) 0:00:04  cumulative written 18.01 GiB
+[unlearned-cb/control] items 896/1076  42.43 items/s  est. remaining (all selected runs, excl. model loads) 0:00:04  cumulative written 18.01 GiB
+[unlearned-cb/control] wrote chunk_00768-00896.pt (384.0 MiB, cumulative 18.39 GiB)
+[unlearned-cb/control] items 904/1076  42.38 items/s  est. remaining (all selected runs, excl. model loads) 0:00:04  cumulative written 18.39 GiB
+[unlearned-cb/control] items 912/1076  42.24 items/s  est. remaining (all selected runs, excl. model loads) 0:00:03  cumulative written 18.39 GiB
+[unlearned-cb/control] items 920/1076  42.18 items/s  est. remaining (all selected runs, excl. model loads) 0:00:03  cumulative written 18.39 GiB
+[unlearned-cb/control] items 928/1076  42.05 items/s  est. remaining (all selected runs, excl. model loads) 0:00:03  cumulative written 18.39 GiB
+[unlearned-cb/control] items 936/1076  42.00 items/s  est. remaining (all selected runs, excl. model loads) 0:00:03  cumulative written 18.39 GiB
+[unlearned-cb/control] items 944/1076  41.97 items/s  est. remaining (all selected runs, excl. model loads) 0:00:03  cumulative written 18.39 GiB
+[unlearned-cb/control] items 952/1076  41.86 items/s  est. remaining (all selected runs, excl. model loads) 0:00:02  cumulative written 18.39 GiB
+[unlearned-cb/control] items 960/1076  41.74 items/s  est. remaining (all selected runs, excl. model loads) 0:00:02  cumulative written 18.39 GiB
+[unlearned-cb/control] items 968/1076  41.66 items/s  est. remaining (all selected runs, excl. model loads) 0:00:02  cumulative written 18.39 GiB
+[unlearned-cb/control] items 976/1076  41.53 items/s  est. remaining (all selected runs, excl. model loads) 0:00:02  cumulative written 18.39 GiB
+[unlearned-cb/control] items 984/1076  41.45 items/s  est. remaining (all selected runs, excl. model loads) 0:00:02  cumulative written 18.39 GiB
+[unlearned-cb/control] items 992/1076  41.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:02  cumulative written 18.39 GiB
+[unlearned-cb/control] items 1000/1076  41.27 items/s  est. remaining (all selected runs, excl. model loads) 0:00:01  cumulative written 18.39 GiB
+[unlearned-cb/control] items 1008/1076  41.13 items/s  est. remaining (all selected runs, excl. model loads) 0:00:01  cumulative written 18.39 GiB
+[unlearned-cb/control] items 1016/1076  40.99 items/s  est. remaining (all selected runs, excl. model loads) 0:00:01  cumulative written 18.39 GiB
+[unlearned-cb/control] items 1024/1076  40.87 items/s  est. remaining (all selected runs, excl. model loads) 0:00:01  cumulative written 18.39 GiB
+[unlearned-cb/control] wrote chunk_00896-01024.pt (384.0 MiB, cumulative 18.76 GiB)
+[unlearned-cb/control] items 1032/1076  40.76 items/s  est. remaining (all selected runs, excl. model loads) 0:00:01  cumulative written 18.76 GiB
+[unlearned-cb/control] items 1040/1076  40.72 items/s  est. remaining (all selected runs, excl. model loads) 0:00:00  cumulative written 18.76 GiB
+[unlearned-cb/control] items 1048/1076  40.64 items/s  est. remaining (all selected runs, excl. model loads) 0:00:00  cumulative written 18.76 GiB
+[unlearned-cb/control] items 1056/1076  40.52 items/s  est. remaining (all selected runs, excl. model loads) 0:00:00  cumulative written 18.76 GiB
+[unlearned-cb/control] items 1064/1076  40.44 items/s  est. remaining (all selected runs, excl. model loads) 0:00:00  cumulative written 18.76 GiB
+[unlearned-cb/control] items 1072/1076  40.38 items/s  est. remaining (all selected runs, excl. model loads) 0:00:00  cumulative written 18.76 GiB
+[unlearned-cb/control] items 1076/1076  40.36 items/s  est. remaining (all selected runs, excl. model loads) 0:00:00  cumulative written 18.76 GiB
+[unlearned-cb/control] wrote chunk_01024-01076.pt (156.0 MiB, cumulative 18.92 GiB)
+[unlearned-cb/control] set complete, meta.json written
+=== unlearned-cb done, model freed ===
+
+All done: 6456 items cached this run, 0 skipped (already on disk), 18.92 GiB written, forward time 0:02:39
