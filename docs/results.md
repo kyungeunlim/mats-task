@@ -132,7 +132,7 @@ digits at residual scale), not a different computation. The item-5 run confirms
 the comparison is real rather than vacuous (an exact zero would have indicated
 comparing a tensor with itself).
 
-Two environment notes for the caching script (Monday):
+Two environment notes for the caching script (for 2026-08-31 Monday):
 1. TransformerLens 3.7.3 touches torch.backends.mps at import on CUDA-only
    boxes (upstream issue, fixed in a later TL release). The check script
    carries a runtime guard. The caching script needs the same guard until TL
@@ -140,3 +140,15 @@ Two environment notes for the caching script (Monday):
 2. TL's loader resolves hub metadata even with weights cached, so
    HF_HUB_OFFLINE=1 breaks it. Workaround: load via the local snapshot path,
    or set the offline flag only after models are loaded.
+
+
+### T4b. Caching environment (2026-08-31)
+
+Pod: RTX PRO 6000 (Blackwell, 96GB), driver CUDA 13.2. Python 3.12.3,
+torch 2.13.0+cu130, TransformerLens 3.7.3, resolved by bootstrap from an
+unpinned requirements.txt. In-venv checks before caching: GPU visible at
+compute capability (12, 0), bf16 matmul on device, TL import.
+
+This differs from the 2026-08-28 check environment above, which ran on an
+A100 PCIe under a manually installed cu126 torch build (a per-pod fix, not
+carried forward, build version not logged).   

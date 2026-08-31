@@ -296,3 +296,4 @@ Tracked against ticket ids in the weekly thread.
   budget 30 min of pod bootstrap per deploy and do laptop work during it.
   A custom template image would remove the cost but is not worth building for
   the remaining pod-days of this window.
+- 2026-08-31, tooling: pod card is RTX PRO 6000 (Blackwell, 96GB), driver CUDA 13.2. requirements.txt left unpinned as written, bootstrap resolved torch 2.13.0+cu130, TransformerLens 3.7.3, Python 3.12.3. In-venv checks passed: GPU visible at capability (12, 0), bf16 matmul, TL import. Friday's cu126 install was a manual per-pod fix and is not carried forward. Infra change.

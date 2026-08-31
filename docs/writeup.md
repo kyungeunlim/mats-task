@@ -16,8 +16,11 @@ Three checkpoints from one lineage (DI base, e2e-strong-filter, no-LoRA CB),
 what each is, why this triple lets the question be asked.
 TODO: two paragraphs. Base material: results.md header, eval_spec.md purpose. [YOU]
 - Checkpoint revisions: paste the three hashes from results.md.
-- Tooling: lm-eval 0.4.12 for behavior, TransformerLens for activations
+- Tooling: lm-eval 0.4.12 for behavior, TransformerLens 3.7.3 for activations
   (verified against a direct HF forward pass before caching, see Sanity checks).
+  Activations were cached under Python 3.12.3, torch 2.13.0+cu130, on an
+  RTX PRO 6000 (driver CUDA 13.2).  
+
 
 ## Behavioral anchor
 Paste the two tables from results.md (Cloze, MMLU with all three columns), then:

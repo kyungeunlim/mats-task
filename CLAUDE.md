@@ -60,5 +60,7 @@ Pod restart procedure: POD_SETUP.md. Run it after every pod start; container dis
   hedging. State what failed as plainly as what worked.
 
 ## Do not
-- Do not edit files under docs/ (reference material).
+- Do not edit docs/mech_interp_context.md (reference material, read-only).
+  Other files under docs/ (plan.md, results.md, writeup.md) are working
+  documents and may be edited when asked.
 - Do not commit large binaries (*.pt, activations) — see .gitignore. Small result JSONs under results/eval are tracked deliberately.
