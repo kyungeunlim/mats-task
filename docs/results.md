@@ -298,7 +298,7 @@ Log: results/eval/pad_batch_check_20260831.log.
 #### Caching run
 
 Three checkpoints and two item sets of 1076 items each, with four candidates
-per item, so 3 x 2 x 1076 = 6456 item-model-set combinations passes and 25,824 forward passes. 
+per item, so 3 x 2 x 1076 = 6456 item-model-set combinations and 25,824 forward passes. 
 Each set was written in chunks of 128 items, so nine files per model per set:
 eight full chunks and a final chunk of 52. 54 files in total, 18.92 GiB on the
 volume. Forward time 2:39, measured around the batched forward pass including the
@@ -311,91 +311,52 @@ names, and the prompt template.
 
 Positions were located from the tokenized prompt, not assumed. The script asserts for every sequence that cand_end is the last token, and prints the tokens at all three positions for the first three items. Within an item, q_end and answer_marker are the same across the four candidates while cand_end moves with candidate length, as T2 assumes. Each chunk is checked for NaNs before writing.
 
-Per-position norm check, unfiltered / main (mean L2, first batch):
+Per-position norm tables for all six model-set combinations are in
+results/eval/cache_full_20260831.log. Figures parsed from that log by
+scripts/plot_norms.py are in results/: one per model-set combination, plus
+cross-model comparisons on pos0 and cand_end for each set.
 
-layer       pos0         q_end answer_marker      cand_end
-    0       48.9          35.2          34.1          39.2
-    1       64.4          43.0          40.0          50.2
-    2      156.7          43.2          40.3          55.3
-    3      190.9          41.7          38.6          58.0
-    4      408.4          39.8          37.7          60.0
-    5      936.8          40.2          38.9          62.5
-    6     2546.9          46.3          43.4          67.2
-    7     3472.8          51.2          45.3          71.3
-    8     3787.1          54.7          49.4          77.2
-    9     3974.6          57.4          52.5          81.2
-   10     4190.2          63.9          52.3          86.6
-   11     4256.5          69.6          53.5          93.8
-   12     4298.3          76.9          57.9         102.1
-   13     4323.2          84.7          65.5         110.0
-   14     4345.6          88.1          72.4         118.7
-   15     4368.2          99.3          79.5         128.4
-   16     4387.8         105.7          85.0         131.1
-   17     4393.2         111.4          92.7         136.1
-   18     4393.4         113.9          96.2         141.6
-   19     4393.4         124.1         103.3         144.4
-   20     4393.3         131.8         110.3         150.4
-   21     4393.6         139.3         119.8         154.2
-   22     4393.7         149.8         133.5         161.1
-   23     4393.7         163.4         147.7         169.1
-   24     4393.5         174.2         164.0         181.5
-   25     4396.8         194.4         187.0         205.2
-   26     4400.1         224.5         221.8         229.4
-   27     4383.1         246.9         250.3         252.4
-   28     4333.0         279.1         289.6         293.4
-   29     4300.4         294.6         314.0         325.8
-   30     4219.8         323.2         354.5         372.4
-   31      218.1         498.8         658.6         606.0
-[unfiltered/main] items 8/1076  23.13 items/s  est. remaining (all selected runs, excl. model loads) 0:04:38  cumulative written 0.0 MiB
+This check is at a high level: whether the activations read through
+TransformerLens are reasonable (no NaNs, sane magnitudes, positions landing on
+the right tokens). The numbers are means over the first batch of 32 sequences
+and are aggregated within a layer, so they carry little information on their
+own. What they show is the general shape: norms grow with depth at the cached
+positions, and position 0 is orders of magnitude larger than the rest.
 
-Plots for all six model-set combinations, plus cross-model comparisons on
-pos0 and cand_end, are in results/ (scripts/plot_norms.py, parsed from the
-caching log).
+Observations, main set:
 
-DRAFT READING, NOT YET REVIEWED [check tomorrow]:
+- Position 0 rises steeply through layers 4 to 8 and is flat from about layer
+  10 onward, at roughly 4400 for base and CB and 5900 for the filtered model.
+  Through that plateau it is ten to twenty times the cached positions, which
+  run 40 to 400. This is the basis for the T2 decision to exclude position 0
+  from anything averaged over positions.
+- At layer 31 position 0 collapses (4220 to 218 for base, 5512 to 230 for
+  filtered, 4220 to 221 for CB) while all three cached positions rise. For
+  base, q_end goes 323 to 499, answer_marker 355 to 659, and cand_end 372 to
+  606.
+- All three models jump at layer 6, but the filtered model jumps further:
+  452 to 4554, most of the way to its eventual plateau, while base and CB go
+  937 to 2547 and then climb for four more layers. Filtered also sits below
+  the other two at layers 4 and 5 before overshooting them.
+- Base and CB match to within a few tenths at position 0 at every layer. They
+  differ at cand_end, where CB runs higher from about layer 17 (401.6 versus
+  372.4 at layer 30, 694.7 versus 606.0 at layer 31). With no uncertainty
+  attached to a single-batch mean, this is an observation rather than an
+  established difference.  
 
-These norms are a diagnostic, not a result. A norm collapses a 4096-dimensional
-vector to one number, so it describes scale rather than content, and per T2 the
-probe reads direction after standardizing features. Two models could have the
-same norm curve and encode different information, or differ in norm while
-encoding the same thing.
+What these do and do not support. The filtered model was pretrained
+separately, so it does not share a weight coordinate frame with base and its
+internal scales are not expected to match. A norm difference between filtered
+and the other two is close to uninterpretable on its own. Base and CB do share
+a frame, since CB was fine-tuned from base, so the cand_end difference between
+them is at least a valid comparison, though a norm difference alone says
+nothing about what is encoded.
 
-Position 0 rises steeply through the early layers, plateaus around 4400 from
-about layer 10, and collapses to 218 at layer 31. It runs roughly ten to a
-hundred times larger than the three cached positions throughout the plateau.
-This is the attention-sink pattern, and it is why T2 excludes position 0 from
-anything averaged over positions.
-
-The three cached positions grow roughly monotonically with depth, from about
-35 at layer 0 to 500-660 at layer 31, with cand_end above q_end above
-answer_marker for most of the network. All three rise at layer 31, the same
-block where position 0 collapses.
-
-Across models, on the first-batch sample:
-- base and CB are nearly indistinguishable on position 0, which is expected
-  since CB was fine-tuned from base.
-- e2e-strong-filter's position 0 is distinctly different: it jumps at layer 6
-  to about 4550 and plateaus around 5900, against a gradual climb to about
-  4400 for the other two.
-- on cand_end, CB sits slightly above base and filtered from about layer 17
-  onward, with the gap widening toward layer 31 (694, 606, 597).
-- filtered's cand_end is slightly elevated over layers 1 to 5, converging by
-  layer 7.
-
-Caveat: these are means over the first batch of 32 sequences, not the full
-1076 items, so the small cross-model differences at the cached positions have
-no uncertainty attached and should not be read as established. The position-0
-difference for filtered is large enough to be visible regardless.
-
-TODO [YOU]: the reading. Material: position 0 climbs to about 4400 and
-flattens from layer 16, which supports the T2 decision to keep it out of
-anything averaged over positions. At block 31 position 0 drops to 218 while
-the three cached positions rise (q_end 323 to 499, answer_marker 355 to 659,
-cand_end 372 to 606). Across models: e2e-strong-filter's position 0 runs about
-5900 from layer 16 against about 4400 for base and CB, and rises sharply at
-layer 6 rather than climbing gradually. Base and CB are close to identical,
-which is expected since CB was fine-tuned from base while the filtered model
-was pretrained separately.
+These norms do not carry into the probe results. The probe standardizes each
+of the 4096 coordinates using per-model means and standard deviations, so
+overall scale differences between models are removed before fitting. Where the
+position-0 magnitude did matter was in the TL-vs-HF check above, whose
+criterion divided by the largest value in the tensor.
 
 Log: results/eval/cache_full_20260831.log.
 
@@ -414,3 +375,183 @@ Note for T5: activations are cached in bfloat16, so block 31 carries about 1%
 noise relative to the residual size at the positions the probe reads. The
 probe standardizes features per model, so this is unlikely to affect the
 comparison, but it belongs in limitations.
+
+
+## T5
+
+### Sanity Notes
+Shuffled-label baselines over all 32 layers and three models. Within-item
+shuffle (seed 1001), read on argmax4 against an analytic chance of 0.25: main
+mean 0.2473 (range 0.195 to 0.316), control mean 0.2451 (0.189 to 0.338).
+Global shuffle (seed 1002), read on AUC against 0.5: main mean 0.5127 (0.491
+to 0.539), control mean 0.5006 (0.478 to 0.533).
+
+Argmax4 baselines sit at chance. The main-set AUC baseline runs about 1.3
+points above 0.5 on average rather than scattering evenly around it, so small
+AUC differences on the main set should be read against that offset rather than
+against 0.5.
+
+Regularization strength chosen by CV: on the main set, 92 of 96 fits selected
+1e-3 or 1e-4. On the control set the selection is spread, with 13 fits at C of
+1 or above. The lbfgs convergence warnings are concentrated in those weakly
+regularized fits, which are also the ones where CV found little to prefer.
+
+
+### Baseline for the plots
+
+The shuffled baselines use a fixed permutation, drawn from seed 1001 and reseeded identically for every layer and model, so the same scramble is applied throughout. This makes them reproducible but means the dashed curves are one draw rather than an average: their layer-to-layer wiggle is the same permutation being scored at different depths, not independent noise, and the three models' baselines are correlated with each other. The scatter is consistent with the binomial standard error of about 0.024 on 323 held-out items.
+
+## Observation itnerpretation
+
+Why main is higher: WMDP-Bio Verified Cloze items were built with verified distractors for a knowledge benchmark, while the control items are MMLU questions reformatted into a cloze shape. So the two sets differ in construction, not just in content, and a level difference between them isn't interpretable on its own. What the control is for is the model-to-model comparison within each set, not the absolute level.
+
+Why the control's transition is sharper: I don't have an account for that. Worth recording as an observation. One thing that might bear on it: the control's AUC is near chance until layer 10 and rises steeply through 12 to 18, while main is already at 0.58 at layer 0. So main has signal available at the embedding, which fits items whose distractors were selected to be discriminable, while control needs more depth to build it.
+
+
+
+# T6 candidates, noted 2026-09-01:
+- Could the probe be reading properties of the candidate text alone rather
+  than question-candidate fit? Correct and wrong candidates come from the
+  same pool of biological terms and each item's correct answer ends in a
+  different token, so there is no obvious token-level shortcut, but this is
+  testable: fit a probe on the candidate text without the question and see
+  whether it separates.
+
+
+  ## T5. Probe curves and baselines
+
+2026-09-01. Pod: L40 48GB. Scripts: probe_one_layer.py (pre-check),
+probe_sweep.py (full run), probe_bootstrap.py (uncertainty),
+plot_probe_sweep.py (figures).
+
+### Setup
+
+Per T2: linear probe on the residual stream at cand_end, one probe per
+(layer, item set, model). Each item contributes four examples, one per
+candidate, labelled by whether that candidate is correct. Item-level
+70/30 split from the T3 id lists, seed 42 (main) and 43 (control), so an
+item's four candidates never straddle the split. Features standardized
+using means and standard deviations from that model's training items
+only. Regularization strength chosen by 5-fold GroupKFold cross-
+validation grouped by item, inside the training items, over a C grid of
+1e-4 to 1e2.
+
+Metric changed from accuracy to within-item argmax with AUC alongside,
+and CV scoring changed from accuracy to AUC. See plan.md Deviations
+2026-09-01 and T2 Metric. The reason follows from the label structure
+rather than from the results: one correct candidate per three wrong by
+construction means a constant "not correct" prediction scores 0.75, and
+accuracy-scored CV selected the strongest regularization in the grid for
+all three models, collapsing the probe to that constant prediction.
+
+Coverage: 32 layers x 2 item sets x 3 models = 192 cells.
+
+### Headline numbers
+
+Figures in results/figures/probe/: argmax4 and AUC for each item set,
+with model curves, per-model shuffled baselines, the analytic chance
+line, and the T2 intervention layers marked.
+
+Main set. All three models rise from about 0.36 argmax4 at layer 0 to a
+plateau of roughly 0.45 to 0.53 from the mid layers onward, against a
+chance level of 0.25. AUC rises from about 0.58 to a plateau of roughly
+0.64 to 0.70 against 0.5. Base minus filtered is 0.04 to 0.06 on argmax4
+where largest, from about layer 13 onward. CB tracks base throughout.
+
+Control set. Lower throughout and with a sharper transition: AUC sits at
+chance until about layer 10, then rises through layers 12 to 18 to a
+plateau of roughly 0.59 to 0.63. Argmax4 runs about 0.26 to 0.31 in the
+early layers and 0.38 to 0.44 in the plateau.
+
+[paste the specific per-layer values you want to quote, from
+probe_sweep.json]
+
+### Uncertainty
+
+Two axes per T2, from probe_bootstrap.py.
+
+Held-out items: 1000 resamples at the item level so an item's four
+candidates move together, seed 2001, all 32 layers and both sets. 2.5
+and 97.5 percentiles reported. Half-width about 0.024 on argmax4.
+
+Probe-training subsamples: 30 resamples of the training items with
+replacement, refit at the C already chosen by the sweep, seed 2002, all
+32 layers, main set. Reported as a standard deviation rather than a
+percentile interval, since 30 draws cannot support a stable tail
+percentile. Argmax4 standard deviation 0.015 to 0.024, AUC 0.006 to
+0.010, flat across layers and models.
+
+The two axes are comparable in size. The plotted bands are the item axis
+only and therefore understate total uncertainty; the figures carry a
+caption saying so.
+
+Neither axis is training-run variance. Both hold the trained models
+fixed. See Limitations.
+
+Reusing the swept C rather than redoing CV inside each resample excludes
+C-selection variance from the reported spread. On the main set 92 of 96
+fits selected 1e-3 or 1e-4, so the omitted variance is likely small
+there; on the control set the selection is scattered and the assumption
+is weaker.
+
+### Sanity checks
+
+Shuffled-label baselines, over all 32 layers and three models. Within-
+item shuffle, seed 1001, read on argmax4 against an analytic chance of
+0.25: main mean 0.2473 (range 0.195 to 0.316), control mean 0.2451
+(0.189 to 0.338). Global shuffle, seed 1002, read on AUC against 0.5:
+main mean 0.5127 (0.491 to 0.539), control mean 0.5006 (0.478 to 0.533).
+
+Argmax4 baselines sit at chance. The main-set AUC baseline runs about
+1.3 points above 0.5 on average rather than scattering evenly around it,
+so small AUC differences on the main set should be read against that
+offset. The baselines use a fixed permutation reseeded identically at
+every layer and model, so the dashed curves are one draw rather than an
+average: their layer-to-layer variation is the same scramble scored at
+different depths, not independent noise, and the three models' baselines
+are correlated.
+
+Regularization selection. Main set: 92 of 96 fits chose 1e-3 or 1e-4.
+Control set: scattered, with 13 fits at C of 1 or above. The lbfgs
+convergence warnings are concentrated in those weakly regularized
+control fits.
+
+Fixed-C refit cross-check. probe_bootstrap.py refits at the C recorded
+by the sweep and warns if the resulting point estimate differs from the
+sweep's by more than 0.005. Ten warnings, all on the control set, none
+on main. The divergences are in the weakly regularized cells where lbfgs
+does not converge, so the same nominal fit can land in different places.
+
+Logs: results/eval/probe_one_layer_20260901.log,
+probe_sweep_20260901.log, probe_bootstrap_20260901*.log.
+Data: results/probe_sweep.json, probe_bootstrap.json,
+probe_heldout_scores.npz.
+
+### Reading
+
+TODO [YOU]. Material, the four points:
+
+1. All three models carry a linearly readable correctness signal well
+   above chance at cand_end, rising with depth and roughly plateauing
+   after the middle layers. On the main set this holds while the
+   behavioral scores in T1 sit at or near chance for filtered (0.2435)
+   and CB (0.2537).
+
+2. The two known states do not separate cleanly. Base sits above
+   filtered by 0.04 to 0.06 in the mid-to-late layers, against combined
+   uncertainty of comparable size. The sign is consistent from about
+   layer 13 onward, which is suggestive, but no single layer resolves it
+   and layers are not independent.
+
+3. The removal reference has no calibrated floor. Filtered reads 0.42 to
+   0.48 on main-set argmax4 rather than near chance, while scoring
+   0.2435 behaviorally. A high probe score therefore does not indicate
+   retained knowledge, since the same reading appears on a model that
+   never saw the forget corpus. This is why CB tracking base says
+   nothing about CB.
+
+4. Fail-fast 3 outcome. T2 pre-committed that if no layer separates base
+   from filtered above the bootstrap spread, the candidate has no
+   dynamic range on the easiest pair and the result is the negative with
+   the range estimate. That is what obtained. The range estimate is in
+   point 2.

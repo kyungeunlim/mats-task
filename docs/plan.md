@@ -334,6 +334,12 @@ items need reformatting into the cloze prompt shape with four choices each. Abou
   was selected against the Cloze metric; the three checkpoints differ in three
   ways at once.
 - Deliverable: the Google Doc, link-shareable, and the form.
+- Submission logistics (uncounted, estimate 1:00): repo made public or a
+  snapshot taken, with a check first for tokens, key paths, and whether
+  mech_interp_context.md belongs in a public repo given its provenance.
+  Scoping doc link, decide whether to fold in the 2026-09-01 notes first
+  or link as-is and note the revision as pending. Google Doc, single
+  tab, anyone-with-link. Form questions.
 - Gate: none. Own voice throughout.
 
 ## Buffer: 1h [rev: was 1.5h]
@@ -397,3 +403,24 @@ Tracked against ticket ids in the weekly thread.
   benchmark scores, making the probe number directly comparable to T1. C is
   selected by AUC because argmax needs item grouping and has no sklearn
   scorer. See results.md T5.  
+- 2026-09-01, T5: fit-variance bootstrap extended from the three layers
+  originally run (0, 15, 31) to all 32 layers. Reason: each cell takes
+  about 15 seconds, so the full sweep cost about 20 minutes, and having
+  the axis measured at every layer removes the need to interpolate when
+  combining the two uncertainty sources.
+- 2026-09-01, T4 actual vs estimate: estimated 3:00, actual 6:11. The
+  ticket work proper was close to estimate. The additional roughly three
+  hours went to learning I did not have: TransformerLens internals,
+  floating-point precision and what a rounding-scale disagreement looks
+  like, and the attention-sink behavior that made the check criterion
+  misread block 31. Neel's cap excludes setup and general learning, so
+  part of this arguably should not be counted. It is counted here
+  because separating the learning from the verification it enabled would
+  be a guess.
+- 2026-09-01, T5 actual vs estimate: estimated 4:30, actual 4:35. Same
+  1.5x new-code factor as T4 and the largest ticket, but on estimate.
+  Linear probes, cross-validation, held-out splits and bootstrapping are
+  familiar from prior work. The variable between T4 and T5 was domain
+  familiarity, not scope. The 1.5x factor for new code held; what it did
+  not capture was new domain, which appears to need a larger multiplier.
+
