@@ -1,0 +1,63 @@
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+WARNING L00 control/unfiltered: fixed-C refit differs from sweep (argmax4 0.3034 vs 0.3065, AUC 0.5117 vs 0.5017)
+WARNING L00 control/e2e-strong-filter: fixed-C refit differs from sweep (argmax4 0.2879 vs 0.2755, AUC 0.5000 vs 0.4970)
+axis1 L00 done (1/32, 0.3 min elapsed, ~9 min left)
+WARNING L01 control/unlearned-cb: fixed-C refit differs from sweep (argmax4 0.2848 vs 0.2724, AUC 0.5093 vs 0.5078)
+axis1 L01 done (2/32, 0.6 min elapsed, ~8 min left)
+axis1 L02 done (3/32, 0.8 min elapsed, ~7 min left)
+axis1 L03 done (4/32, 1.0 min elapsed, ~7 min left)
+WARNING L04 control/unfiltered: fixed-C refit differs from sweep (argmax4 0.2446 vs 0.2601, AUC 0.4854 vs 0.4906)
+WARNING L04 control/unlearned-cb: fixed-C refit differs from sweep (argmax4 0.2446 vs 0.2663, AUC 0.4859 vs 0.4960)
+axis1 L04 done (5/32, 1.2 min elapsed, ~6 min left)
+WARNING L05 control/unfiltered: fixed-C refit differs from sweep (argmax4 0.2693 vs 0.2848, AUC 0.4950 vs 0.4964)
+WARNING L05 control/unlearned-cb: fixed-C refit differs from sweep (argmax4 0.2415 vs 0.2353, AUC 0.4877 vs 0.4880)
+axis1 L05 done (6/32, 1.4 min elapsed, ~6 min left)
+WARNING L06 control/unlearned-cb: fixed-C refit differs from sweep (argmax4 0.2663 vs 0.2601, AUC 0.4790 vs 0.4780)
+axis1 L06 done (7/32, 1.6 min elapsed, ~6 min left)
+axis1 L07 done (8/32, 1.8 min elapsed, ~6 min left)
+WARNING L08 control/unfiltered: fixed-C refit differs from sweep (argmax4 0.3096 vs 0.3003, AUC 0.4956 vs 0.4970)
+axis1 L08 done (9/32, 2.1 min elapsed, ~5 min left)
+axis1 L09 done (10/32, 2.3 min elapsed, ~5 min left)
+axis1 L10 done (11/32, 2.5 min elapsed, ~5 min left)
+WARNING L11 control/unlearned-cb: fixed-C refit differs from sweep (argmax4 0.2755 vs 0.2693, AUC 0.5065 vs 0.5075)
+axis1 L11 done (12/32, 2.7 min elapsed, ~4 min left)
+axis1 L12 done (13/32, 2.9 min elapsed, ~4 min left)
+axis1 L13 done (14/32, 3.1 min elapsed, ~4 min left)
+axis1 L14 done (15/32, 3.3 min elapsed, ~4 min left)
+axis1 L15 done (16/32, 3.5 min elapsed, ~3 min left)
+axis1 L16 done (17/32, 3.7 min elapsed, ~3 min left)
+axis1 L17 done (18/32, 3.9 min elapsed, ~3 min left)
+axis1 L18 done (19/32, 4.1 min elapsed, ~3 min left)
+axis1 L19 done (20/32, 4.3 min elapsed, ~3 min left)
+axis1 L20 done (21/32, 4.5 min elapsed, ~2 min left)
+axis1 L21 done (22/32, 4.7 min elapsed, ~2 min left)
+axis1 L22 done (23/32, 4.9 min elapsed, ~2 min left)
+axis1 L23 done (24/32, 5.1 min elapsed, ~2 min left)
+axis1 L24 done (25/32, 5.3 min elapsed, ~1 min left)
+axis1 L25 done (26/32, 5.5 min elapsed, ~1 min left)
+axis1 L26 done (27/32, 5.7 min elapsed, ~1 min left)
+axis1 L27 done (28/32, 5.9 min elapsed, ~1 min left)
+axis1 L28 done (29/32, 6.1 min elapsed, ~1 min left)
+axis1 L29 done (30/32, 6.3 min elapsed, ~0 min left)
+axis1 L30 done (31/32, 6.6 min elapsed, ~0 min left)
+axis1 L31 done (32/32, 6.8 min elapsed, ~0 min left)
+wrote held-out scores to /workspace/mats-task/results/probe_heldout_scores.npz
+axis2 L00 unfiltered: argmax4 sd 0.0169, auc sd 0.0091 (1/9 cells, 0.4 min elapsed, ~3 min left)
+axis2 L00 e2e-strong-filter: argmax4 sd 0.0184, auc sd 0.0105 (2/9 cells, 0.9 min elapsed, ~3 min left)
+axis2 L00 unlearned-cb: argmax4 sd 0.0185, auc sd 0.0091 (3/9 cells, 1.1 min elapsed, ~2 min left)
+axis2 L15 unfiltered: argmax4 sd 0.0217, auc sd 0.0093 (4/9 cells, 1.3 min elapsed, ~2 min left)
+axis2 L15 e2e-strong-filter: argmax4 sd 0.0230, auc sd 0.0108 (5/9 cells, 1.4 min elapsed, ~1 min left)
+axis2 L15 unlearned-cb: argmax4 sd 0.0171, auc sd 0.0089 (6/9 cells, 1.6 min elapsed, ~1 min left)
+axis2 L31 unfiltered: argmax4 sd 0.0200, auc sd 0.0081 (7/9 cells, 1.8 min elapsed, ~1 min left)
+axis2 L31 e2e-strong-filter: argmax4 sd 0.0165, auc sd 0.0059 (8/9 cells, 1.9 min elapsed, ~0 min left)
+axis2 L31 unlearned-cb: argmax4 sd 0.0160, auc sd 0.0073 (9/9 cells, 2.1 min elapsed, ~0 min left)
+
+Done: 192 held-out records, 9 train records in /workspace/mats-task/results/probe_bootstrap.json; scores in /workspace/mats-task/results/probe_heldout_scores.npz

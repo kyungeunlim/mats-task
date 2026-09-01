@@ -4,6 +4,7 @@ results/*
 !results/*.json
 !results/*.png
 !results/eval/
+!results/*.npz
 activations/
 __pycache__/
 .env
