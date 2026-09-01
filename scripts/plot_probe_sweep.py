@@ -57,7 +57,7 @@ matching shuffled baseline per model as a lighter dashed line, the analytic
 chance level as a horizontal dashed line, and the intervention layers as
 dotted verticals.
 
-Run as: .venv/bin/python scripts/plot_probe_sweep.py results/probe_sweep.json results/ [results/probe_bootstrap.json]
+Run as: .venv/bin/python scripts/plot_probe_sweep.py results/probe_sweep.json results/figures/probe/ [results/probe_bootstrap.json]
 """
 
 import argparse

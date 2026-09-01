@@ -34,7 +34,7 @@ Outputs, written to the given output directory:
                                 log-scale y
     compare_cand_end_<set>.png  same for cand_end, linear y
 
-Run as: .venv/bin/python scripts/plot_norms.py results/eval/cache_full_20260831.log results/
+Run as: .venv/bin/python scripts/plot_norms.py results/eval/cache_full_20260831.log results/figures/norms/
 """
 
 import argparse
