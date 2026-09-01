@@ -1,0 +1,7 @@
+loaded 192 records: 32 layers, sets ['main', 'control'], models ['unfiltered', 'e2e-strong-filter', 'unlearned-cb']
+shuffle seeds: within-item 1001 (argmax4), global 1002 (AUC)
+loaded 192 bootstrap records (1000 held-out resamples, seed 2001); bands are the held-out item axis only
+wrote results/probe_argmax4_main.png
+wrote results/probe_auc_main.png
+wrote results/probe_argmax4_control.png
+wrote results/probe_auc_control.png
