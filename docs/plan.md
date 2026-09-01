@@ -297,3 +297,30 @@ Tracked against ticket ids in the weekly thread.
   A custom template image would remove the cost but is not worth building for
   the remaining pod-days of this window.
 - 2026-08-31, tooling: pod card is RTX PRO 6000 (Blackwell, 96GB), driver CUDA 13.2. requirements.txt left unpinned as written, bootstrap resolved torch 2.13.0+cu130, TransformerLens 3.7.3, Python 3.12.3. In-venv checks passed: GPU visible at capability (12, 0), bf16 matmul, TL import. Friday's cu126 install was a manual per-pod fix and is not carried forward. Infra change.
+- 2026-08-31, T4: pre-caching check rerun on the caching pod. Block 31's raw
+  residual added via an HF forward hook (previously unverified, 31 of 32).
+  Pass criterion reverted from 4 bf16 ULPs to the flat thresholds of the first
+  run, since 4 ULPs is below the summation-order noise floor and only passed
+  earlier layers because of the position-0 sink inflating the denominator.
+  See results.md T4b.
+- 2026-08-31, T4: pre-caching check rerun on the caching pod after the
+  environment changed. Block 31's raw residual added via an HF forward hook
+  (previously 31 of 32 verified). Pass criterion reverted from 4 bf16 ULPs to
+  the flat thresholds of the first run, since 4 ULPs is below the
+  summation-order noise floor and earlier layers passed it only because the
+  position-0 sink inflated the denominator. Added scripts/check_batch_padding.py,
+  not in the ticket, to test the right-padding assumption in the batched
+  caching. See results.md T4b.
+- 2026-08-31, tooling: pod bootstrap took about 5 minutes on this deploy, not
+  the 30 recorded on 2026-08-28.  
+- 2026-08-31, T4: added scripts/extract_cand_end.py and
+  scripts/check_extraction.py, not in the ticket, to reformat the cand_end
+  position into per-layer files for T5 and verify them against the source
+  chunks. Reason: removes the GPU dependency from T5 and makes the probe
+  inputs loadable one layer at a time.
+- 2026-08-31, T4: added scripts/plot_norms.py, implementing the per-layer norm
+  plot deliverable, extended to all three models and to cross-model
+  comparisons on pos0 and cand_end.
+- 2026-08-31, T4 actual vs estimate: estimated 3:00, actual 6:11. About half
+  the overage is verification work not in the ticket (block 31, batch padding,
+  extraction and its checker), the rest is results.md write-up and plotting.  
