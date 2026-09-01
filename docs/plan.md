@@ -141,20 +141,77 @@ diagnostic plots in T4. It does not affect the probe, which reads one specific
 position rather than an average.
 
 **Regularization.** The probe's regularization strength is chosen by
-cross-validation inside the training items only, never using held-out items. Using
-held-out data to pick a setting would leak information and inflate the score.
+cross-validation inside the training items only, never using held-out items.
+Using held-out data to pick a setting would leak information and inflate the
+score. Cross-validation is scored by AUC rather than by accuracy, for the
+reason given under Metric below.
+
+**Metric.** [changed 2026-09-01, see Deviations] The headline number is
+within-item argmax: for each held-out item, the probe scores that item's four
+candidates and the item counts as correct if the true answer scores highest.
+Chance is 0.25. AUC over all held-out examples is reported alongside.
+
+Accuracy is not used. The label structure is one correct candidate per three
+wrong by construction, so a probe that always predicts "not correct" scores
+0.75, and accuracy cannot distinguish that from a probe with real signal.
+Accuracy-scored cross-validation selects the strongest regularization
+available and collapses the probe to that constant prediction.
+
+Argmax is the headline because it matches how the Cloze benchmark scores, so
+the probe number is directly comparable to the behavioral numbers in T1, which
+share the same 0.25 chance level. AUC is reported alongside because it uses
+all held-out examples rather than collapsing to one decision per item, so it
+is the finer measurement, and because a disagreement between the two would
+itself be informative: it would mean the probe ranks candidates differently
+within an item than it does across the whole held-out set. Cross-validation is
+scored by AUC because argmax requires grouping examples by item and has no
+sklearn scorer.
+
+**Shuffled-label baselines.** Two, one for each metric. Both keep the
+activation vectors untouched and permute only the labels, so the vectors, the
+example count, the class proportion, the split, and the fitting procedure are
+identical to the real run.
+
+1. Within-item shuffle: permute which of an item's four candidates is marked
+   correct. Exactly one correct per item is preserved, so argmax stays
+   well-defined with chance 0.25. This is the baseline for argmax.
+2. Global shuffle: permute labels across all examples. The 25/75 proportion is
+   preserved overall but an item may end up with zero or two correct labels,
+   which makes argmax ill-defined, so this baseline is read on AUC only, where
+   chance is 0.5. It destroys item-level structure as well as the
+   activation-to-label association, so it is the stronger null.
+
+Since argmax and AUC both have analytic chance levels, these baselines are not
+establishing where chance sits. Their job is to check that the pipeline does
+not manufacture signal from nothing: leakage between the train and held-out
+splits, a misalignment between vectors and labels, or a probe reading item
+identity rather than candidate correctness would show up as a shuffled result
+above chance. If both land at their analytic chance, that is a sanity check
+reported in one line rather than a curve on the figures. If either does not,
+the real numbers are not trustworthy and the cause is found before anything
+else is reported.
+
+Both permutations are drawn from a seeded generator, with the seed recorded in
+the output alongside the results, so each baseline can be reproduced exactly.
+Seeds: 1001 for the within-item shuffle, 1002 for the global shuffle, distinct
+from the split seed 42 so the two are visibly independent.
 
 ### How precise this can be
-With about 320 held-out items, the standard error on a probe accuracy is roughly
-3 percentage points, so a 95% interval is about plus or minus 6 points.
-Differences between model curves smaller than that cannot be resolved by this
-design and will not be claimed.
+The two metrics have different precision, since they are computed over
+different units. Argmax is one decision per held-out item, about 320 of them,
+so the standard error is roughly 3 percentage points and a 95% interval is
+about plus or minus 6 points. AUC is computed over all held-out examples,
+about 1290, so its interval is tighter. The bootstrap in T5 gives the actual
+intervals for both. Differences between model curves smaller than the reported
+interval will not be claimed.
 
 ### What gets plotted
-One figure per recorded position that has a usable label. X axis is layer index,
-Y axis is probe accuracy on held-out items. Three lines, one per model, each with
-an error band from resampling. A horizontal line at the shuffled-label level.
-Vertical marks at layers 5, 10, 15, 20, 25, 30.
+One figure per recorded position that has a usable label. X axis is layer
+index, Y axis is within-item argmax on held-out items. Three lines, one per
+model, each with an error band from resampling. A horizontal line at 0.25,
+the chance level, and the shuffled-label result shown as a check that the
+pipeline reproduces it. Vertical marks at layers 5, 10, 15, 20, 25, 30. The
+same figure is produced for AUC, with its chance line at 0.5.
 
 ### What each possible outcome would mean
 Written in advance so that no result is interpreted after the fact. 
@@ -324,3 +381,19 @@ Tracked against ticket ids in the weekly thread.
 - 2026-08-31, T4 actual vs estimate: estimated 3:00, actual 6:11. About half
   the overage is verification work not in the ticket (block 31, batch padding,
   extraction and its checker), the rest is results.md write-up and plotting.  
+- 2026-08-31, T4: the overage came mostly from problems that only surfaced
+  while writing up the check. Documenting what had been verified is what
+  showed that block 31 was never compared and that the pass criterion was
+  wrong. Those were not visible from the check passing on 2026-08-28.
+- 2026-09-01, T2/T5: metric changed from probe accuracy to within-item argmax
+  over an item's four candidates (chance 0.25), with AUC reported alongside,
+  and cross-validation for C scored by AUC rather than accuracy. Reason: the
+  label structure is one correct candidate per three wrong by construction, so
+  a constant "not correct" prediction scores 0.75 and accuracy cannot
+  distinguish it from a probe with signal. Accuracy-scored CV selected the
+  strongest regularization in the grid for all three models, collapsing the
+  probe to that constant prediction. This follows from the design rather than
+  from the results. Argmax is the headline because it matches how the Cloze
+  benchmark scores, making the probe number directly comparable to T1. C is
+  selected by AUC because argmax needs item grouping and has no sklearn
+  scorer. See results.md T5.  

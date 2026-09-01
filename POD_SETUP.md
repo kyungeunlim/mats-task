@@ -12,7 +12,7 @@ After deploying the pod (US-KS-2, volume `established_copper_caribou`):
 2. On the pod:
    cd /workspace/mats-task
    git pull
-   ./pod_bootstrap.sh     # 5-10 min: installs uv, Claude Code, recreates the venv on container disk
+   ./pod_bootstrap.sh     # 5-30 min: installs uv, Claude Code, recreates the venv on container disk
    source ~/.bashrc       # or open a new shell
 
    Start bootstrap first, then do laptop-side work while it runs.

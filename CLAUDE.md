@@ -16,7 +16,8 @@ proceeds, not at the end.
 ## Environment
 
 Experiments run on a RunPod pod (40GB+ GPU, US-KS-2), volume at /workspace.
-Writing and light edits happen on the laptop; the repo is the sync point, so commit and push often.
+Writing and light edits happen on the laptop; the repo is the sync point, so I
+commit and push often. You do not run git commands that change state.
 Pod restart procedure: POD_SETUP.md. Run it after every pod start; container disk is wiped on stop.
 
 - Repo: /workspace/mats-task on the pod, ~/Projects/mats-task on the laptop
@@ -40,6 +41,9 @@ Pod restart procedure: POD_SETUP.md. Run it after every pod start; container dis
 - When proposing file edits, always present the complete diff in the
   message body before applying, never a truncated preview. I review
   every diff before approving.
+- Never run git add, git commit, git push, or any other state-changing git
+  command. Leave changes in the working tree for me to review and commit.
+  Read-only git commands (status, diff, log, show) are fine.  
 - Persistent state: load models/data once in dedicated cells at the top
   of the Jupyter kernel. Never restart the kernel without asking.
 - Save every plot to disk as PNG (results/) in addition to displaying it.
@@ -53,7 +57,8 @@ Pod restart procedure: POD_SETUP.md. Run it after every pod start; container dis
   technical detail: exact prompts, hyperparameters, shapes, file paths.
 - Any script written from a chat prompt gets a module docstring containing
   that prompt, the date, and a pointer to the plan.md ticket it implements.
-  Appended prompts for later edits go below the original, dated.  
+  Appended prompts for later edits go below the original, dated.
+
 
 ## Style
 - Plain, factual register. No superlatives. Scoped claims with honest
