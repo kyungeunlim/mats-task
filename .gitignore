@@ -1,6 +1,8 @@
 *.pt
 *.safetensors
 results/*
+!results/*.json
+!results/*.png
 !results/eval/
 activations/
 __pycache__/

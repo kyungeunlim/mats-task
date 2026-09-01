@@ -1,0 +1,478 @@
+L00 main    unfiltered         argmax4 0.3653  AUC 0.5864  acc 0.6912  shufA4 0.1950  shufAUC 0.5163  C 0.1  (39s)
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+L00 main    e2e-strong-filter  argmax4 0.3467  AUC 0.5790  acc 0.7105  shufA4 0.2539  shufAUC 0.5067  C 0.1  (48s)
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+L00 main    unlearned-cb       argmax4 0.3622  AUC 0.5806  acc 0.7136  shufA4 0.2074  shufAUC 0.5161  C 0.01  (29s)
+L00 control unfiltered         argmax4 0.3065  AUC 0.5017  acc 0.6006  shufA4 0.2663  shufAUC 0.5002  C 100  (35s)
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+L00 control e2e-strong-filter  argmax4 0.2755  AUC 0.4970  acc 0.6215  shufA4 0.2941  shufAUC 0.5004  C 10  (34s)
+/root/venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 1000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=1000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+L00 control unlearned-cb       argmax4 0.2632  AUC 0.4881  acc 0.6950  shufA4 0.2539  shufAUC 0.5002  C 0.01  (25s)
+-- layer 0 checkpointed to /workspace/mats-task/results/probe_sweep.json (1/32 layers, 3.5 min elapsed, ~109 min left)
+L01 main    unfiltered         argmax4 0.3839  AUC 0.5870  acc 0.7438  shufA4 0.2508  shufAUC 0.5128  C 0.001  (24s)
+L01 main    e2e-strong-filter  argmax4 0.3715  AUC 0.5905  acc 0.7252  shufA4 0.2415  shufAUC 0.5055  C 0.01  (27s)
+L01 main    unlearned-cb       argmax4 0.3839  AUC 0.5870  acc 0.7438  shufA4 0.2384  shufAUC 0.5126  C 0.001  (25s)
+L01 control unfiltered         argmax4 0.2693  AUC 0.5041  acc 0.6602  shufA4 0.2260  shufAUC 0.5039  C 1  (20s)
+L01 control e2e-strong-filter  argmax4 0.2817  AUC 0.5050  acc 0.7330  shufA4 0.2291  shufAUC 0.4781  C 0.001  (19s)
+L01 control unlearned-cb       argmax4 0.2724  AUC 0.5078  acc 0.6641  shufA4 0.2291  shufAUC 0.5055  C 1  (21s)
+-- layer 1 checkpointed to /workspace/mats-task/results/probe_sweep.json (2/32 layers, 5.8 min elapsed, ~87 min left)
+L02 main    unfiltered         argmax4 0.3839  AUC 0.5856  acc 0.7392  shufA4 0.2353  shufAUC 0.5004  C 0.001  (18s)
+L02 main    e2e-strong-filter  argmax4 0.3498  AUC 0.5647  acc 0.7492  shufA4 0.2539  shufAUC 0.5117  C 0.0001  (22s)
+L02 main    unlearned-cb       argmax4 0.3715  AUC 0.5851  acc 0.7399  shufA4 0.2415  shufAUC 0.5043  C 0.001  (15s)
+L02 control unfiltered         argmax4 0.2477  AUC 0.4970  acc 0.6989  shufA4 0.2105  shufAUC 0.5130  C 0.01  (19s)
+L02 control e2e-strong-filter  argmax4 0.2910  AUC 0.5030  acc 0.7043  shufA4 0.2693  shufAUC 0.4961  C 0.01  (14s)
+L02 control unlearned-cb       argmax4 0.2570  AUC 0.4981  acc 0.6966  shufA4 0.2353  shufAUC 0.5133  C 0.01  (22s)
+-- layer 2 checkpointed to /workspace/mats-task/results/probe_sweep.json (3/32 layers, 7.6 min elapsed, ~74 min left)
+L03 main    unfiltered         argmax4 0.3282  AUC 0.5734  acc 0.7492  shufA4 0.2632  shufAUC 0.5142  C 0.0001  (14s)
+L03 main    e2e-strong-filter  argmax4 0.3467  AUC 0.5690  acc 0.7384  shufA4 0.2601  shufAUC 0.5051  C 0.001  (14s)
+L03 main    unlearned-cb       argmax4 0.3437  AUC 0.5728  acc 0.7500  shufA4 0.2384  shufAUC 0.5137  C 0.0001  (14s)
+L03 control unfiltered         argmax4 0.2879  AUC 0.4911  acc 0.7500  shufA4 0.1889  shufAUC 0.5130  C 0.0001  (11s)
+L03 control e2e-strong-filter  argmax4 0.2724  AUC 0.5054  acc 0.7074  shufA4 0.2879  shufAUC 0.4935  C 0.01  (11s)
+L03 control unlearned-cb       argmax4 0.3003  AUC 0.4914  acc 0.7500  shufA4 0.1950  shufAUC 0.5194  C 0.0001  (12s)
+-- layer 3 checkpointed to /workspace/mats-task/results/probe_sweep.json (4/32 layers, 9.0 min elapsed, ~63 min left)
+L04 main    unfiltered         argmax4 0.3808  AUC 0.6039  acc 0.7485  shufA4 0.2632  shufAUC 0.5127  C 0.001  (11s)
+L04 main    e2e-strong-filter  argmax4 0.3653  AUC 0.5766  acc 0.7423  shufA4 0.2663  shufAUC 0.5146  C 0.001  (14s)
+L04 main    unlearned-cb       argmax4 0.3591  AUC 0.5800  acc 0.7500  shufA4 0.2632  shufAUC 0.5118  C 0.0001  (13s)
+L04 control unfiltered         argmax4 0.2601  AUC 0.4906  acc 0.6053  shufA4 0.2105  shufAUC 0.5039  C 100  (10s)
+L04 control e2e-strong-filter  argmax4 0.2632  AUC 0.5090  acc 0.7098  shufA4 0.2477  shufAUC 0.4905  C 0.01  (10s)
+L04 control unlearned-cb       argmax4 0.2663  AUC 0.4960  acc 0.6053  shufA4 0.2198  shufAUC 0.5055  C 100  (12s)
+-- layer 4 checkpointed to /workspace/mats-task/results/probe_sweep.json (5/32 layers, 10.2 min elapsed, ~55 min left)
+L05 main    unfiltered         argmax4 0.3684  AUC 0.5820  acc 0.7500  shufA4 0.2291  shufAUC 0.5104  C 0.0001  (11s)
+L05 main    e2e-strong-filter  argmax4 0.3777  AUC 0.5891  acc 0.7399  shufA4 0.2353  shufAUC 0.5019  C 0.001  (12s)
+L05 main    unlearned-cb       argmax4 0.3684  AUC 0.5812  acc 0.7500  shufA4 0.2539  shufAUC 0.5090  C 0.0001  (11s)
+L05 control unfiltered         argmax4 0.2848  AUC 0.4964  acc 0.6362  shufA4 0.2817  shufAUC 0.4958  C 1  (13s)
+L05 control e2e-strong-filter  argmax4 0.2570  AUC 0.4940  acc 0.6989  shufA4 0.2693  shufAUC 0.5128  C 0.01  (12s)
+L05 control unlearned-cb       argmax4 0.2353  AUC 0.4880  acc 0.6548  shufA4 0.2910  shufAUC 0.5039  C 0.1  (12s)
+-- layer 5 checkpointed to /workspace/mats-task/results/probe_sweep.json (6/32 layers, 11.4 min elapsed, ~49 min left)
+L06 main    unfiltered         argmax4 0.3467  AUC 0.5811  acc 0.7500  shufA4 0.2693  shufAUC 0.5189  C 0.0001  (11s)
+L06 main    e2e-strong-filter  argmax4 0.4087  AUC 0.5972  acc 0.7485  shufA4 0.2879  shufAUC 0.5104  C 0.001  (10s)
+L06 main    unlearned-cb       argmax4 0.3498  AUC 0.5803  acc 0.7500  shufA4 0.2539  shufAUC 0.5173  C 0.0001  (10s)
+L06 control unfiltered         argmax4 0.2693  AUC 0.4733  acc 0.6262  shufA4 0.2353  shufAUC 0.4921  C 1  (12s)
+L06 control e2e-strong-filter  argmax4 0.2817  AUC 0.5035  acc 0.6633  shufA4 0.2415  shufAUC 0.4978  C 0.1  (10s)
+L06 control unlearned-cb       argmax4 0.2601  AUC 0.4780  acc 0.6238  shufA4 0.2724  shufAUC 0.5133  C 1  (10s)
+-- layer 6 checkpointed to /workspace/mats-task/results/probe_sweep.json (7/32 layers, 12.4 min elapsed, ~44 min left)
+L07 main    unfiltered         argmax4 0.3994  AUC 0.6084  acc 0.7353  shufA4 0.2663  shufAUC 0.5091  C 0.001  (10s)
+L07 main    e2e-strong-filter  argmax4 0.4149  AUC 0.6036  acc 0.7446  shufA4 0.2663  shufAUC 0.4907  C 0.001  (10s)
+L07 main    unlearned-cb       argmax4 0.3839  AUC 0.6073  acc 0.7337  shufA4 0.2755  shufAUC 0.5186  C 0.001  (9s)
+L07 control unfiltered         argmax4 0.2508  AUC 0.4861  acc 0.6277  shufA4 0.2693  shufAUC 0.5046  C 1  (11s)
+L07 control e2e-strong-filter  argmax4 0.2663  AUC 0.4976  acc 0.7492  shufA4 0.3375  shufAUC 0.4869  C 0.0001  (11s)
+L07 control unlearned-cb       argmax4 0.2693  AUC 0.4856  acc 0.6331  shufA4 0.2632  shufAUC 0.4973  C 1  (10s)
+-- layer 7 checkpointed to /workspace/mats-task/results/probe_sweep.json (8/32 layers, 13.4 min elapsed, ~40 min left)
+L08 main    unfiltered         argmax4 0.3932  AUC 0.5923  acc 0.7500  shufA4 0.2384  shufAUC 0.5109  C 0.0001  (10s)
+L08 main    e2e-strong-filter  argmax4 0.3839  AUC 0.5924  acc 0.7500  shufA4 0.2415  shufAUC 0.4986  C 0.0001  (10s)
+L08 main    unlearned-cb       argmax4 0.3839  AUC 0.5929  acc 0.7500  shufA4 0.2693  shufAUC 0.5106  C 0.0001  (11s)
+L08 control unfiltered         argmax4 0.3003  AUC 0.4970  acc 0.6231  shufA4 0.2198  shufAUC 0.4938  C 1  (10s)
+L08 control e2e-strong-filter  argmax4 0.2539  AUC 0.5103  acc 0.6687  shufA4 0.2508  shufAUC 0.4845  C 0.1  (11s)
+L08 control unlearned-cb       argmax4 0.3096  AUC 0.4992  acc 0.6254  shufA4 0.2167  shufAUC 0.4938  C 1  (9s)
+-- layer 8 checkpointed to /workspace/mats-task/results/probe_sweep.json (9/32 layers, 14.5 min elapsed, ~37 min left)
+L09 main    unfiltered         argmax4 0.4272  AUC 0.6274  acc 0.7454  shufA4 0.2632  shufAUC 0.5136  C 0.001  (10s)
+L09 main    e2e-strong-filter  argmax4 0.4334  AUC 0.6153  acc 0.7461  shufA4 0.2693  shufAUC 0.4988  C 0.001  (10s)
+L09 main    unlearned-cb       argmax4 0.4211  AUC 0.6244  acc 0.7446  shufA4 0.2353  shufAUC 0.5123  C 0.001  (8s)
+L09 control unfiltered         argmax4 0.2724  AUC 0.4917  acc 0.7314  shufA4 0.2322  shufAUC 0.4915  C 0.001  (11s)
+L09 control e2e-strong-filter  argmax4 0.2879  AUC 0.5146  acc 0.7500  shufA4 0.2260  shufAUC 0.4908  C 0.0001  (9s)
+L09 control unlearned-cb       argmax4 0.2755  AUC 0.4927  acc 0.7314  shufA4 0.2322  shufAUC 0.4892  C 0.001  (9s)
+-- layer 9 checkpointed to /workspace/mats-task/results/probe_sweep.json (10/32 layers, 15.5 min elapsed, ~34 min left)
+L10 main    unfiltered         argmax4 0.4334  AUC 0.6078  acc 0.7500  shufA4 0.2663  shufAUC 0.5145  C 0.0001  (9s)
+L10 main    e2e-strong-filter  argmax4 0.4365  AUC 0.6245  acc 0.7423  shufA4 0.2663  shufAUC 0.4966  C 0.001  (11s)
+L10 main    unlearned-cb       argmax4 0.4272  AUC 0.6062  acc 0.7500  shufA4 0.2446  shufAUC 0.5108  C 0.0001  (8s)
+L10 control unfiltered         argmax4 0.2755  AUC 0.4961  acc 0.7500  shufA4 0.2322  shufAUC 0.4930  C 0.0001  (10s)
+L10 control e2e-strong-filter  argmax4 0.3065  AUC 0.5197  acc 0.6548  shufA4 0.2601  shufAUC 0.4837  C 0.1  (10s)
+L10 control unlearned-cb       argmax4 0.2508  AUC 0.4895  acc 0.6974  shufA4 0.2477  shufAUC 0.4824  C 0.01  (9s)
+-- layer 10 checkpointed to /workspace/mats-task/results/probe_sweep.json (11/32 layers, 16.4 min elapsed, ~31 min left)
+L11 main    unfiltered         argmax4 0.4427  AUC 0.6126  acc 0.7500  shufA4 0.2167  shufAUC 0.5143  C 0.0001  (8s)
+L11 main    e2e-strong-filter  argmax4 0.4427  AUC 0.6227  acc 0.7376  shufA4 0.2322  shufAUC 0.4912  C 0.001  (7s)
+L11 main    unlearned-cb       argmax4 0.4056  AUC 0.6099  acc 0.7500  shufA4 0.2291  shufAUC 0.5120  C 0.0001  (8s)
+L11 control unfiltered         argmax4 0.3065  AUC 0.5089  acc 0.6486  shufA4 0.2415  shufAUC 0.4895  C 0.1  (9s)
+L11 control e2e-strong-filter  argmax4 0.2848  AUC 0.5296  acc 0.7500  shufA4 0.2415  shufAUC 0.4871  C 0.0001  (10s)
+L11 control unlearned-cb       argmax4 0.2693  AUC 0.5075  acc 0.6494  shufA4 0.2477  shufAUC 0.4836  C 0.1  (10s)
+-- layer 11 checkpointed to /workspace/mats-task/results/probe_sweep.json (12/32 layers, 17.3 min elapsed, ~29 min left)
+L12 main    unfiltered         argmax4 0.4427  AUC 0.6182  acc 0.7500  shufA4 0.2353  shufAUC 0.5144  C 0.0001  (7s)
+L12 main    e2e-strong-filter  argmax4 0.4272  AUC 0.6200  acc 0.7392  shufA4 0.2353  shufAUC 0.4921  C 0.001  (8s)
+L12 main    unlearned-cb       argmax4 0.4551  AUC 0.6178  acc 0.7500  shufA4 0.2508  shufAUC 0.5138  C 0.0001  (8s)
+L12 control unfiltered         argmax4 0.2693  AUC 0.5133  acc 0.7492  shufA4 0.2260  shufAUC 0.4872  C 0.0001  (8s)
+L12 control e2e-strong-filter  argmax4 0.3127  AUC 0.5369  acc 0.7090  shufA4 0.2229  shufAUC 0.4972  C 0.01  (9s)
+L12 control unlearned-cb       argmax4 0.2693  AUC 0.5146  acc 0.7492  shufA4 0.2384  shufAUC 0.4835  C 0.0001  (8s)
+-- layer 12 checkpointed to /workspace/mats-task/results/probe_sweep.json (13/32 layers, 18.1 min elapsed, ~26 min left)
+L13 main    unfiltered         argmax4 0.4861  AUC 0.6519  acc 0.7415  shufA4 0.2477  shufAUC 0.5173  C 0.001  (8s)
+L13 main    e2e-strong-filter  argmax4 0.4613  AUC 0.6362  acc 0.7399  shufA4 0.2446  shufAUC 0.4924  C 0.001  (10s)
+L13 main    unlearned-cb       argmax4 0.4613  AUC 0.6523  acc 0.7399  shufA4 0.2570  shufAUC 0.5171  C 0.001  (8s)
+L13 control unfiltered         argmax4 0.3003  AUC 0.5320  acc 0.7492  shufA4 0.2074  shufAUC 0.5030  C 0.0001  (8s)
+L13 control e2e-strong-filter  argmax4 0.3189  AUC 0.5484  acc 0.7500  shufA4 0.2786  shufAUC 0.5082  C 0.0001  (11s)
+L13 control unlearned-cb       argmax4 0.2848  AUC 0.5312  acc 0.7492  shufA4 0.1950  shufAUC 0.4967  C 0.0001  (8s)
+-- layer 13 checkpointed to /workspace/mats-task/results/probe_sweep.json (14/32 layers, 19.0 min elapsed, ~24 min left)
+L14 main    unfiltered         argmax4 0.4830  AUC 0.6674  acc 0.7469  shufA4 0.2724  shufAUC 0.5210  C 0.001  (6s)
+L14 main    e2e-strong-filter  argmax4 0.4644  AUC 0.6383  acc 0.7392  shufA4 0.2260  shufAUC 0.5046  C 0.001  (7s)
+L14 main    unlearned-cb       argmax4 0.4830  AUC 0.6611  acc 0.7423  shufA4 0.2446  shufAUC 0.5175  C 0.001  (7s)
+L14 control unfiltered         argmax4 0.3003  AUC 0.5461  acc 0.7492  shufA4 0.2415  shufAUC 0.5021  C 0.0001  (7s)
+L14 control e2e-strong-filter  argmax4 0.2910  AUC 0.5462  acc 0.7500  shufA4 0.2693  shufAUC 0.5179  C 0.0001  (8s)
+L14 control unlearned-cb       argmax4 0.2910  AUC 0.5490  acc 0.7492  shufA4 0.2353  shufAUC 0.4942  C 0.0001  (8s)
+-- layer 14 checkpointed to /workspace/mats-task/results/probe_sweep.json (15/32 layers, 19.8 min elapsed, ~22 min left)
+L15 main    unfiltered         argmax4 0.4985  AUC 0.6767  acc 0.7562  shufA4 0.2322  shufAUC 0.5261  C 0.001  (8s)
+L15 main    e2e-strong-filter  argmax4 0.4365  AUC 0.6231  acc 0.7508  shufA4 0.2229  shufAUC 0.5168  C 0.0001  (8s)
+L15 main    unlearned-cb       argmax4 0.5139  AUC 0.6656  acc 0.7562  shufA4 0.2105  shufAUC 0.5214  C 0.001  (8s)
+L15 control unfiltered         argmax4 0.3653  AUC 0.5816  acc 0.7492  shufA4 0.2508  shufAUC 0.4986  C 0.0001  (8s)
+L15 control e2e-strong-filter  argmax4 0.3282  AUC 0.5539  acc 0.7500  shufA4 0.2477  shufAUC 0.5016  C 0.0001  (8s)
+L15 control unlearned-cb       argmax4 0.3560  AUC 0.5789  acc 0.7492  shufA4 0.2291  shufAUC 0.4980  C 0.0001  (8s)
+-- layer 15 checkpointed to /workspace/mats-task/results/probe_sweep.json (16/32 layers, 20.6 min elapsed, ~21 min left)
+L16 main    unfiltered         argmax4 0.4892  AUC 0.6942  acc 0.7539  shufA4 0.2291  shufAUC 0.5391  C 0.001  (6s)
+L16 main    e2e-strong-filter  argmax4 0.4211  AUC 0.6248  acc 0.7500  shufA4 0.2601  shufAUC 0.5176  C 0.0001  (6s)
+L16 main    unlearned-cb       argmax4 0.5232  AUC 0.6812  acc 0.7469  shufA4 0.2415  shufAUC 0.5351  C 0.001  (6s)
+L16 control unfiltered         argmax4 0.4087  AUC 0.6045  acc 0.7492  shufA4 0.2570  shufAUC 0.4934  C 0.0001  (8s)
+L16 control e2e-strong-filter  argmax4 0.3498  AUC 0.5753  acc 0.7500  shufA4 0.2446  shufAUC 0.5134  C 0.0001  (9s)
+L16 control unlearned-cb       argmax4 0.3994  AUC 0.6020  acc 0.7492  shufA4 0.2446  shufAUC 0.4950  C 0.0001  (9s)
+-- layer 16 checkpointed to /workspace/mats-task/results/probe_sweep.json (17/32 layers, 21.4 min elapsed, ~19 min left)
+L17 main    unfiltered         argmax4 0.5139  AUC 0.6969  acc 0.7562  shufA4 0.2477  shufAUC 0.5308  C 0.001  (8s)
+L17 main    e2e-strong-filter  argmax4 0.4582  AUC 0.6525  acc 0.7399  shufA4 0.2105  shufAUC 0.5121  C 0.001  (7s)
+L17 main    unlearned-cb       argmax4 0.5232  AUC 0.6900  acc 0.7546  shufA4 0.2539  shufAUC 0.5296  C 0.001  (7s)
+L17 control unfiltered         argmax4 0.4118  AUC 0.6141  acc 0.7485  shufA4 0.2384  shufAUC 0.4969  C 0.0001  (8s)
+L17 control e2e-strong-filter  argmax4 0.3746  AUC 0.5939  acc 0.7500  shufA4 0.2415  shufAUC 0.5054  C 0.0001  (10s)
+L17 control unlearned-cb       argmax4 0.3870  AUC 0.6105  acc 0.7492  shufA4 0.2477  shufAUC 0.4882  C 0.0001  (8s)
+-- layer 17 checkpointed to /workspace/mats-task/results/probe_sweep.json (18/32 layers, 22.2 min elapsed, ~17 min left)
+L18 main    unfiltered         argmax4 0.5294  AUC 0.6971  acc 0.7508  shufA4 0.2570  shufAUC 0.5317  C 0.001  (6s)
+L18 main    e2e-strong-filter  argmax4 0.4799  AUC 0.6717  acc 0.7477  shufA4 0.2477  shufAUC 0.5088  C 0.001  (7s)
+L18 main    unlearned-cb       argmax4 0.4799  AUC 0.6816  acc 0.7515  shufA4 0.2570  shufAUC 0.5231  C 0.001  (6s)
+L18 control unfiltered         argmax4 0.4303  AUC 0.6220  acc 0.7492  shufA4 0.2693  shufAUC 0.4976  C 0.0001  (7s)
+L18 control e2e-strong-filter  argmax4 0.3901  AUC 0.6016  acc 0.7500  shufA4 0.2384  shufAUC 0.4919  C 0.0001  (8s)
+L18 control unlearned-cb       argmax4 0.4396  AUC 0.6166  acc 0.7492  shufA4 0.2539  shufAUC 0.4868  C 0.0001  (10s)
+-- layer 18 checkpointed to /workspace/mats-task/results/probe_sweep.json (19/32 layers, 23.0 min elapsed, ~16 min left)
+L19 main    unfiltered         argmax4 0.4954  AUC 0.6975  acc 0.7454  shufA4 0.2508  shufAUC 0.5214  C 0.001  (6s)
+L19 main    e2e-strong-filter  argmax4 0.4768  AUC 0.6495  acc 0.7500  shufA4 0.2446  shufAUC 0.4992  C 0.0001  (6s)
+L19 main    unlearned-cb       argmax4 0.4985  AUC 0.6783  acc 0.7500  shufA4 0.3158  shufAUC 0.5201  C 0.001  (7s)
+L19 control unfiltered         argmax4 0.4241  AUC 0.6285  acc 0.7500  shufA4 0.2693  shufAUC 0.5071  C 0.0001  (8s)
+L19 control e2e-strong-filter  argmax4 0.4056  AUC 0.6074  acc 0.7500  shufA4 0.2105  shufAUC 0.4837  C 0.0001  (7s)
+L19 control unlearned-cb       argmax4 0.4334  AUC 0.6240  acc 0.7492  shufA4 0.2724  shufAUC 0.4947  C 0.0001  (8s)
+-- layer 19 checkpointed to /workspace/mats-task/results/probe_sweep.json (20/32 layers, 23.7 min elapsed, ~14 min left)
+L20 main    unfiltered         argmax4 0.5170  AUC 0.6998  acc 0.7539  shufA4 0.2693  shufAUC 0.5136  C 0.001  (6s)
+L20 main    e2e-strong-filter  argmax4 0.4582  AUC 0.6733  acc 0.7508  shufA4 0.2539  shufAUC 0.5148  C 0.001  (6s)
+L20 main    unlearned-cb       argmax4 0.4892  AUC 0.6832  acc 0.7593  shufA4 0.2601  shufAUC 0.5146  C 0.001  (6s)
+L20 control unfiltered         argmax4 0.4303  AUC 0.6290  acc 0.7492  shufA4 0.2477  shufAUC 0.4980  C 0.0001  (7s)
+L20 control e2e-strong-filter  argmax4 0.4056  AUC 0.6104  acc 0.7500  shufA4 0.2322  shufAUC 0.4812  C 0.0001  (7s)
+L20 control unlearned-cb       argmax4 0.4365  AUC 0.6214  acc 0.7492  shufA4 0.2415  shufAUC 0.4855  C 0.0001  (8s)
+-- layer 20 checkpointed to /workspace/mats-task/results/probe_sweep.json (21/32 layers, 24.4 min elapsed, ~13 min left)
+L21 main    unfiltered         argmax4 0.5170  AUC 0.6967  acc 0.7601  shufA4 0.2477  shufAUC 0.5113  C 0.001  (8s)
+L21 main    e2e-strong-filter  argmax4 0.4675  AUC 0.6397  acc 0.7500  shufA4 0.2322  shufAUC 0.4998  C 0.0001  (7s)
+L21 main    unlearned-cb       argmax4 0.5108  AUC 0.6836  acc 0.7608  shufA4 0.2632  shufAUC 0.5123  C 0.001  (11s)
+L21 control unfiltered         argmax4 0.4149  AUC 0.6340  acc 0.7500  shufA4 0.2601  shufAUC 0.5062  C 0.0001  (8s)
+L21 control e2e-strong-filter  argmax4 0.3963  AUC 0.6059  acc 0.7500  shufA4 0.2136  shufAUC 0.4939  C 0.0001  (8s)
+L21 control unlearned-cb       argmax4 0.4272  AUC 0.6248  acc 0.7492  shufA4 0.2353  shufAUC 0.4905  C 0.0001  (8s)
+-- layer 21 checkpointed to /workspace/mats-task/results/probe_sweep.json (22/32 layers, 25.3 min elapsed, ~11 min left)
+L22 main    unfiltered         argmax4 0.5108  AUC 0.6947  acc 0.7562  shufA4 0.2415  shufAUC 0.5142  C 0.001  (7s)
+L22 main    e2e-strong-filter  argmax4 0.4644  AUC 0.6374  acc 0.7500  shufA4 0.2632  shufAUC 0.5047  C 0.0001  (7s)
+L22 main    unlearned-cb       argmax4 0.4892  AUC 0.6803  acc 0.7469  shufA4 0.2105  shufAUC 0.5143  C 0.001  (8s)
+L22 control unfiltered         argmax4 0.4396  AUC 0.6339  acc 0.7500  shufA4 0.2446  shufAUC 0.5088  C 0.0001  (7s)
+L22 control e2e-strong-filter  argmax4 0.3932  AUC 0.6000  acc 0.7500  shufA4 0.2260  shufAUC 0.5126  C 0.0001  (9s)
+L22 control unlearned-cb       argmax4 0.4334  AUC 0.6208  acc 0.7492  shufA4 0.2632  shufAUC 0.4995  C 0.0001  (11s)
+-- layer 22 checkpointed to /workspace/mats-task/results/probe_sweep.json (23/32 layers, 26.1 min elapsed, ~10 min left)
+L23 main    unfiltered         argmax4 0.5108  AUC 0.6899  acc 0.7554  shufA4 0.2477  shufAUC 0.5128  C 0.001  (7s)
+L23 main    e2e-strong-filter  argmax4 0.4489  AUC 0.6326  acc 0.7500  shufA4 0.2291  shufAUC 0.5081  C 0.0001  (7s)
+L23 main    unlearned-cb       argmax4 0.5046  AUC 0.6822  acc 0.7500  shufA4 0.2167  shufAUC 0.5103  C 0.001  (10s)
+L23 control unfiltered         argmax4 0.4149  AUC 0.6309  acc 0.7500  shufA4 0.2570  shufAUC 0.4992  C 0.0001  (8s)
+L23 control e2e-strong-filter  argmax4 0.4087  AUC 0.6032  acc 0.7500  shufA4 0.2229  shufAUC 0.5070  C 0.0001  (8s)
+L23 control unlearned-cb       argmax4 0.4087  AUC 0.6171  acc 0.7500  shufA4 0.2198  shufAUC 0.4939  C 0.0001  (8s)
+-- layer 23 checkpointed to /workspace/mats-task/results/probe_sweep.json (24/32 layers, 27.0 min elapsed, ~9 min left)
+L24 main    unfiltered         argmax4 0.4830  AUC 0.6863  acc 0.7539  shufA4 0.2415  shufAUC 0.5133  C 0.001  (7s)
+L24 main    e2e-strong-filter  argmax4 0.4365  AUC 0.6572  acc 0.7469  shufA4 0.2384  shufAUC 0.5053  C 0.001  (7s)
+L24 main    unlearned-cb       argmax4 0.4830  AUC 0.6772  acc 0.7539  shufA4 0.2446  shufAUC 0.5112  C 0.001  (8s)
+L24 control unfiltered         argmax4 0.4241  AUC 0.6299  acc 0.7500  shufA4 0.2198  shufAUC 0.5080  C 0.0001  (10s)
+L24 control e2e-strong-filter  argmax4 0.3963  AUC 0.6040  acc 0.7500  shufA4 0.2167  shufAUC 0.5153  C 0.0001  (8s)
+L24 control unlearned-cb       argmax4 0.4272  AUC 0.6168  acc 0.7500  shufA4 0.2539  shufAUC 0.4975  C 0.0001  (9s)
+-- layer 24 checkpointed to /workspace/mats-task/results/probe_sweep.json (25/32 layers, 27.8 min elapsed, ~8 min left)
+L25 main    unfiltered         argmax4 0.5170  AUC 0.6842  acc 0.7554  shufA4 0.2322  shufAUC 0.5158  C 0.001  (6s)
+L25 main    e2e-strong-filter  argmax4 0.4706  AUC 0.6565  acc 0.7508  shufA4 0.2291  shufAUC 0.5045  C 0.001  (7s)
+L25 main    unlearned-cb       argmax4 0.4923  AUC 0.6759  acc 0.7531  shufA4 0.2384  shufAUC 0.5099  C 0.001  (9s)
+L25 control unfiltered         argmax4 0.4334  AUC 0.6318  acc 0.7415  shufA4 0.2941  shufAUC 0.4861  C 0.001  (10s)
+L25 control e2e-strong-filter  argmax4 0.4149  AUC 0.5995  acc 0.7500  shufA4 0.2229  shufAUC 0.5236  C 0.0001  (7s)
+L25 control unlearned-cb       argmax4 0.4025  AUC 0.6165  acc 0.7376  shufA4 0.2570  shufAUC 0.4950  C 0.001  (12s)
+-- layer 25 checkpointed to /workspace/mats-task/results/probe_sweep.json (26/32 layers, 28.7 min elapsed, ~7 min left)
+L26 main    unfiltered         argmax4 0.5139  AUC 0.6729  acc 0.7523  shufA4 0.2353  shufAUC 0.5191  C 0.001  (8s)
+L26 main    e2e-strong-filter  argmax4 0.4551  AUC 0.6560  acc 0.7515  shufA4 0.2322  shufAUC 0.5046  C 0.001  (11s)
+L26 main    unlearned-cb       argmax4 0.4706  AUC 0.6788  acc 0.7492  shufA4 0.2353  shufAUC 0.5174  C 0.001  (11s)
+L26 control unfiltered         argmax4 0.4211  AUC 0.6262  acc 0.7500  shufA4 0.2663  shufAUC 0.4969  C 0.0001  (12s)
+L26 control e2e-strong-filter  argmax4 0.3870  AUC 0.6021  acc 0.7500  shufA4 0.2415  shufAUC 0.5071  C 0.0001  (8s)
+L26 control unlearned-cb       argmax4 0.4087  AUC 0.6114  acc 0.7423  shufA4 0.2415  shufAUC 0.4910  C 0.001  (9s)
+-- layer 26 checkpointed to /workspace/mats-task/results/probe_sweep.json (27/32 layers, 29.7 min elapsed, ~5 min left)
+L27 main    unfiltered         argmax4 0.5325  AUC 0.6758  acc 0.7508  shufA4 0.2353  shufAUC 0.5168  C 0.001  (7s)
+L27 main    e2e-strong-filter  argmax4 0.4799  AUC 0.6577  acc 0.7515  shufA4 0.2632  shufAUC 0.5068  C 0.001  (9s)
+L27 main    unlearned-cb       argmax4 0.4768  AUC 0.6743  acc 0.7446  shufA4 0.2446  shufAUC 0.5130  C 0.001  (8s)
+L27 control unfiltered         argmax4 0.4272  AUC 0.6192  acc 0.7500  shufA4 0.2570  shufAUC 0.4982  C 0.0001  (8s)
+L27 control e2e-strong-filter  argmax4 0.3684  AUC 0.5959  acc 0.7438  shufA4 0.2477  shufAUC 0.5294  C 0.001  (8s)
+L27 control unlearned-cb       argmax4 0.4087  AUC 0.6064  acc 0.7500  shufA4 0.2632  shufAUC 0.4913  C 0.0001  (9s)
+-- layer 27 checkpointed to /workspace/mats-task/results/probe_sweep.json (28/32 layers, 30.6 min elapsed, ~4 min left)
+L28 main    unfiltered         argmax4 0.4830  AUC 0.6699  acc 0.7477  shufA4 0.2291  shufAUC 0.5184  C 0.001  (8s)
+L28 main    e2e-strong-filter  argmax4 0.4799  AUC 0.6542  acc 0.7438  shufA4 0.2477  shufAUC 0.5114  C 0.001  (11s)
+L28 main    unlearned-cb       argmax4 0.5046  AUC 0.6795  acc 0.7485  shufA4 0.2632  shufAUC 0.5147  C 0.001  (10s)
+L28 control unfiltered         argmax4 0.4056  AUC 0.6253  acc 0.7407  shufA4 0.2848  shufAUC 0.5184  C 0.001  (10s)
+L28 control e2e-strong-filter  argmax4 0.3932  AUC 0.5967  acc 0.7446  shufA4 0.2291  shufAUC 0.5151  C 0.001  (11s)
+L28 control unlearned-cb       argmax4 0.3870  AUC 0.6104  acc 0.7407  shufA4 0.2384  shufAUC 0.4926  C 0.001  (9s)
+-- layer 28 checkpointed to /workspace/mats-task/results/probe_sweep.json (29/32 layers, 31.5 min elapsed, ~3 min left)
+L29 main    unfiltered         argmax4 0.5139  AUC 0.6722  acc 0.7515  shufA4 0.2570  shufAUC 0.5203  C 0.001  (8s)
+L29 main    e2e-strong-filter  argmax4 0.4706  AUC 0.6473  acc 0.7392  shufA4 0.2291  shufAUC 0.5137  C 0.001  (9s)
+L29 main    unlearned-cb       argmax4 0.5015  AUC 0.6812  acc 0.7461  shufA4 0.2693  shufAUC 0.5145  C 0.001  (9s)
+L29 control unfiltered         argmax4 0.4303  AUC 0.6176  acc 0.7500  shufA4 0.2724  shufAUC 0.5197  C 0.0001  (10s)
+L29 control e2e-strong-filter  argmax4 0.4056  AUC 0.5974  acc 0.7430  shufA4 0.2446  shufAUC 0.5233  C 0.001  (9s)
+L29 control unlearned-cb       argmax4 0.3808  AUC 0.6066  acc 0.7415  shufA4 0.2074  shufAUC 0.4999  C 0.001  (13s)
+-- layer 29 checkpointed to /workspace/mats-task/results/probe_sweep.json (30/32 layers, 32.5 min elapsed, ~2 min left)
+L30 main    unfiltered         argmax4 0.5046  AUC 0.6714  acc 0.7593  shufA4 0.2477  shufAUC 0.5222  C 0.001  (6s)
+L30 main    e2e-strong-filter  argmax4 0.4644  AUC 0.6413  acc 0.7361  shufA4 0.2477  shufAUC 0.5132  C 0.001  (6s)
+L30 main    unlearned-cb       argmax4 0.4954  AUC 0.6795  acc 0.7500  shufA4 0.2817  shufAUC 0.5141  C 0.001  (9s)
+L30 control unfiltered         argmax4 0.4118  AUC 0.6223  acc 0.7454  shufA4 0.2786  shufAUC 0.5278  C 0.001  (10s)
+L30 control e2e-strong-filter  argmax4 0.4149  AUC 0.5901  acc 0.7485  shufA4 0.2570  shufAUC 0.5325  C 0.001  (9s)
+L30 control unlearned-cb       argmax4 0.4056  AUC 0.6051  acc 0.7415  shufA4 0.2260  shufAUC 0.5008  C 0.001  (10s)
+-- layer 30 checkpointed to /workspace/mats-task/results/probe_sweep.json (31/32 layers, 33.4 min elapsed, ~1 min left)
+L31 main    unfiltered         argmax4 0.5077  AUC 0.6729  acc 0.7585  shufA4 0.2508  shufAUC 0.5259  C 0.001  (8s)
+L31 main    e2e-strong-filter  argmax4 0.4489  AUC 0.6392  acc 0.7361  shufA4 0.2539  shufAUC 0.5121  C 0.001  (8s)
+L31 main    unlearned-cb       argmax4 0.4861  AUC 0.6825  acc 0.7500  shufA4 0.2786  shufAUC 0.5166  C 0.001  (12s)
+L31 control unfiltered         argmax4 0.4211  AUC 0.6222  acc 0.7430  shufA4 0.2755  shufAUC 0.5307  C 0.001  (9s)
+L31 control e2e-strong-filter  argmax4 0.3994  AUC 0.5898  acc 0.7492  shufA4 0.2260  shufAUC 0.5310  C 0.001  (9s)
+L31 control unlearned-cb       argmax4 0.3994  AUC 0.6023  acc 0.7446  shufA4 0.2384  shufAUC 0.5036  C 0.001  (10s)
+-- layer 31 checkpointed to /workspace/mats-task/results/probe_sweep.json (32/32 layers, 34.4 min elapsed, ~0 min left)
+
+Done: 192 records in /workspace/mats-task/results/probe_sweep.json
