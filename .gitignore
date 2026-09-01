@@ -3,8 +3,10 @@
 results/*
 !results/*.json
 !results/*.png
-!results/eval/
 !results/*.npz
+!results/eval/
+!results/figures/
+!results/figures/**
 activations/
 __pycache__/
 .env
