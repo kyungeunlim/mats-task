@@ -51,3 +51,18 @@ option.
 Redeploy can land a better card than resume would have (Aug 26: L40 pod wouldn't
 resume, redeploy got an A100).
 
+
+## When to terminate
+
+Terminate when the next step is thinking rather than running, and the
+thinking will take longer than a bootstrap. Bootstrap has run 5 to 30
+minutes across deploys, so assume 30 unless the recent runs have been
+fast. For a break shorter than that, leave the pod up: at $0.82/hr on
+the L40 an idle hour costs 82 cents, which is less than the redeploy
+time is worth.
+
+The volume keeps the cache, the layer files, and the repo, so nothing is
+lost on termination beyond /root/venv, which bootstrap rebuilds.
+
+Terminate rather than stop. Stopped pods still bill for container disk
+and, per the pod routine, resume does not work reliably.
