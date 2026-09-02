@@ -1,0 +1,139 @@
+========================================================================================
+T7 sanity check: held-out items with probe scores
+scores file : /Users/kyungeun/Projects/mats-task/results/probe_heldout_scores.npz
+set file    : /Users/kyungeun/Projects/mats-task/data/main_set.json
+set / model / layer : main / unfiltered / 20
+held-out items      : 323 (split seed in set file: 42)
+selection : numpy.random.default_rng(seed=7).choice(323, size=10, replace=False), positions into the held-out order, shown sorted by position
+scores    : logistic-regression decision_function at cand_end, higher = more 'correct-candidate'-like; argmax within item
+----------------------------------------------------------------------------------------
+argmax4 over full held-out set, recomputed from npz: 167/323 = 0.517028
+  probe_bootstrap.json argmax4 (same fit as npz)   : 0.517028
+  probe_sweep.json argmax4 (separate CV refit)     : 0.517028
+========================================================================================
+
+[1/10] held-out position 17, item index 69
+  Q:
+  What is the significance of hepatovirus 3ABC specificity for human MAVS?
+    A    -0.719  MAVS disrupts antiviral signaling, and is activated by 3ABC
+                  proteolysis.
+    B    -0.149  MAVS is involved in IFN synthesis. Cleavage of MAVS by 3ABC contributes
+                  to the evasion of the virus from type I IFN antiviral response. <-
+                  probe top, correct
+    C    -1.135  3ABC is a protease that is needed for cleavage of proteins into their
+                  active forms. Thus MAVS is activated by 3ABC, which is needed for the
+                  viral life cycle.
+    D    -1.613  Specific binding of MAVS by 3ABC allows the virus to be taken up by the
+                  phosphatidylserine receptor.
+  probe top = B, correct = B, match = YES
+
+[2/10] held-out position 72, item index 249
+  Q:
+  Which fungal toxin is most resistant to decontamination with heat and ultraviolet
+  light?
+    A    -1.188  aflatoxin B1
+    B    -1.523  AIP56
+    C    -0.634  T-2 <- probe top, correct
+    D    -0.685  alphatoxin
+  probe top = C, correct = C, match = YES
+
+[3/10] held-out position 96, item index 316
+  Q:
+  What is a significant challenge associated with direct intraparenchymal injections for
+  brain-wide gene transfer in non-human primates?
+    A    -1.781  Enhanced BBB penetration
+    B    -1.203  Intractable for brain-wide gene transfer <- probe top, correct
+    C    -2.139  Limited neurotropic properties
+    D    -1.714  High therapeutic index
+  probe top = B, correct = B, match = YES
+
+[4/10] held-out position 183, item index 555
+  Q:
+  In the context of herpesvirus-associated tumors, what is the role of cyclin D-CDK4/6
+  in the viral oncogenesis?
+    A    -3.020  It promotes apoptosis of infected cells
+    B    -1.521  It activates the host's DNA damage response
+    C    -0.796  It facilitates latency and enhances cell proliferation <- probe top,
+                  correct
+    D    -3.472  It suppresses viral gene expression
+  probe top = C, correct = C, match = YES
+
+[5/10] held-out position 196, item index 602
+  Q:
+  In the context of herpesvirus vector development, what is the main purpose of
+  'flanking sequences' when inserting a foreign gene into the viral genome?
+    A    -2.131  To ensure the proper packaging of the viral genome into the capsid
+    B    -0.777  To prevent the expression of viral genes that may cause pathogenicity
+    C    -1.171  To facilitate the homologous recombination process for gene insertion
+                  <- correct
+    D    +0.708  To provide regulatory elements for the expression of the inserted gene
+                  <- probe top
+  probe top = D, correct = C, match = no
+
+[6/10] held-out position 216, item index 665
+  Q:
+  Given the potential for antibody-dependent enhancement (ADE) in SARS-CoV-2 infection,
+  which experimental design would best assess the risk of ADE in vaccine development?
+    A    +0.036  Testing the ability of vaccine-induced antibodies to facilitate viral
+                  entry into Fc receptor-expressing cells. <- probe top, correct
+    B    -0.151  Evaluating the neutralizing activity of vaccine-induced antibodies
+                  against a panel of SARS-CoV-2 variants.
+    C    -1.409  Comparing the efficacy of vaccines in animal models previously exposed
+                  to other coronaviruses.
+    D    -1.080  Assessing the longevity of the antibody response and its correlation
+                  with protection against reinfection.
+  probe top = A, correct = A, match = YES
+
+[7/10] held-out position 247, item index 788
+  Q:
+  What is a potential biosafety concern when handling SARS-CoV-2 genomic RNA in a
+  laboratory setting?
+    A    -2.477  Handling RNA requires the use of live animals, posing ethical concerns
+    B    +0.022  Genomic RNA may integrate into the host genome causing mutations <-
+                  probe top
+    C    -1.890  RNA is highly stable and can persist in the environment for long
+                  periods
+    D    -0.305  Genomic RNA can be infectious if introduced into permissive cells <-
+                  correct
+  probe top = B, correct = D, match = no
+
+[8/10] held-out position 266, item index 873
+  Q:
+  How can you assess the stability of the hexon-modified Ad3 vectors after incorporating
+  an epitope?
+    A    -1.982  By determining the rate of spontaneous mutations in the hexon-modified
+                  Ad3 vectors.
+    B    -1.015  By assessing the resistance of the modified viruses to neutralization
+                  by anti-Ad3 antibodies. <- probe top
+    C    -1.270  By evaluating the thermostability of the modified viruses at elevated
+                  temperatures. <- correct
+    D    -1.228  By measuring the ability of the modified viruses to resist degradation
+                  by proteases.
+  probe top = B, correct = C, match = no
+
+[9/10] held-out position 284, item index 945
+  Q:
+  How does the chimeric oncolytic virus design benefit from the interaction between
+  NDV's F protein and the host cell membrane for syncytium formation?
+    A    -1.835  It enhances the virus's ability to induce a strong interferon response,
+                  leading to improved immune activation.
+    B    -1.161  It allows the chimeric virus to spread rapidly between adjacent cells,
+                  bypassing the extracellular immune defenses. <- correct
+    C    -1.511  It increases the stability of the chimeric virus in the bloodstream,
+                  improving systemic delivery.
+    D    +0.105  It promotes the selective targeting of cancer cells with dysregulated
+                  membrane fusion mechanisms. <- probe top
+  probe top = D, correct = B, match = no
+
+[10/10] held-out position 296, item index 983
+  Q:
+  In viral vector design for gene therapy, what is the purpose of pseudotyping?
+    A    -1.677  To facilitate the integration of the viral genome into the host genome
+    B    +0.985  To alter the tropism of the vector by incorporating envelope proteins
+                  from different viruses <- probe top, correct
+    C    -2.421  To increase the stability of the viral vector in the bloodstream
+    D    -1.710  To enhance the immunogenicity of the viral vector
+  probe top = B, correct = B, match = YES
+
+----------------------------------------------------------------------------------------
+shown items: 6/10 matched (full held-out set: 167/323 = 0.5170)
