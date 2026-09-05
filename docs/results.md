@@ -377,7 +377,7 @@ probe standardizes features per model, so this is unlikely to affect the
 comparison, but it belongs in limitations.
 
 
-## T5
+## T5 working notes (2026-09-01, superseded by the T5 section below)
 
 ### Sanity Notes
 Shuffled-label baselines over all 32 layers and three models. Within-item
@@ -401,7 +401,7 @@ regularized fits, which are also the ones where CV found little to prefer.
 
 The shuffled baselines use a fixed permutation, drawn from seed 1001 and reseeded identically for every layer and model, so the same scramble is applied throughout. This makes them reproducible but means the dashed curves are one draw rather than an average: their layer-to-layer wiggle is the same permutation being scored at different depths, not independent noise, and the three models' baselines are correlated with each other. The scatter is consistent with the binomial standard error of about 0.024 on 323 held-out items.
 
-## Observation itnerpretation
+## Observation interpretation
 
 Why main is higher: WMDP-Bio Verified Cloze items were built with verified distractors for a knowledge benchmark, while the control items are MMLU questions reformatted into a cloze shape. So the two sets differ in construction, not just in content, and a level difference between them isn't interpretable on its own. What the control is for is the model-to-model comparison within each set, not the absolute level.
 
@@ -418,7 +418,7 @@ Why the control's transition is sharper: I don't have an account for that. Worth
   whether it separates.
 
 
-  ## T5. Probe curves and baselines
+## T5. Probe curves and baselines
 
 2026-09-01. Pod: L40 48GB. Scripts: probe_one_layer.py (pre-check),
 probe_sweep.py (full run), probe_bootstrap.py (uncertainty),
@@ -452,19 +452,36 @@ Figures in results/figures/probe/: argmax4 and AUC for each item set,
 with model curves, per-model shuffled baselines, the analytic chance
 line, and the T2 intervention layers marked.
 
-Main set. All three models rise from about 0.36 argmax4 at layer 0 to a
-plateau of roughly 0.45 to 0.53 from the mid layers onward, against a
-chance level of 0.25. AUC rises from about 0.58 to a plateau of roughly
-0.64 to 0.70 against 0.5. Base minus filtered is 0.04 to 0.06 on argmax4
-where largest, from about layer 13 onward. CB tracks base throughout.
+Main set. All three models start above chance at layer 0, about 0.35 to
+0.37 argmax4 against 0.25, and rise to a plateau from roughly layer 15
+onward. AUC starts near 0.58 and plateaus around 0.62 to 0.70.
 
-Control set. Lower throughout and with a sharper transition: AUC sits at
+Control set. Lower throughout and with a sharper transition. AUC sits at
 chance until about layer 10, then rises through layers 12 to 18 to a
-plateau of roughly 0.59 to 0.63. Argmax4 runs about 0.26 to 0.31 in the
-early layers and 0.38 to 0.44 in the plateau.
+plateau. Argmax4 runs about 0.26 to 0.31 early and 0.37 to 0.44 in the
+plateau, from layer 18 onward.
 
-[paste the specific per-layer values you want to quote, from
-probe_sweep.json]
+Values from probe_sweep.json. The range columns are over layers 15 to 31,
+the same window as the gap summary below. On the control set that window
+opens inside the transition, so its low end is a layer-15 value rather
+than a plateau value.
+
+| set | model | L0 argmax4 | L20 argmax4 | L31 argmax4 | L15-31 argmax4 | L20 AUC | L15-31 AUC |
+|---|---|---|---|---|---|---|---|
+| main | base | 0.365 | 0.517 | 0.508 | 0.483-0.533 | 0.700 | 0.670-0.700 |
+| main | filtered | 0.347 | 0.458 | 0.449 | 0.421-0.480 | 0.673 | 0.623-0.673 |
+| main | fine-tune | 0.362 | 0.489 | 0.486 | 0.471-0.523 | 0.683 | 0.666-0.690 |
+| control | base | 0.307 | 0.430 | 0.421 | 0.365-0.440 | 0.629 | 0.582-0.634 |
+| control | filtered | 0.276 | 0.406 | 0.399 | 0.328-0.415 | 0.610 | 0.554-0.610 |
+| control | fine-tune | 0.263 | 0.437 | 0.399 | 0.356-0.440 | 0.621 | 0.579-0.625 |
+
+The model ordering is base above fine-tune above filtered on the main
+set. Whether any of those separations is resolved is a question the
+curves cannot answer, since these are point estimates on a shared
+held-out set; see Model gaps and the paired bootstrap below. Mean gaps
+over layers 15 to 31 are +0.048 argmax4 and +0.037 AUC for base minus
+filtered on main, and +0.012 argmax4 and +0.006 AUC for base minus
+fine-tune.
 
 ### Uncertainty
 
@@ -527,31 +544,178 @@ probe_sweep_20260901.log, probe_bootstrap_20260901*.log.
 Data: results/probe_sweep.json, probe_bootstrap.json,
 probe_heldout_scores.npz.
 
+### Model gaps and the paired bootstrap
+
+2026-09-02. Script: gap_tables.py. Log:
+results/eval/gap_tables_20260902.log. Data:
+results/figures/probe/gap_paired_bootstrap.json. Figures: gap_auc.png,
+gap_argmax4.png.
+
+The per-model bands above are conservative for a model-to-model
+difference, because the item-axis draws are identical across the three
+models of a cell, so the shared item variation cancels in a paired
+comparison. gap_tables.py recomputes the item bootstrap from the saved
+held-out scores, taking the base-minus-model difference per draw and
+reporting the 2.5 and 97.5 percentiles of those differences. The draws
+reproduce probe_bootstrap.py's: default_rng([2001, layer, iset]), 1000
+resamples. As a check, the per-model percentiles recomputed on the way
+match those stored in probe_bootstrap.json exactly.
+
+Summary over layers 15 to 31, 17 layers. "resolved" means the paired
+2.5th percentile is above zero.
+
+| comparison | metric | positive | resolved | mean gap |
+|---|---|---|---|---|
+| base - filtered, main | AUC | 17/17 | 12/17 | +0.037 |
+| base - filtered, control | AUC | 17/17 | 13/17 | +0.026 |
+| base - fine-tune, main | AUC | 12/17 | 7/17 | +0.006 |
+| base - fine-tune, control | AUC | 17/17 | 9/17 | +0.011 |
+| base - filtered, main | argmax4 | 17/17 | 7/17 | +0.048 |
+| base - filtered, control | argmax4 | 16/17 | 1/17 | +0.028 |
+| base - fine-tune, main | argmax4 | 11/17 | 2/17 | +0.012 |
+| base - fine-tune, control | argmax4 | 12/17 | 1/17 | +0.010 |
+
+AUC resolves what argmax4 does not, as expected: argmax4 collapses the
+1292 held-out examples into 323 item-level decisions, so its intervals
+run about 1.7 times wider on the same data.
+
+Last layers, base minus fine-tune on main AUC: the gap is negative from
+layer 26 onward at five of the last six layers (layer 27 is +0.001),
+with magnitudes 0.006 to 0.010, so the fine-tune reads slightly above
+base. Every one of those intervals includes zero. The control gap stays
+positive across the same layers. Recorded as an observation, not a
+result.
+
 ### Reading
 
-TODO [YOU]. Material, the four points:
+1. The probe reads well above what the models output, on every model.
+   At layer 20 on main, argmax4 is 0.517 base, 0.458 filtered, 0.489
+   fine-tune, against Cloze scores of 0.3652, 0.2435 and 0.2537 in T1.
+   That gap between internal readability and behavior is what the
+   project was built to look for.
 
-1. All three models carry a linearly readable correctness signal well
-   above chance at cand_end, rising with depth and roughly plateauing
-   after the middle layers. On the main set this holds while the
-   behavioral scores in T1 sit at or near chance for filtered (0.2435)
-   and CB (0.2537).
+2. But the removal reference does not read low enough, so there is no
+   floor. Filtered reads 0.42 to 0.48 on main-set argmax4 while scoring
+   0.2435 behaviorally. The same high reading appears on the model built
+   to lack the material, so a high probe score cannot indicate retained
+   knowledge, and the readability-versus-behavior gap in point 1 is not
+   evidence of suppression. Without a floor there is too little span to
+   place a third model within.
 
-2. The two known states do not separate cleanly. Base sits above
-   filtered by 0.04 to 0.06 in the mid-to-late layers, against combined
-   uncertainty of comparable size. The sign is consistent from about
-   layer 13 onward, which is suggestive, but no single layer resolves it
-   and layers are not independent.
+   Note on what filtered is. No Deep Ignorance model was trained on the
+   forget corpus; those papers were used to derive the blocklist
+   keywords. Filtered was pretrained on a corpus with keyword-matched
+   documents removed, which is a weaker condition than never having seen
+   the material.
 
-3. The removal reference has no calibrated floor. Filtered reads 0.42 to
-   0.48 on main-set argmax4 rather than near chance, while scoring
-   0.2435 behaviorally. A high probe score therefore does not indicate
-   retained knowledge, since the same reading appears on a model that
-   never saw the forget corpus. This is why CB tracking base says
-   nothing about CB.
+3. Base minus filtered is resolved from about layer 15, and the same gap
+   appears on the control set. On AUC the paired interval excludes zero
+   at 12 of 17 layers on main and 13 of 17 on control, with mean gaps of
+   0.037 and 0.026. On argmax4 the direction is the same, positive at 17
+   of 17 on main and 16 of 17 on control, but resolved at only 7 and 1.
+   T2 committed in advance that similar patterns on both sets would
+   undermine the knowledge reading rather than support it. Similar
+   patterns on both is what obtained.
 
-4. Fail-fast 3 outcome. T2 pre-committed that if no layer separates base
-   from filtered above the bootstrap spread, the candidate has no
-   dynamic range on the easiest pair and the result is the negative with
-   the range estimate. That is what obtained. The range estimate is in
-   point 2.
+4. The most likely explanation of that resolved gap is general biology
+   the filter removed alongside its target, rather than the targeted
+   knowledge. Two observations point there: the control gap above, and
+   the T1 result where filtered scores 0.047 below base on the eight
+   MMLU bio/med subjects while the fine-tune scores 0.012 below. Those
+   are the same effect through a probe and through a benchmark on
+   overlapping subjects, so they are not independent evidence. The
+   mechanism is what makes it plausible: the blocklist ran at 44 to 58%
+   precision, was applied without classifier review, and was never
+   measured on the training corpus itself.
+
+5. Base minus fine-tune is not resolved. Mean AUC gaps from layer 15 are
+   0.006 on main and 0.011 on control, against 0.037 and 0.026 for base
+   minus filtered. Three explanations remain open and this design cannot
+   separate them:
+   - The fine-tune changed little that the probe reads. The intervention
+     was one epoch on 1,024 documents, about 28 optimizer steps.
+   - The instrument lacks the resolution. The gap may be real and
+     smaller than this design measures.
+   - The instrument is structurally blind to this intervention. The
+     circuit-breaker objective pushes the fine-tune's representations of
+     forget text to be orthogonal to base's representations of the same
+     text, and a probe fit separately per model is invariant to
+     rotations of that model's own representation space.
+
+6. Which gate this triggered. Not fail-fast 3, which required that no
+   layer separate base from filtered above the bootstrap spread: 12 of
+   17 layers do on AUC. What obtained is fail-fast 2, the control test.
+   The target gives a similar result on the control set as on the main
+   set, so it cannot be attributed to the targeted knowledge rather than
+   to biology in general.
+
+
+## T7. Sanity checks
+
+Grouped by what could have gone wrong rather than as a flat list.
+
+### Did the intended checkpoints load
+
+Weight revision hashes recorded in every chunk's meta.json and matching
+T1: c8df368f (unfiltered), b28797cd (e2e-strong-filter), c57ec059
+(unlearned-cb). Architecture read from the config rather than assumed
+(32 layers, hidden size 4096), and the TransformerLens config asserted
+against the HF config on n_layers, d_model and d_vocab before any
+caching. See T1 and T4b.
+
+### Does TransformerLens compute what the model computes
+
+All 32 raw residuals compared against a direct HF forward pass, with
+block 31 reached via a forward hook since GPT-NeoX does not expose it in
+hidden_states. The disagreement was tested for whether it is rounding by
+rerunning in float32 on bit-identical weights: the absolute error fell
+from 16.0 to 9.8e-4. See T4b, including the criterion that was reverted
+and why.
+
+### Do the reported numbers correspond to the data
+
+Positions located from the tokenized prompt, with an assertion for every
+sequence that cand_end is the last token, and the tokens printed for the
+first three items. NaN check on every chunk before writing. The
+per-layer extraction verified bit-identical against the source chunks
+for all 32 layers and all six model-set combinations.
+
+Independent recompute: argmax4 at layer [N] for [model] computed
+directly from the saved held-out scores in probe_heldout_scores.npz,
+without passing through the metric code used by the sweep.
+  sweep value: [FILL]
+  recomputed:  [FILL]
+Script: scripts/show_examples.py.
+
+### Could the signal be an artifact of the procedure
+
+Shuffled-label baselines at their analytic chance levels across all 32
+layers and three models (T5). Item-level splitting so an item's four
+candidates never straddle the split, and item-grouped CV folds for the
+same reason. Standardization from training items only. Regularization
+chosen inside the training items. Control set run as a topic-matched
+comparison, with the caveat in Limitations that it is affected by the
+same filter.
+
+### Reading the data
+
+Ten held-out items read by eye, selected with seed [N] from
+main_set.json. The items are coherent four-way questions with plausible
+distractors, several differing by a single term (Cor a 2 vs Cor a 8,
+Agrobacterium vs E. coli, synthesizes vs cleaves). Correctness was not
+independently verified: WMDP-Bio was expert-constructed and the reader
+is not a domain expert.
+
+Observations worth recording. One item is a history question with no
+biology content (which facility became the primary location for the U.S.
+Army Biological Warfare Laboratories in 1943). One presents four
+near-identical 150-word paragraphs differing in one or two terms. The
+paper reports that selecting the longest answer scores 46% on the full
+WMDP-Bio set, and the Verified Cloze subset was curated in part to
+reduce shortcut exploitation; no length check was run here.
+
+Two items included in the write-up. See writeup.md.
+
+### Ten items with probe outputs
+
+[FILL from show_examples.py]   
