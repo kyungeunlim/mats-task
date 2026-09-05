@@ -19,6 +19,11 @@ Prompt (2026-09-02):
     the value in results/probe_sweep.json as an independent recompute.
     Write the script only, do not run it.
 
+2026-09-04, appended prompt (relative paths in output):
+    Print and record paths relative to the repo root instead of absolute,
+    so logs and result files do not carry the laptop's home directory.
+    Output-only change; no computation touched.
+
 The npz holds the held-out decision scores written by probe_bootstrap.py:
 "scores_<set>_<model>" of shape (n_layers, n_heldout_items, 4), indexed in
 the order of "heldout_ids_<set>", which are positions into the set file's
@@ -57,6 +62,17 @@ LETTERS = "ABCD"
 DEFAULT_SEED = 7
 
 
+def rel(p: Path) -> str:
+    """Path relative to the repo root when inside it, else as given. Used only
+    for printing and for recording paths in output files, so logs and result
+    JSONs do not carry the machine's home directory."""
+    p = Path(p).resolve()
+    try:
+        return str(p.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(p)
+
+
 def lookup(records: list[dict], layer: int, set_name: str, model: str,
            key: str):
     for r in records:
@@ -93,7 +109,7 @@ def main() -> None:
     scores_key = f"scores_{args.set_name}_{args.model}"
     if scores_key not in z:
         available = sorted(k for k in z.keys() if k.startswith("scores_"))
-        raise SystemExit(f"{scores_key} not in {args.scores}; "
+        raise SystemExit(f"{scores_key} not in {rel(args.scores)}; "
                          f"available: {available}")
     all_scores = z[scores_key]          # (n_layers, n_ho, 4)
     heldout_ids = z[f"heldout_ids_{args.set_name}"]
@@ -134,8 +150,8 @@ def main() -> None:
     # ---- header ----
     print("=" * args.width)
     print(f"T7 sanity check: held-out items with probe scores")
-    print(f"scores file : {args.scores}")
-    print(f"set file    : {set_path}")
+    print(f"scores file : {rel(args.scores)}")
+    print(f"set file    : {rel(set_path)}")
     print(f"set / model / layer : {args.set_name} / {args.model} / {args.layer}")
     print(f"held-out items      : {n_ho} (split seed in set file: "
           f"{d.get('seed', d.get('split_seed', 'n/a'))})")

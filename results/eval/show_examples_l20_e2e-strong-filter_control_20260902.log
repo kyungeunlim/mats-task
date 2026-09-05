@@ -1,7 +1,7 @@
 ========================================================================================
 T7 sanity check: held-out items with probe scores
-scores file : /Users/kyungeun/Projects/mats-task/results/probe_heldout_scores.npz
-set file    : /Users/kyungeun/Projects/mats-task/data/control_set.json
+scores file : results/probe_heldout_scores.npz
+set file    : data/control_set.json
 set / model / layer : control / e2e-strong-filter / 20
 held-out items      : 323 (split seed in set file: 43)
 selection : numpy.random.default_rng(seed=7).choice(323, size=5, replace=False), positions into the held-out order, shown sorted by position

@@ -1,9 +1,9 @@
 {
  "meta": {
   "created": "2026-09-02T23:27:20+00:00",
-  "sweep_file": "/Users/kyungeun/Projects/mats-task/results/probe_sweep.json",
-  "bootstrap_file": "/Users/kyungeun/Projects/mats-task/results/probe_bootstrap.json",
-  "scores_file": "/Users/kyungeun/Projects/mats-task/results/probe_heldout_scores.npz",
+  "sweep_file": "results/probe_sweep.json",
+  "bootstrap_file": "results/probe_bootstrap.json",
+  "scores_file": "results/probe_heldout_scores.npz",
   "base": "unfiltered",
   "heldout_bootstrap_seed": 2001,
   "n_heldout_resamples": 1000,

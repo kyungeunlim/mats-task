@@ -40,6 +40,11 @@ Prompt (2026-09-02):
     plot_norms.py. Save as PNG under an output directory given as an
     argument.
 
+2026-09-04, appended prompt (relative paths in output):
+    Print and record paths relative to the repo root instead of absolute,
+    so logs and result files do not carry the laptop's home directory.
+    Output-only change; no computation touched.
+
 Model keys follow probe_sweep.json "meta.models": base = unfiltered,
 fine-tune = unlearned-cb (circuit breakers), filtered = e2e-strong-filter.
 
@@ -116,6 +121,17 @@ BAND_CAPTION = ("Bands: paired 95% bootstrap interval over held-out items "
                 "(both models scored on the same resampled items, difference "
                 "per draw). Lines: fixed-C refit gaps from the saved scores. "
                 "Fit variance is not included.")
+
+
+def rel(p: Path) -> str:
+    """Path relative to the repo root when inside it, else as given. Used only
+    for printing and for recording paths in output files, so logs and result
+    JSONs do not carry the machine's home directory."""
+    p = Path(p).resolve()
+    try:
+        return str(p.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(p)
 
 
 def index_records(records: list[dict]) -> dict:
@@ -278,9 +294,9 @@ def main() -> None:
             f"{set_name}: npz held-out ids differ from set file"
         sets_answers[set_name] = np.array([d["items"][i]["answer"] for i in ids])
 
-    print(f"sweep     : {args.sweep}")
-    print(f"bootstrap : {args.bootstrap}")
-    print(f"scores    : {args.scores}")
+    print(f"sweep     : {rel(args.sweep)}")
+    print(f"bootstrap : {rel(args.bootstrap)}")
+    print(f"scores    : {rel(args.scores)}")
     print(f"base = {BASE} ({models[BASE]})")
     print(f"CB   = {FINETUNE} ({models[FINETUNE]})")
     print(f"filt = {FILTERED} ({models[FILTERED]})")
@@ -395,7 +411,7 @@ def main() -> None:
     for metric in METRICS:
         out = plot_gaps(metric, paired, point, n_layers, n_resamples,
                         args.out_dir)
-        print(f"\nwrote {out}")
+        print(f"\nwrote {rel(out)}")
     records = []
     for (metric, set_name, other), band in paired.items():
         for layer in range(n_layers):
@@ -412,8 +428,8 @@ def main() -> None:
     out_json.write_text(json.dumps({
         "meta": {
             "created": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            "sweep_file": str(args.sweep), "bootstrap_file": str(args.bootstrap),
-            "scores_file": str(args.scores), "base": BASE,
+            "sweep_file": rel(args.sweep), "bootstrap_file": rel(args.bootstrap),
+            "scores_file": rel(args.scores), "base": BASE,
             "heldout_bootstrap_seed": seed, "n_heldout_resamples": n_resamples,
             "draw_note": "default_rng([seed, layer, iset]).integers(0, n_ho, "
                          "size=(n_resamples, n_ho)); iset main=0, control=1; "
@@ -422,7 +438,7 @@ def main() -> None:
             "per_model_percentile_check_max_abs_diff": max_check,
         },
         "records": records}, indent=1))
-    print(f"wrote {out_json}")
+    print(f"wrote {rel(out_json)}")
 
 
 if __name__ == "__main__":

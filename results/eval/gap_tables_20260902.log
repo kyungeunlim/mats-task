@@ -1,6 +1,6 @@
-sweep     : /Users/kyungeun/Projects/mats-task/results/probe_sweep.json
-bootstrap : /Users/kyungeun/Projects/mats-task/results/probe_bootstrap.json
-scores    : /Users/kyungeun/Projects/mats-task/results/probe_heldout_scores.npz
+sweep     : results/probe_sweep.json
+bootstrap : results/probe_bootstrap.json
+scores    : results/probe_heldout_scores.npz
 base = unfiltered (EleutherAI/deep-ignorance-unfiltered)
 CB   = unlearned-cb (kelim/deep-ignorance-unlearned-cb)
 filt = e2e-strong-filter (EleutherAI/deep-ignorance-e2e-strong-filter)
