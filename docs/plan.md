@@ -310,6 +310,7 @@ items need reformatting into the cloze prompt shape with four choices each. Abou
 - Gate: fail-fast 4. If an artifact explains the separation, say so and report
   the corrected result.
 
+
 ## T7. Sanity checks documented: 1h
 - Description: the verifications from Neel's evaluation tab. Weight hashes
   confirming which checkpoints loaded. One headline number recomputed by hand
@@ -408,19 +409,16 @@ Tracked against ticket ids in the weekly thread.
   about 15 seconds, so the full sweep cost about 20 minutes, and having
   the axis measured at every layer removes the need to interpolate when
   combining the two uncertainty sources.
-- 2026-09-01, T4 actual vs estimate: estimated 3:00, actual 6:11. The
-  ticket work proper was close to estimate. The additional roughly three
-  hours went to learning I did not have: TransformerLens internals,
-  floating-point precision and what a rounding-scale disagreement looks
-  like, and the attention-sink behavior that made the check criterion
-  misread block 31. Neel's cap excludes setup and general learning, so
-  part of this arguably should not be counted. It is counted here
-  because separating the learning from the verification it enabled would
-  be a guess.
+- 2026-09-01, T4 actual vs estimate: estimated 3:00, counted actual 3:11. Roughly three further hours went to learning I did not have: TransformerLens internals, floating-point precision and what a rounding-scale disagreement looks like, and the attention-sink behavior that made the check criterion misread block 31. Neel's cap excludes setup and general learning, so that time is not counted. This is the only ticket where I excluded time on those grounds.
 - 2026-09-01, T5 actual vs estimate: estimated 4:30, actual 4:35. Same
   1.5x new-code factor as T4 and the largest ticket, but on estimate.
   Linear probes, cross-validation, held-out splits and bootstrapping are
   familiar from prior work. The variable between T4 and T5 was domain
   familiarity, not scope. The 1.5x factor for new code held; what it did
   not capture was new domain, which appears to need a larger multiplier.
-
+- 2026-09-02, T6: checking the first alternative, whether the control dataset
+  supports domain specificity, produced the per-layer gap tables and a paired
+  bootstrap that were not in the plan. The output is a finding rather than a
+  red-team result, so it is reported in Results and the alternatives section
+  carries only what remains open. Estimated 1:00, actual [1h], with the
+  gap-table work counted under T5. 
