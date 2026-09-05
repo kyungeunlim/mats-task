@@ -13,3 +13,7 @@ __pycache__/
 *~
 \#*\#
 .\#*
+
+# Superseded write-up drafts; the report of record is the Google Doc
+docs/archive/
+.DS_Store

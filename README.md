@@ -64,7 +64,6 @@ model did not provide one.
 ## Repository
 
 ```
-docs/writeup.md     working draft, superseded by the report (link below)
 docs/plan.md        execution plan and deviations ledger
 docs/results.md     results log, written as the work proceeded
 docs/eval_spec.md   how the behavioral benchmarks were measured
@@ -74,10 +73,11 @@ lm_eval_tasks/      vendored WMDP-Bio Verified Cloze task config
 results/            benchmark outputs, run logs, figures
 ```
 
-**The report is the current version.** It supersedes `docs/writeup.md` and the
-other working documents in this repo, which were drafted as the work proceeded
-and are kept for provenance rather than as the account of record. Where they
-disagree with the report, the report is right.
+**The report is the account of record.** The documents under `docs/` are working
+records written as the work proceeded: the plan fixes the design in advance, and
+the results log records what each run produced. Where they disagree with the
+report, the report is right. Earlier write-up drafts are not included, having been
+replaced by the report.
 
 https://docs.google.com/document/d/1Xdqm2_jXgoRPpiHp_25lvz7ATDddy1tUOT8MZaU-4LE
 
