@@ -1,10 +1,15 @@
-# MATS 12.0 Application Task
+# Pilot 1: linear probe as a suppression-versus-removal detector
 
 ## Project
-Mechanistic interpretability research task for Neel Nanda's MATS stream.
-16-20 hour window (excluding setup and general learning), +2 hours for
-executive summary only. Working notes and write-up drafted as the work
-proceeds, not at the end.
+One pilot in a project on internal metrics for knowledge suppression versus
+removal: testing whether a per-layer linear probe on the residual stream is
+sensitive to the difference. The candidate pool and the reliability criteria
+are in the project's scoping document.
+
+The work was also submitted as a MATS 12.0 application task, which is where
+the time budget comes from: a 16-20 hour window excluding setup and general
+learning, plus 2 hours for the executive summary. Working notes and write-up
+drafted as the work proceeds, not at the end.
 
 ## Reference material
 - docs/mech_interp_context.md: ~600k tokens of concatenated mech interp

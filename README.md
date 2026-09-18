@@ -1,16 +1,31 @@
-# Can a linear probe tell knowledge suppression from knowledge removal?
+# Pilot 1: a per-layer linear probe as a suppression-versus-removal detector
 
-A MATS 12.0 application project (Neel Nanda's stream), Sep 2026.
+Sep 2026. One pilot in a project on internal metrics for knowledge suppression
+versus removal.
 
-Safety benchmarks score what a model outputs, so they cannot tell whether
-hazardous knowledge is gone or merely unused. Those are different states with
-different implications for whether a safeguard survives fine-tuning or a
-jailbreak. This project asks whether an internal quantity can tell them apart,
-and tests one candidate: a per-layer linear probe on the residual stream.
+**The program.** Safety benchmarks score what a model outputs, so they cannot
+tell whether hazardous knowledge is gone or merely unused. The project asks
+whether any internal quantity, derived from weights, activations or gradients,
+is reliably sensitive to that difference. The framing is detector
+characterization against calibration sources: models in known knowledge states
+anchor the scale, and a candidate quantity is the detector reading. Two anchors
+define it. Same-state variation is the null, how much the quantity moves between
+two models that differ in nothing meaningful. The base-versus-filtered
+separation is the largest response a genuine change in knowledge state is
+expected to produce. A candidate is worth pursuing only if the second stands
+clearly above the first, and the suppressed model is then placed on the scale
+those anchors define.
 
-**Answer: not in this configuration.** The removal reference does not read low
-enough for there to be a span to measure against, and the one gap that does
-resolve also appears on general biology the filter never targeted.
+**This pilot** takes one candidate from that pool, a per-layer linear probe on
+the residual stream, and runs it end to end on the Deep Ignorance suite. It was
+also submitted as a MATS 12.0 application task, which is where the time budget
+visible in the plan and ledger comes from.
+
+**Result: the probe could not do it here, and the obstacle sits upstream of the
+probe.** The removal reference does not read low, so there is no floor and too
+little span to place a third model within. The one separation that does resolve
+also appears on general biology the filter never targeted, so it is not evidence
+about the targeted knowledge.
 
 ## Setup
 
@@ -57,9 +72,36 @@ about the targeted knowledge or about biology in general.
   probe reads, the instrument lacks resolution, or the instrument is structurally
   blind to what the circuit-breaker objective does.
 
-The broader takeaway is a prerequisite rather than a result. This approach needs
-a removal proxy with verified span, and the best publicly available filtered
-model did not provide one.
+## What this means for the program
+
+The pilot did not reach the decision gate, and that is the useful part.
+
+**The obstacle is an anchor, not a candidate.** The sensitivity criterion
+compares a candidate's base-versus-filtered separation against same-state
+variation. Here the separation itself turned out not to be interpretable, because
+the removal reference reads high and reads high on untargeted biology too. Every
+other candidate in the pool uses the same filtered model as its removal
+reference, so this constrains weight spectra, representation similarity and logit
+lens before any of them is run. Fixing it is upstream work on the anchors, not
+work on the next candidate.
+
+**Two things this pilot did not do**, worth stating so the result is not read as
+more than it is.
+
+- **No same-state estimate.** Both bootstrap axes here, held-out items and
+  probe-training subsamples, hold the trained models fixed, so neither is
+  training-run variance. Without a null, the probe's numbers cannot be expressed
+  in units of same-state spread, and the candidate has not formally passed or
+  failed the sensitivity criterion. It was stopped earlier than that.
+- **The suppressed label is unvalidated.** No recovery attack was run, so the
+  fine-tune's label rests on its construction rather than on demonstrated
+  recoverability.
+
+**One thing to carry forward into how candidates get characterized.** A
+topic-matched control input set caught something the main set alone would not
+have: the separation is not specific to the domain the filter targeted. For any
+input-dependent candidate, a control set belongs in the characterization
+alongside the target set, not as an optional extra.
 
 ## Repository
 
@@ -73,13 +115,18 @@ lm_eval_tasks/      vendored WMDP-Bio Verified Cloze task config
 results/            benchmark outputs, run logs, figures
 ```
 
-**The report is the account of record.** The documents under `docs/` are working
-records written as the work proceeded: the plan fixes the design in advance, and
-the results log records what each run produced. Where they disagree with the
-report, the report is right. Earlier write-up drafts are not included, having been
-replaced by the report.
+Two documents sit outside the repo. The **pilot report** is the account of record
+for everything here, and the **scoping document** defines the program: the
+knowledge-state definitions, the reliability criteria, and the pool of candidate
+internal quantities this pilot drew from.
 
-https://docs.google.com/document/d/1Xdqm2_jXgoRPpiHp_25lvz7ATDddy1tUOT8MZaU-4LE
+- Pilot report: https://docs.google.com/document/d/1Xdqm2_jXgoRPpiHp_25lvz7ATDddy1tUOT8MZaU-4LE
+- Scoping document: https://docs.google.com/document/d/1JeIDDGg63wHvzlFoA5TDPKt7icVu4oHTR3vnr1E_cdU
+
+The documents under `docs/` are working records written as the work proceeded:
+the plan fixes the design in advance, and the results log records what each run
+produced. Where they disagree with the report, the report is right. Earlier
+write-up drafts are not included, having been replaced by the report.
 
 Each script carries the prompt that produced it, the date, and the plan ticket it
 implements. The pipeline runs in the order: build the prompt sets, verify
@@ -108,11 +155,13 @@ needed to read the results.
 
 ## Caveats
 
-The probe shows information is readable, not that the model uses it. The
-suppressed label is unvalidated, since no recovery attack was run. The control
-set is my reformatting of a different benchmark, so it carries a judgement call
-the main set does not. The conclusion is about one configuration: one target, one
-token position, one model family, one comparison. Sanity checks and the full
+The probe shows information is readable, not that the model uses it, and
+"suppressed" means present but unused, so readability is necessary evidence for
+it and not sufficient. The control set is my reformatting of a different
+benchmark, so it carries a judgement call the main set does not. The conclusion
+is about one configuration: one target, one token position, one model family, one
+comparison, so whether the reference reads high because of the model or because
+of this probe cannot be settled from one probe alone. Sanity checks and the full
 limitations are in the report and in `docs/results.md` under T7.
 
 `docs/mech_interp_context.md` is third-party reference material gathered for this
