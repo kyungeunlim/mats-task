@@ -25,7 +25,7 @@ Writing and light edits happen on the laptop; the repo is the sync point, so I
 commit and push often. You do not run git commands that change state.
 Pod restart procedure: POD_SETUP.md. Run it after every pod start; container disk is wiped on stop.
 
-- Repo: /workspace/mats-task on the pod, ~/Projects/mats-task on the laptop
+- Repo: /workspace/suppression-vs-removal-probe on the pod, ~/Projects/suppression-vs-removal-probe on the laptop
 - Python: uv venv, Python 3.12. On the pod it is /root/venv (container disk,
   rebuilt by pod_bootstrap.sh). On the laptop it is .venv in this repo. Install
   with `uv pip install --python <that venv>/bin/python <pkg>`. Never install

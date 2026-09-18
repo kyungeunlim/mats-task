@@ -10,7 +10,7 @@ After deploying the pod (US-KS-2, volume `established_copper_caribou`):
    Test: `nvidia-smi`
 
 2. On the pod:
-   cd /workspace/mats-task
+   cd /workspace/suppression-vs-removal-probe
    git pull
    ./pod_bootstrap.sh     # 5-30 min: installs uv, Claude Code, recreates the venv on container disk
    source ~/.bashrc       # or open a new shell
@@ -20,6 +20,21 @@ After deploying the pod (US-KS-2, volume `established_copper_caribou`):
 3. Verify:
    python -c "import pandas, torch, transformer_lens; print(pandas.__version__, torch.cuda.is_available())"
    Expect: 3.0.5 True
+
+## One-time migration, pending as of 2026-09-18
+
+The repo was renamed from mats-task to suppression-vs-removal-probe on GitHub and
+on the laptop. The volume still holds the old directory, so do this once, on the
+first pod after the rename, before running bootstrap:
+
+    mv /workspace/mats-task /workspace/suppression-vs-removal-probe
+    cd /workspace/suppression-vs-removal-probe
+    git remote set-url origin git@github.com:kyungeunlim/suppression-vs-removal-probe.git
+
+GitHub redirects the old remote, so the set-url is housekeeping rather than a
+fix. Bootstrap registers a Jupyter kernel under the new name; the old mats-task
+kernel lives on container disk and disappears with it. Delete this section once
+the migration is done.
 
 ## Notes
 - Models cached at /workspace/hf/hub (base, e2e-strong-filter, no-LoRA CB)

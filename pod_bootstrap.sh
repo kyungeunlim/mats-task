@@ -20,12 +20,13 @@ git config --global pull.rebase false
 # Python env on container disk. The volume is too slow for many small files.
 # Takes 20-30 min per fresh pod. Do laptop work while it runs.
 uv venv --python 3.12 /root/venv
-uv pip install --python /root/venv/bin/python -r /workspace/mats-task/requirements.txt
+uv pip install --python /root/venv/bin/python -r /workspace/suppression-vs-removal-probe/requirements.txt
 
 # Jupyter kernel from the venv (kernelspec lives on container disk)
-/root/venv/bin/python -m ipykernel install --user --name mats-task --display-name "mats-task (venv)"
+/root/venv/bin/python -m ipykernel install --user --name suppression-vs-removal-probe \
+    --display-name "suppression-vs-removal-probe (venv)"
 
 # Auto-source the env on login
-grep -q pod_env.sh ~/.bashrc || echo 'source /workspace/mats-task/pod_env.sh' >> ~/.bashrc
+grep -q pod_env.sh ~/.bashrc || echo 'source /workspace/suppression-vs-removal-probe/pod_env.sh' >> ~/.bashrc
 
 echo "Done. Open a new shell, or run: source ~/.bashrc"
